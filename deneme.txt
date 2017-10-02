@@ -1,4 +1,4 @@
-bu birinci satır
+asdsadsadbu birinci satır
 
 bu ikinci satır
 hg
