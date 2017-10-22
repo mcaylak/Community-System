@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "DersNotu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <h3>upcoming  <span>events</span></h3>
+
+            <!--======= BREADCRUMB =========-->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Events</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= EVENTS =========-->
+
+    <div class="event-pages">
+        <div class="container">
+            <div class="row">
+
+                <!--======= EVENTS LEF =========-->
+                <div class="col-sm-9">
+
+                    <!--======= EVENTS FILTER  =========-->
+                    <div class="event-filter">
+                        <h6 class="pull-left">Events Filter:</h6>
+
+                        <!--======= FILTER TYPE =========-->
+                        <div class="filter-type">
+                            <ul class="row">
+
+                                <!--======= ALL EVENT =========-->
+                                <li class="col-sm-4">
+                                    <select class="selectpicker">
+                                        <option>ALL EVENTS</option>
+                                        <option>EVENT TIME</option>
+                                        <option>EVENT TIME</option>
+                                    </select>
+                                </li>
+
+                                <!--======= PLACE =========-->
+                                <li class="col-sm-4">
+                                    <select class="selectpicker">
+                                        <option>Place</option>
+                                        <option>New York</option>
+                                        <option>New Jerccy</option>
+                                    </select>
+                                </li>
+
+                                <!--======= KEYWORD =========-->
+                                <li class="col-sm-4">
+                                    <select class="selectpicker">
+                                        <option>Keyword</option>
+                                        <option>Event</option>
+                                        <option>Event</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--======= EVENTS  =========-->
+                    <ul class="events">
+
+                        <!--======= EVENT 1  =========-->
+                        <li>
+                            <!--======= EVENTS IMAGE =========-->
+                            <div class="col-sm-5"> <img class="img-responsive" src="~/Content/image/event-img-1.jpg" alt=""> </div>
+                            <!--======= EVENTS DETSILS =========-->
+                            
+                            <div class="col-sm-7">
+                                <h5><a class="font-lora" href="#.">Donate For Handicapped Child </a></h5>
+                                <div class="date-place"> <span><i class="fa fa-clock-o"></i> May 14, 2015    3.00 pm</span> <span><i class="fa fa-map-marker"></i> Conference hall, 12 marcon street, africa</span> </div>
+                                <p>Ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti sat quos dolores et quas molestias excepturi sint occaecat.</p>
+
+                        </li>
+
+                        <!--======= EVENT 2 =========-->
+                        <li>
+                            <!--======= EVENTS IMAGE =========-->
+                            <div class="col-sm-5"> <img class="img-responsive" src="~/Content/image/event-img-2.jpg" alt=""> </div>
+                            <!--======= EVENTS DETSILS =========-->
+                            <div class="col-sm-7">
+                                <h5><a class="font-lora" href="#.">Donate For Handicapped Child </a></h5>
+                                <div class="date-place"> <span><i class="fa fa-clock-o"></i> May 14, 2015    3.00 pm</span> <span><i class="fa fa-map-marker"></i> Conference hall, 12 marcon street, africa</span> </div>
+                                <p>Ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti sat quos dolores et quas molestias excepturi sint occaecat.</p>
+
+                        </li>
+
+                        <!--======= EVENT 3  =========-->
+                        <li>
+                            <!--======= EVENTS IMAGE =========-->
+                            <div class="col-sm-5"> <img class="img-responsive" src="~/Content/image/event-img-3.jpg" alt=""> </div>
+                            <!--======= EVENTS DETSILS =========-->
+                            <div class="col-sm-7">
+                                <h5><a class="font-lora" href="#.">Donate For Handicapped Child </a></h5>
+                                <div class="date-place"> <span><i class="fa fa-clock-o"></i> May 14, 2015    3.00 pm</span> <span><i class="fa fa-map-marker"></i> Conference hall, 12 marcon street, africa</span> </div>
+                                <p>Ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti sat quos dolores et quas molestias excepturi sint occaecat.</p>
+
+                        </li>
+
+                        <!--======= EVENT 4  =========-->
+                        <li>
+                            <!--======= EVENTS IMAGE =========-->
+                            <div class="col-sm-5"> <img class="img-responsive" src="~/Content/image/event-img-4.jpg" alt=""> </div>
+                            <!--======= EVENTS DETSILS =========-->
+                            <div class="col-sm-7">
+                                <h5><a class="font-lora" href="#.">Donate For Handicapped Child </a></h5>
+                                <div class="date-place"> <span><i class="fa fa-clock-o"></i> May 14, 2015    3.00 pm</span> <span><i class="fa fa-map-marker"></i> Conference hall, 12 marcon street, africa</span> </div>
+                                <p>Ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti sat quos dolores et quas molestias excepturi sint occaecat.</p>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <!--======= SIDE BAR =========-->
+                <div class="col-sm-3">
+                    <div class="side-bar">
+
+                        <!--======= SEARCH =========-->
+                        <div class="search">
+                            <input type="search" placeholder="Search Here">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+
+                        <!--======= CATEGORIES =========-->
+                        <h5>Categories</h5>
+                        <ul class="cate">
+                            <li><a href="#."> All (52)</a></li>
+                            <li><a href="#."> Food  (11)</a></li>
+                            <li><a href="#."> Disease (10) </a></li>
+                            <li><a href="#."> Nature  (52)</a></li>
+                            <li><a href="#."> Education  (52)</a></li>
+                        </ul>
+
+                        <!--======= ARCHIVE =========-->
+                        <h5>Archives</h5>
+                        <ul class="cate">
+                            <li><a href="#."> March 2015 (4)</a></li>
+                            <li><a href="#."> January 2015 (5)</a></li>
+                            <li><a href="#."> December 2014 (6)</a></li>
+                            <li><a href="#."> October 2014 (8)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--======= CONTENT END =========--> 
+<script>
+    setTimeout(function () { $("#dersNotu").addClass("active"); }, 0);
+
+</script>
