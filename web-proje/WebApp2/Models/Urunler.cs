@@ -13,7 +13,6 @@ namespace WebApp2.Models
         public DateTime UrunPaylasmaTarihi { get; set; }
         public string UrunAciklama { get; set; }
         public string UrunResimYol { get; set; }
-        public int SaticiID { get; set; }
         public virtual Kullanici Satici { get; set; }
     }
 }
