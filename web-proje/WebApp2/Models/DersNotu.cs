@@ -7,7 +7,7 @@ namespace WebApp2.Models
 {
     public class DersNotu
     {
-        public int DersID { get; set; }
+        public int DersNotuID { get; set; }
         public int DersAdi { get; set; }
         public string DersResimYol { get; set; }
         public string DersBaslıgı { get; set; }

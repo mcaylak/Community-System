@@ -7,7 +7,7 @@ namespace WebApp2.Models
 {
     public class Urunler
     {
-        public int UrunID { get; set; }
+        public int UrunlerID { get; set; }
         public string UrunAdi { get; set; }
         public int UrunFiyat { get; set; }
         public DateTime UrunPaylasmaTarihi { get; set; }
