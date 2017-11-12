@@ -158,12 +158,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.cs" />
+    <Compile Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.Designer.cs">
+      <DependentUpon>201711121251452_tablolarDuzenlemeYapildi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
     <Compile Include="Models\Etkinlik.cs" />
     <Compile Include="Models\Kullanici.cs" />
-    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Tanitim.cs" />
     <Compile Include="Models\Urunler.cs" />
@@ -344,6 +348,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.resx">
+      <DependentUpon>201711121251452_tablolarDuzenlemeYapildi.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -20,7 +20,6 @@ namespace WebApp2.veri
         DbSet<DersNotu> Dersler { get; set; }
         DbSet<Etkinlik> Etkinlikler { get; set; }
         DbSet<Kullanici> Kullanicilar { get; set; }
-        DbSet<Menu> Menuler { get; set; }
         DbSet<Slider> Sliderlar { get; set; }
         DbSet<Tanitim> Tanitimlar { get; set; }
         DbSet<Urunler> Urun { get; set; }

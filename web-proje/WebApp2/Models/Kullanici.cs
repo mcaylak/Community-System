@@ -13,8 +13,9 @@ namespace WebApp2.Models
         public string KullaniciMail { get; set; }
         public int KullaniciSifre { get; set; }
         public DateTime KullaniciKayitTarihi{ get; set; }
-        public bool KullaniciTipi { get; set; }
         public virtual ICollection<Urunler> Urun { get; set; }
         public virtual ICollection<DersNotu> Notlar { get; set; }
+        public int RolID { get; set; }
+        public virtual Rol Rol { get; set; }
     }
 }
