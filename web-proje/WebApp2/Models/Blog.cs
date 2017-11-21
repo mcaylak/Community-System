@@ -12,5 +12,6 @@ namespace WebApp2.Models
         public string BlogIcerik { get; set; }
         public string BlogBaslıgı { get; set; }
         public virtual Kullanici Yazar { get; set; }
+        public DateTime BlogPaylasmaTarihi { get; set; }
     }
 }

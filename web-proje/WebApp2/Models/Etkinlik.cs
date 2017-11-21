@@ -12,5 +12,6 @@ namespace WebApp2.Models
         public string EtkinlikResimYol { get; set; }
         public string EtkinlikBasligi { get; set; }
         public DateTime EtkinlikTarihi { get; set; }
+        public string EtkinlikSahibi { get; set; }
     }
 }

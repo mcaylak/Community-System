@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApp2.Models.Etkinlik>
 @{
     ViewBag.Title = "etkinlikIslemleri";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -24,17 +24,22 @@
                 <table class="table table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Gonderen Kullanıcı Adı</th>
-                        <th>Paylasma Tarihi</th>
                         <th>Etkinlik Sahibi</th>
+                        <th>Etkinlik Basligi</th>
+                        <th>Paylasma Tarihi</th>
                     </tr>
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Bilgisayar Toplulugu.</td>
-                        <td><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EtkinlikID</td>
+                            <td>@item.EtkinlikSahibi</td>
+                            <td>@item.EtkinlikBasligi</td>
+                            <td>@item.EtkinlikTarihi</td>
+                            
+                            <td><a href="@Url.Action("EtkinlikSil", "Admin", new { etkinlikId = item.EtkinlikID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
+                            <td><a href="@Url.Action("EtkinlikDuzenle", "Admin", new { etkinlikId = item.EtkinlikID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>
+                        </tr>
+                    }                    
                 </table>
             </div>
             <!-- /.box-body -->

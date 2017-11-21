@@ -160,6 +160,22 @@
     <Compile Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.Designer.cs">
       <DependentUpon>201711121251452_tablolarDuzenlemeYapildi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711210100351_etkinlikTablosuDüzenleme.cs" />
+    <Compile Include="Migrations\201711210100351_etkinlikTablosuDüzenleme.Designer.cs">
+      <DependentUpon>201711210100351_etkinlikTablosuDüzenleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711210123450_tanitimTablosundaDuzenleme.cs" />
+    <Compile Include="Migrations\201711210123450_tanitimTablosundaDuzenleme.Designer.cs">
+      <DependentUpon>201711210123450_tanitimTablosundaDuzenleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711210152527_dersNotuTablosundaDuzenleme.cs" />
+    <Compile Include="Migrations\201711210152527_dersNotuTablosundaDuzenleme.Designer.cs">
+      <DependentUpon>201711210152527_dersNotuTablosundaDuzenleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711210159374_dersNotuTablosundaDuzenleme1.cs" />
+    <Compile Include="Migrations\201711210159374_dersNotuTablosundaDuzenleme1.Designer.cs">
+      <DependentUpon>201711210159374_dersNotuTablosundaDuzenleme1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
@@ -342,6 +358,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\UrunListele\" />
+    <Folder Include="Content\BlogImg\" />
+    <Folder Include="Content\EtkinlikImg\" />
+    <Folder Include="Content\SliderImg\" />
+    <Folder Include="Content\TanitimImg\" />
     <Folder Include="Content\UrunImg\" />
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +372,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.resx">
       <DependentUpon>201711121251452_tablolarDuzenlemeYapildi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210100351_etkinlikTablosuDüzenleme.resx">
+      <DependentUpon>201711210100351_etkinlikTablosuDüzenleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210123450_tanitimTablosundaDuzenleme.resx">
+      <DependentUpon>201711210123450_tanitimTablosundaDuzenleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210152527_dersNotuTablosundaDuzenleme.resx">
+      <DependentUpon>201711210152527_dersNotuTablosundaDuzenleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210159374_dersNotuTablosundaDuzenleme1.resx">
+      <DependentUpon>201711210159374_dersNotuTablosundaDuzenleme1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

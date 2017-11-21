@@ -10,33 +10,38 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form role="form">
+    @using (Html.BeginForm("dersNotuEkle", "Admin", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
+    {
         <div class="box-body">
             <div class="form-group">
                 <label for="exampleInputEmail1">Gonderen Kullanıcı Adı</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="paylasanAdi" placeholder="">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Ders Adı</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="dersAdi" placeholder="">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paylasma Tarihi</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" placeholder="">
+                <input type="date" class="form-control" id="exampleInputEmail1" name="paylasmaTarihi" placeholder="">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Ders Notu Acıklama</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="dersNotuAciklama" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ders Notu Konu Baslik</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="dersBasligi" placeholder="">
             </div>
             <div class="form-group">
                 <label for="exampleInputFile">Not Resmi</label>
-                <input type="file" id="exampleInputFile">
+                <input type="file" id="exampleInputFile" name="dersNotuResimYol">
             </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </form>
+    }
 </div>
 

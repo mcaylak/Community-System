@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApp2.Models.DersNotu>
 @{
     ViewBag.Title = "dersNotuIslemleri";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -28,13 +28,18 @@
                         <th>Paylasma Tarihi</th>
                         <th>Ders Adı</th>    
                     </tr>
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td>Web Programla.</td>
-                        <td><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DersNotuID</td>
+                            <td>@item.paylasanAdi</td>
+                            <td>@item.DersNotuPaylasmaTarihi</td>
+                            <td>@item.DersAdi</td>
+                            
+                            <td><a href="@Url.Action("DersNotuSil", "Admin", new { dersId = item.DersNotuID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
+                            <td><a href="@Url.Action("DersNotuDuzenle", "Admin", new { dersId = item.DersNotuID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>
+                        </tr>
+                    }
                 </table>
             </div>
             <!-- /.box-body -->

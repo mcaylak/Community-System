@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApp2.Models.Blog>
 @{
     ViewBag.Title = "blogIslemleri";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -24,17 +24,21 @@
                 <table class="table table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Paylasan Kişi Adı</th>
-                        <th>Blog Paylasma Tarihi</th>
                         <th>Blog Baslık</th>
+                        <th>Blog Paylasma Tarihi</th>
                     </tr>
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td>İlk Blog.</td>
-                        <td><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BlogID</td>
+                            <td>@item.BlogBaslıgı</td>
+                            <td>@item.BlogPaylasmaTarihi</td>
+                         
+                            <td><a href="@Url.Action("blogSil", "Admin", new { blogId = item.BlogID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
+                            <td><a href="@Url.Action("blogDuzenle", "Admin", new { blogId = item.BlogID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>
+                        </tr>
+                    }
+                    
 
                     
                 </table>

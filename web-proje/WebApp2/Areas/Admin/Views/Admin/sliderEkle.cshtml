@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApp2.Models.Slider>
 @{
     ViewBag.Title = "sliderEkle";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -10,25 +10,24 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form role="form">
-        <div class="box-body">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Paylasma Tarihi</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Slider Acıklama</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputFile">Slider Resmi</label>
-                <input type="file" id="exampleInputFile">
-            </div>
+    
+@using (Html.BeginForm("sliderEkle", "Admin", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
+{
+    <div class="box-body">
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">Slider Acıklama</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="aciklama" placeholder="">
         </div>
+        <div class="form-group">
+            <label for="exampleInputFile">Slider Resmi</label>
+            <input type="file" id="exampleInputFile" name="sliderResimYol">
+        </div>
+    </div>
         <!-- /.box-body -->
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </form>
+}
 </div>
 

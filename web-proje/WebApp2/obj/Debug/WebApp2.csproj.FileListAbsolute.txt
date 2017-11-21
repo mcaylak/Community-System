@@ -314,4 +314,7 @@ C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\bin\tr\System.Web.WebPages
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\bin\tr\System.Web.WebPages.Razor.resources.dll
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.tablolarDuzenlemeYapildi.resources
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csproj.GenerateResource.Cache
-C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csprojResolveAssemblyReference.cache
+C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.etkinlikTablosuDüzenleme.resources
+C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.tanitimTablosundaDuzenleme.resources
+C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.dersNotuTablosundaDuzenleme.resources
+C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.dersNotuTablosundaDuzenleme1.resources

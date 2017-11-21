@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApp2.Models.Tanitim>
 @{
     ViewBag.Title = "tanitimIslemleri";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -25,15 +25,21 @@
                     <tr>
                         <th>Fotograf ID</th>
                         <th>Fotograf Acıklama</th>
-                        <th>Fotograf Tarihi</th>
+                    
                     </tr>
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        
-                        <td><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TanitimID</td>
+                            <td>@item.TanitimIcerik</td>
+                          
+
+                            <td><a href="@Url.Action("TanitimSil", "Admin", new { tanitimId = item.TanitimID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
+                            <td>
+                                <a href="@Url.Action("TanitimDuzenle", "Admin", new { tanitimId = item.TanitimID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a>
+                            </td></tr>
+                    }
+                    
                 </table>
             </div>
             <!-- /.box-body -->

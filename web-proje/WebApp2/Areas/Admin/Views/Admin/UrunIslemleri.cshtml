@@ -29,8 +29,7 @@
                         <th>ID</th>
                         <th>Ürün Adı</th>
                         <th>Ürün Giriş Tarihi</th>
-                        <th>Stok Durumu</th>
-                        <th>Bilgiler</th>
+                        
                     </tr>
                     @foreach (var item in Model)
                     {
@@ -38,8 +37,7 @@
                             <td>@item.UrunlerID</td>
                             <td>@item.UrunAdi</td>
                             <td>@item.UrunPaylasmaTarihi</td>
-                            <td><span class="label label-success"> var</span></td>
-                            <td>@item.UrunAciklama</td>
+                            
                             <td><a href="@Url.Action("UrunSil", "Admin", new { urunId = item.UrunlerID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
                             <td><a href="@Url.Action("UrunDuzenle", "Admin", new { urunId = item.UrunlerID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>
                              

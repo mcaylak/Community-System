@@ -8,9 +8,11 @@ namespace WebApp2.Models
     public class DersNotu
     {
         public int DersNotuID { get; set; }
-        public int DersAdi { get; set; }
+        public string DersAdi { get; set; }
         public string DersResimYol { get; set; }
         public string DersBaslıgı { get; set; }
         public virtual Kullanici Paylasan { get; set; }
+        public DateTime DersNotuPaylasmaTarihi { get; set; }
+        public string paylasanAdi { get; set; }
     }
 }
