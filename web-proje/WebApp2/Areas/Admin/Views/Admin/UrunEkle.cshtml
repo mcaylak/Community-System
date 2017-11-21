@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Ürün Ekleme</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+ 
+    @using (Html.BeginForm("UrunEkle", "Admin", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="box-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ürün Adı Giriniz</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="urunAdi" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ürün Acıklama Giriniz</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="urunAciklama" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ürün Sahibi Adı Giriniz</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="urunSahibi" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ürün Fiyat</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="urunFiyat" placeholder="">
+            </div>
+       
+            <div class="form-group">
+                <label for="exampleInputPassword1">Ürün Giriş Tarihi</label>
+                <input type="date" class="form-control" id="exampleInputPassword1" name="tarih" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">Ürün Resmi</label>
+                <input type="file" id="exampleInputFile" name="exampleInputFile">
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+        
+    
+</div>
+

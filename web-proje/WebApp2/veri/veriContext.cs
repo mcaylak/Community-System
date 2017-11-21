@@ -16,13 +16,13 @@ namespace WebApp2.veri
 
         }
 
-        DbSet<Blog> Bloglar { get; set; }
-        DbSet<DersNotu> Dersler { get; set; }
-        DbSet<Etkinlik> Etkinlikler { get; set; }
-        DbSet<Kullanici> Kullanicilar { get; set; }
-        DbSet<Slider> Sliderlar { get; set; }
-        DbSet<Tanitim> Tanitimlar { get; set; }
-        DbSet<Urunler> Urun { get; set; }
+        public DbSet<Blog> Bloglar { get; set; }
+        public DbSet<DersNotu> Dersler { get; set; }
+        public DbSet<Etkinlik> Etkinlikler { get; set; }
+        public DbSet<Kullanici> Kullanicilar { get; set; }
+        public DbSet<Slider> Sliderlar { get; set; }
+        public DbSet<Tanitim> Tanitimlar { get; set; }
+        public DbSet<Urunler> Urun { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
         {

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApp2.Models.Urunler>
+@{
+    ViewBag.Title = "UrunListele";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<a href="/Admin/Admin/UrunEkle"><button type="button" class="btn btn-block btn-primary btn-flat">Urun Ekle</button></a>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Ürün Listele</h3>
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün Adı</th>
+                        <th>Ürün Giriş Tarihi</th>
+                        <th>Stok Durumu</th>
+                        <th>Bilgiler</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.UrunlerID</td>
+                            <td>@item.UrunAdi</td>
+                            <td>@item.UrunPaylasmaTarihi</td>
+                            <td><span class="label label-success"> var</span></td>
+                            <td>@item.UrunAciklama</td>
+                            <td><a href="@Url.Action("UrunSil", "Admin", new { urunId = item.UrunlerID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
+                            <td><a href="@Url.Action("UrunDuzenle", "Admin", new { urunId = item.UrunlerID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>
+                             
+                        </tr>
+                    }
+                   
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>

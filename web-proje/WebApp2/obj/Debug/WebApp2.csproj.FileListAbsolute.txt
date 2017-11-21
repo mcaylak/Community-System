@@ -208,7 +208,6 @@ D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.csprojRes
 D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.csproj.CoreCompileInputs.cache
 D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.dll
 D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.pdb
-C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csprojResolveAssemblyReference.cache
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csproj.CoreCompileInputs.cache
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.dll
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.pdb
@@ -315,3 +314,4 @@ C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\bin\tr\System.Web.WebPages
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\bin\tr\System.Web.WebPages.Razor.resources.dll
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.tablolarDuzenlemeYapildi.resources
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csproj.GenerateResource.Cache
+C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csprojResolveAssemblyReference.cache

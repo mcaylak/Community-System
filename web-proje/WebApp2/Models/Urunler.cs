@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using WebApp2.veri;
 namespace WebApp2.Models
 {
     public class Urunler
