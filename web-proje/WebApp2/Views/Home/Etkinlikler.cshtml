@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApp2.Models.Etkinlik>
 @{
     ViewBag.Title = "Etkinlikler";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -51,246 +51,34 @@
             <div class="container">
                 <!--======= CASES ROW =========-->
                 <ul class="items row">
+                    @foreach (var item in Model)
+                    {
+                        <!--======= CASE 1 =========-->
+                        <li class="col-sm-4 item nature food educaion">
+                            <section>
+                                <img class="img-responsive" src="@item.EtkinlikResimYol" alt="">
 
-                    <!--======= CASE 1 =========-->
-                    <li class="col-sm-4 item nature food educaion">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-1.jpg" alt="">
-                            
 
 
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Katılımcı Sayısı: <span>53,458</span></h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Donate For Child Education</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a> </div>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 2 =========-->
-                    <li class="col-sm-4 item  disease educaion">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-2.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="42%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">42%</span> </div>
+                                <!--======= DONATION DETAILS =========-->
+                                <div class="donate-detail">
+                                    <!--======= DONATION =========-->
+                                    <h6>Katılımcı Sayısı: <span>53,458</span></h6>
+                                    <!--======= LINK =========-->
+                                    <a href="#." class="font-lora head">@item.EtkinlikBasligi</a>
+                                    <hr>
+                                    <p>
+                                        @item.EtkinlikIcerik
+                                    </p>
                                 </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Donate For Drinking Water</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a></a>
-                        </section>
-                    </li>
+                                <!--======= DONATE BTN  =========-->
+                                <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a> </div>
+                            </section>
+                        </li>
+                    }
+                    
 
-                    <!--======= CASE 3 =========-->
-                    <li class="col-sm-4 item nature food educaion">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-3.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="42%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">42%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Donate For Drinking Water</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 4 =========-->
-                    <li class="col-sm-4 item food disease">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-4.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="45%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">45%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Adopt Child From Asia</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 4 =========-->
-                    <li class="col-sm-4 item food disease">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-5.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="85%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">85%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Save Children From Hunger</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 4 =========-->
-                    <li class="col-sm-4 item food disease">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-6.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="22%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">22%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">South Africa Need Water</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 4 =========-->
-                    <li class="col-sm-4 item food disease">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-7.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="42%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">42%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Donate For Drinking Water</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 4 =========-->
-                    <li class="col-sm-4 item food disease">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-8.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="80%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">80%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Help For Handicapped child</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
-
-                    <!--======= CASE 4 =========-->
-                    <li class="col-sm-4 item food disease">
-                        <section>
-                            <img class="img-responsive" src="~/Content/image/case-img-9.jpg" alt="">
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="79%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">79%</span> </div>
-                                </div>
-                            </div>
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-                                <!--======= DONATION =========-->
-                                <h6>Donation: <span>53,458</span>/$87,609 </h6>
-                                <!--======= LINK =========-->
-                                <a href="#." class="font-lora head">Donate For Homeless People</a>
-                                <hr>
-                                <p>
-                                    Totam rem aperiam, eaque ipsa quae ab illosa
-                                    inventore veritatis et quasi.
-                                </p>
-                            </div>
-                            <!--======= DONATE BTN  =========-->
-                            <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a>
-                        </section>
-                    </li>
+                    
                 </ul>
 
                 <!--======= PAGES =========-->

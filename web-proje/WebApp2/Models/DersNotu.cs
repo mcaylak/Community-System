@@ -14,5 +14,6 @@ namespace WebApp2.Models
         public virtual Kullanici Paylasan { get; set; }
         public DateTime DersNotuPaylasmaTarihi { get; set; }
         public string paylasanAdi { get; set; }
+        public string DersNotuAciklama { get; set; }
     }
 }

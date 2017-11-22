@@ -11,12 +11,12 @@ namespace WebApp.Areas.Admin.Controllers
 {
     public class AdminController : Controller//Admin Panelindeki İslemlerin Yapıldıgı Controller
     {
-#region veritabaniBaglantisi
+        #region veritabaniBaglantisi
         // GET: Admin/Admin
         VeriContext db = new VeriContext();//Veri Tabani Baglantisi
 #endregion
-
-#region Urunİslemleri
+        
+        #region Urunİslemleri
         [HttpGet]
         public ActionResult UrunEkle()//Urun Ekleme Sayfası
         {
@@ -45,7 +45,7 @@ namespace WebApp.Areas.Admin.Controllers
             Bitmap bimage = new Bitmap(image);
             string uzanti = System.IO.Path.GetExtension(exampleInputFile.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "~/Content/UrunImg/" + isim + uzanti;
+            string yol = "/Content/UrunImg/" + isim + uzanti;
             bimage.Save(Server.MapPath(yol));
             return yol;
         }
@@ -69,28 +69,28 @@ namespace WebApp.Areas.Admin.Controllers
             return View(urun);
         }
         [HttpPost]
-        public ActionResult UrunDuzenle(Urunler urun, HttpPostedFileBase urunResim)
+        public ActionResult UrunDuzenle(Urunler urun, HttpPostedFileBase urunResimYol,string urunAdi,string urunAciklama,string urunSahibi,int urunFiyat,DateTime tarih)
         {
             Urunler urunDuzenle = db.Urun.FirstOrDefault(x => x.UrunlerID == urun.UrunlerID);
-            urunDuzenle.UrunAdi = urun.UrunAdi;
-            urunDuzenle.UrunFiyat = urun.UrunFiyat;
-            urunDuzenle.UrunAciklama = urun.UrunAciklama;
-            urunDuzenle.UrunPaylasmaTarihi = urun.UrunPaylasmaTarihi;
+            urunDuzenle.UrunAdi = urunAdi;
+            urunDuzenle.UrunFiyat = urunFiyat;
+            urunDuzenle.UrunAciklama = urunAciklama;
+            urunDuzenle.UrunPaylasmaTarihi = tarih;
            
-            if (urunResim != null)
+            if (urunResimYol != null)
             {
                 if (System.IO.File.Exists(Server.MapPath(urunDuzenle.UrunResimYol)))
                 {
                     System.IO.File.Delete(Server.MapPath(urunDuzenle.UrunResimYol));
                 }
-                urunDuzenle.UrunResimYol = UrunResimEkle(urunResim);
+                urunDuzenle.UrunResimYol = UrunResimEkle(urunResimYol);
             }
             db.SaveChanges();
             return RedirectToAction("UrunIslemleri");
         }
         #endregion
-
-#region tanitimIslemleri
+        
+        #region tanitimIslemleri
         public ActionResult tanitimIslemleri()
         {
             return View(db.Tanitimlar.ToList());
@@ -131,9 +131,32 @@ namespace WebApp.Areas.Admin.Controllers
             bimage.Save(Server.MapPath(yol));
             return yol;
         }
-        #endregion
+        public ActionResult TanitimDuzenle(int tanitimId)
+        {
+            Tanitim tanitim = db.Tanitimlar.FirstOrDefault(x => x.TanitimID == tanitimId);
+            return View(tanitim);
+        }
+        [HttpPost]
+        public ActionResult TanitimDuzenle(Tanitim tanitim, HttpPostedFileBase tanitimResimYol,string tanitimIcerik)
+        {
+            Tanitim tanitimDuzenle = db.Tanitimlar.FirstOrDefault(x => x.TanitimID == tanitim.TanitimID);
+            tanitimDuzenle.TanitimIcerik = tanitimIcerik;
+           
 
-#region etkinlikIslemleri
+            if (tanitimResimYol != null)
+            {
+                if (System.IO.File.Exists(Server.MapPath(tanitimDuzenle.TanitimResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(tanitimDuzenle.TanitimResimYol));
+                }
+                tanitimDuzenle.TanitimResimYol = TanitimResimEkle(tanitimResimYol);
+            }
+            db.SaveChanges();
+            return RedirectToAction("tanitimIslemleri");
+        }
+        #endregion
+        
+        #region etkinlikIslemleri
         public ActionResult etkinlikIslemleri()
         {
             return View(db.Etkinlikler.ToList());
@@ -166,7 +189,7 @@ namespace WebApp.Areas.Admin.Controllers
             Bitmap bimage = new Bitmap(image);
             string uzanti = System.IO.Path.GetExtension(etkinlikResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "~/Content/EtkinlikImg/" + isim + uzanti;
+            string yol = "/Content/EtkinlikImg/" + isim + uzanti;
             bimage.Save(Server.MapPath(yol));
             return yol;
         }
@@ -178,9 +201,35 @@ namespace WebApp.Areas.Admin.Controllers
 
             return RedirectToAction("etkinlikIslemleri");
         }
-        #endregion
+        public ActionResult EtkinlikDuzenle(int etkinlikId)
+        {
+            Etkinlik etkinlik = db.Etkinlikler.FirstOrDefault(x => x.EtkinlikID == etkinlikId);
+            return View(etkinlik);
+        }
+        [HttpPost]
+        public ActionResult EtkinlikDuzenle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi,string etkinlikAciklama)
+        {
+            Etkinlik etkinlikDuzenle = db.Etkinlikler.FirstOrDefault(x => x.EtkinlikID == etkinlik.EtkinlikID);
+            etkinlikDuzenle.EtkinlikSahibi = etkinlikSahibi;
+            etkinlikDuzenle.EtkinlikBasligi = etkinlikAdi;
+            etkinlikDuzenle.EtkinlikTarihi = etkinlikPaylasmaTarihi;
+            etkinlikDuzenle.EtkinlikIcerik = etkinlikAciklama;
+            
 
-#region DersNotuIslemleri
+            if (etkinlikResimYol != null)
+            {
+                if (System.IO.File.Exists(Server.MapPath(etkinlikDuzenle.EtkinlikResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(etkinlikDuzenle.EtkinlikResimYol));
+                }
+                etkinlikDuzenle.EtkinlikResimYol = EtkinlikResimEkle(etkinlikResimYol);
+            }
+            db.SaveChanges();
+            return RedirectToAction("etkinlikIslemleri");
+        }
+        #endregion
+        
+        #region DersNotuIslemleri
         public ActionResult dersNotuIslemleri()
         {
             return View(db.Dersler.ToList());
@@ -197,7 +246,7 @@ namespace WebApp.Areas.Admin.Controllers
             ders.DersAdi = dersAdi;
             ders.paylasanAdi = paylasanAdi;
             ders.DersBaslıgı = dersBasligi;
-            
+            ders.DersNotuAciklama = dersNotuAciklama;
 
             db.Dersler.Add(ders);
             db.SaveChanges();
@@ -218,12 +267,38 @@ namespace WebApp.Areas.Admin.Controllers
             Bitmap bimage = new Bitmap(image);
             string uzanti = System.IO.Path.GetExtension(DersNotuResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "~/Content/UrunImg/" + isim + uzanti;
+            string yol = "/Content/DersNotuImg/" + isim + uzanti;
             bimage.Save(Server.MapPath(yol));
             return yol;
         }
+        public ActionResult DersNotuDuzenle(int dersId)
+        {
+            DersNotu ders = db.Dersler.FirstOrDefault(x => x.DersNotuID == dersId);
+            return View(ders);
+        }
+        [HttpPost]
+        public ActionResult DersNotuDuzenle(DersNotu ders, HttpPostedFileBase dersNotuResimYol,string paylasanAdi,string dersAdi,DateTime paylasmaTarihi,string dersNotuAciklama,string dersBasligi)
+        {
+            DersNotu dersDuzenle = db.Dersler.FirstOrDefault(x => x.DersNotuID == ders.DersNotuID);
+            dersDuzenle.paylasanAdi = paylasanAdi;
+            dersDuzenle.DersAdi = dersAdi;
+            dersDuzenle.DersNotuPaylasmaTarihi = paylasmaTarihi;
+            dersDuzenle.DersNotuAciklama = dersNotuAciklama;
+            dersDuzenle.DersBaslıgı = dersBasligi;
+           
+            if (dersNotuResimYol != null)
+            {
+                if (System.IO.File.Exists(Server.MapPath(dersDuzenle.DersResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(dersDuzenle.DersResimYol));
+                }
+                dersDuzenle.DersResimYol = DersNotuResimEkle(dersNotuResimYol);
+            }
+            db.SaveChanges();
+            return RedirectToAction("dersNotuIslemleri");
+        }
         #endregion
-
+        
         #region BlogIslemleri
         public ActionResult blogIslemleri()
         {
@@ -253,7 +328,7 @@ namespace WebApp.Areas.Admin.Controllers
             Bitmap bimage = new Bitmap(image);
             string uzanti = System.IO.Path.GetExtension(blogResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "~/Content/BlogImg/" + isim + uzanti;
+            string yol = "/Content/BlogImg/" + isim + uzanti;
             bimage.Save(Server.MapPath(yol));
             return yol;
         }
@@ -265,8 +340,35 @@ namespace WebApp.Areas.Admin.Controllers
 
             return RedirectToAction("BlogIslemleri");
         }
-        #endregion
 
+        public ActionResult BlogDuzenle(int blogId)
+        {
+            Blog blog = db.Bloglar.FirstOrDefault(x => x.BlogID == blogId);
+            return View(blog);
+        }
+        [HttpPost]
+        public ActionResult BlogDuzenle(Blog blog, HttpPostedFileBase blogResimYol,string blogBaslik,DateTime blogTarih,string blogAciklama)
+        {
+            Blog blogDuzenle = db.Bloglar.FirstOrDefault(x => x.BlogID == blog.BlogID);
+            blogDuzenle.BlogBaslıgı = blogBaslik;
+            blogDuzenle.BlogPaylasmaTarihi = blogTarih;
+            blogDuzenle.BlogIcerik = blogAciklama;
+
+           
+
+            if (blogResimYol != null)
+            {
+                if (System.IO.File.Exists(Server.MapPath(blogDuzenle.BlogResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(blogDuzenle.BlogResimYol));
+                }
+                blogDuzenle.BlogResimYol = DersNotuResimEkle(blogResimYol);
+            }
+            db.SaveChanges();
+            return RedirectToAction("blogIslemleri");
+        }
+        #endregion
+        
         #region SliderIslemleri
         public ActionResult sliderIslemleri()
         {
@@ -294,7 +396,7 @@ namespace WebApp.Areas.Admin.Controllers
             Bitmap bimage = new Bitmap(image);
             string uzanti = System.IO.Path.GetExtension(sliderResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "~/Content/SliderImg/" + isim + uzanti;
+            string yol = "/Content/SliderImg/" + isim + uzanti;
             bimage.Save(Server.MapPath(yol));
             return yol;
         }
@@ -306,7 +408,29 @@ namespace WebApp.Areas.Admin.Controllers
 
             return RedirectToAction("sliderIslemleri");
         }
-        #endregion
+        public ActionResult SliderDuzenle(int sliderId)
+        {
+            Slider slider = db.Sliderlar.FirstOrDefault(x => x.SliderID == sliderId);
+            return View(slider);
+        }
+        [HttpPost]
+        public ActionResult SliderDuzenle(Slider slider, HttpPostedFileBase sliderResimYol, string aciklama)
+        {
+            Slider sliderDuzenle = db.Sliderlar.FirstOrDefault(x => x.SliderID == slider.SliderID);
+            sliderDuzenle.SliderAdi = aciklama;
+            
 
+            if (sliderResimYol != null)
+            {
+                if (System.IO.File.Exists(Server.MapPath(sliderDuzenle.SliderResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(sliderDuzenle.SliderResimYol));
+                }
+                sliderDuzenle.SliderResimYol = UrunResimEkle(sliderResimYol);
+            }
+            db.SaveChanges();
+            return RedirectToAction("sliderIslemleri");
+        }
+        #endregion
     }
 }

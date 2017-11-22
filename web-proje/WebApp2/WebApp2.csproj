@@ -198,6 +198,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\MyStyle.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\skin-blue.min.css" />
     <Content Include="Content\css\style.css" />
@@ -275,6 +276,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-2.2.3.min.js" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -307,6 +309,16 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Admin\UrunDuzenle.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Admin\tanitimDuzenle.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EtkinlikDuzenle.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\DersNotuDuzenle.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\BlogDuzenle.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\SliderDuzenle.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\counter.js" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
@@ -359,6 +371,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\UrunListele\" />
     <Folder Include="Content\BlogImg\" />
+    <Folder Include="Content\DersNotuImg\" />
     <Folder Include="Content\EtkinlikImg\" />
     <Folder Include="Content\SliderImg\" />
     <Folder Include="Content\TanitimImg\" />
