@@ -147,34 +147,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Classes\GirisKontrol.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.cs" />
-    <Compile Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.Designer.cs">
-      <DependentUpon>201711121251452_tablolarDuzenlemeYapildi.cs</DependentUpon>
+    <Compile Include="Migrations\201711221920079_olustur.cs" />
+    <Compile Include="Migrations\201711221920079_olustur.Designer.cs">
+      <DependentUpon>201711221920079_olustur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711210100351_etkinlikTablosuDüzenleme.cs" />
-    <Compile Include="Migrations\201711210100351_etkinlikTablosuDüzenleme.Designer.cs">
-      <DependentUpon>201711210100351_etkinlikTablosuDüzenleme.cs</DependentUpon>
+    <Compile Include="Migrations\201711221923418_tarihduzenleme.cs" />
+    <Compile Include="Migrations\201711221923418_tarihduzenleme.Designer.cs">
+      <DependentUpon>201711221923418_tarihduzenleme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711210123450_tanitimTablosundaDuzenleme.cs" />
-    <Compile Include="Migrations\201711210123450_tanitimTablosundaDuzenleme.Designer.cs">
-      <DependentUpon>201711210123450_tanitimTablosundaDuzenleme.cs</DependentUpon>
+    <Compile Include="Migrations\201711232249071_EtkinlikTablosuDuzenleme.cs" />
+    <Compile Include="Migrations\201711232249071_EtkinlikTablosuDuzenleme.Designer.cs">
+      <DependentUpon>201711232249071_EtkinlikTablosuDuzenleme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711210152527_dersNotuTablosundaDuzenleme.cs" />
-    <Compile Include="Migrations\201711210152527_dersNotuTablosundaDuzenleme.Designer.cs">
-      <DependentUpon>201711210152527_dersNotuTablosundaDuzenleme.cs</DependentUpon>
+    <Compile Include="Migrations\201711232342524_duzenlemeKullaniciTablosu.cs" />
+    <Compile Include="Migrations\201711232342524_duzenlemeKullaniciTablosu.Designer.cs">
+      <DependentUpon>201711232342524_duzenlemeKullaniciTablosu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711210159374_dersNotuTablosundaDuzenleme1.cs" />
-    <Compile Include="Migrations\201711210159374_dersNotuTablosundaDuzenleme1.Designer.cs">
-      <DependentUpon>201711210159374_dersNotuTablosundaDuzenleme1.cs</DependentUpon>
+    <Compile Include="Migrations\201711232359478_duzenlemeEtkinlikTablosu.cs" />
+    <Compile Include="Migrations\201711232359478_duzenlemeEtkinlikTablosu.Designer.cs">
+      <DependentUpon>201711232359478_duzenlemeEtkinlikTablosu.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -365,14 +367,19 @@
     <Content Include="Views\Home\Tanitim.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\BizeUlasın.cshtml" />
+    <Content Include="Views\Home\EtkinlikDetay.cshtml" />
+    <Content Include="Views\Home\DersNotuDetay.cshtml" />
+    <Content Include="Views\Account\HesapAyarlari.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\UrunListele\" />
     <Folder Include="Content\BlogImg\" />
-    <Folder Include="Content\DersNotuImg\" />
-    <Folder Include="Content\EtkinlikImg\" />
+    <Folder Include="Content\DersNotuImgBig\" />
+    <Folder Include="Content\DersNotuImgMedium\" />
+    <Folder Include="Content\EtkinlikImgBig\" />
+    <Folder Include="Content\EtkinlikImgMedium\" />
     <Folder Include="Content\SliderImg\" />
     <Folder Include="Content\TanitimImg\" />
     <Folder Include="Content\UrunImg\" />
@@ -383,20 +390,20 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711121251452_tablolarDuzenlemeYapildi.resx">
-      <DependentUpon>201711121251452_tablolarDuzenlemeYapildi.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711221920079_olustur.resx">
+      <DependentUpon>201711221920079_olustur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711210100351_etkinlikTablosuDüzenleme.resx">
-      <DependentUpon>201711210100351_etkinlikTablosuDüzenleme.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711221923418_tarihduzenleme.resx">
+      <DependentUpon>201711221923418_tarihduzenleme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711210123450_tanitimTablosundaDuzenleme.resx">
-      <DependentUpon>201711210123450_tanitimTablosundaDuzenleme.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711232249071_EtkinlikTablosuDuzenleme.resx">
+      <DependentUpon>201711232249071_EtkinlikTablosuDuzenleme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711210152527_dersNotuTablosundaDuzenleme.resx">
-      <DependentUpon>201711210152527_dersNotuTablosundaDuzenleme.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711232342524_duzenlemeKullaniciTablosu.resx">
+      <DependentUpon>201711232342524_duzenlemeKullaniciTablosu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711210159374_dersNotuTablosundaDuzenleme1.resx">
-      <DependentUpon>201711210159374_dersNotuTablosundaDuzenleme1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711232359478_duzenlemeEtkinlikTablosu.resx">
+      <DependentUpon>201711232359478_duzenlemeEtkinlikTablosu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

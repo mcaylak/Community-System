@@ -5,6 +5,7 @@
 }
 
 
+
 <!--======= BANNER =========-->
 <div id="banner">
     <div class="flex-banner">
@@ -144,4 +145,9 @@
 <script>
     setTimeout(function () { $("#anasayfa").addClass("active"); }, 0);
 
+</script>
+<script>
+    if (@ViewBag.bilgi!=null) {
+        alert(@ViewBag.bilgi);
+    }
 </script>

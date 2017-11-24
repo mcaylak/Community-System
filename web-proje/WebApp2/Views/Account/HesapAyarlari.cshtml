@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "HesapAyarlari";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using WebApp2.Models
+
+@model Kullanici
+
+<!--======= BANNER =========-->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <h3>Check<span>out</span></h3>
+
+            <!--======= BREADCRUMB =========-->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop </a></li>
+                <li class="active">Checkout</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= SHOP =========-->
+    <section class="shop shop-pages shop-detail">
+        <div class="container">
+
+            <!--======= PRODUCTS ROW =========-->
+            <div class="row">
+
+                <!--======= CART =========-->
+                <div class="col-md-9">
+
+                    <!--======= BILLING INFORMATION =========-->
+                    <div class="billing-info">
+                        <h2>HESAP AYARLARI</h2>
+                        <br />
+                        <h4>PROFİL AYARLARI</h4>
+                        @using (Html.BeginForm("HesapAyarlari", "Account", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
+                        {
+                            @Html.HiddenFor(x => x.KullaniciID)
+                            <ul class="row">
+                                <li class="col-sm-6">
+                                    <label>
+                                        Adı<span class="yelo">*</span>
+                                        <input type="text" name="KullaniciAdi" value="@Model.KullaniciAdi" placeholder="">
+                                    </label>
+                                </li>
+                                <li class="col-sm-6">
+                                    <label>
+                                        Soyadı<span class="yelo">*</span>
+                                        <input type="text" name="KullaniciSoyadi" value="@Model.KullaniciSoyadi" placeholder="">
+                                    </label>
+                                </li>
+                                
+                                
+                                <li class="col-sm-12">
+                                    <label>
+                                        Mail <span class="yelo">*</span>
+                                        <input type="text" name="KullaniciMail" value="@Model.KullaniciMail" placeholder="">
+                                    </label>
+                                </li>
+                                
+                                <li class="col-sm-6">
+                                    <label>
+                                        Parola <span class="yelo">*</span>
+                                        <input type="password" id="txtPassword" name=""  placeholder="">
+                                    </label>
+                                </li>
+                                <li class="col-sm-6">
+                                    <label>
+                                        Parola Tekrarla <span class="yelo">*</span>
+                                        <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" value="" placeholder="">
+                                    </label>
+                                </li>
+                                
+                                
+                            </ul>
+                            <li class="">
+                                    <button type="submit" class="btn btn-primary" onclick="Validate()">Kaydet</button>
+                            </li>
+                        
+                        }
+                        <br />
+                        <br />
+                        <br />
+                        
+                        <h4>PAROLA AYARLARI</h4>
+                        @using (Html.BeginForm("HesapParolaAyarlari", "Account", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
+                        {
+                            @Html.HiddenFor(x => x.KullaniciID)
+                            <ul class="row">
+
+                                <li class="col-sm-6">
+                                    <label>
+                                        Mevcut Şifre <span class="yelo">*</span>
+                                        <input type="password" id="txtPassword1" name="parola" placeholder="">
+                                    </label>
+                                </li>
+                                <li class="col-sm-8">
+                                    <label>
+                                        Yeni Şifre <span class="yelo">*</span>
+                                        <input type="password" id="txtPassword" name="KullaniciSifre" value="" placeholder="">
+                                    </label>
+                                </li>
+                                <li class="col-sm-8">
+                                    <label>
+                                        Şifreyi Doğrula <span class="yelo">*</span>
+                                        <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" value="" placeholder="">
+                                    </label>
+                                </li>
+                                <li class="col-sm-7">
+                                    <button type="submit" class="btn btn-primary" onclick="Validate()">Kaydet</button>
+                                </li>
+                            </ul>
+                            
+                            
+
+                        }
+                        
+                        
+                    </div>
+                </div>
+
+                <!--======= SHOP LEFT BAR =========-->
+                <div class="col-md-3">
+                    <div class="side-bar">
+
+                        <!--======= TOTAL CART =========-->
+                        <div class="total-cart">
+                            <div class="inner">
+                                <h6>Paylaşılan Ürünler</h6>
+                                <ul>
+                                    <li>
+                                        <p> casual hOODIES x 2 <span>$196.00</span> </p>
+                                    </li>
+                                    <li>
+                                        <p> wHITE t-shirt x 1<span>$20.00</span> </p>
+                                    </li>
+                                    <li>
+                                        <p> woo t-SHIRT x 1<span>$20.00</span> </p>
+                                    </li>
+                                    <li>
+                                        <p> wOO HOODIES x 3 <span>$20.00</span> </p>
+                                    </li>
+                                    <li class="bordr">
+                                        <p> SubTotal<span>$20.00</span> </p>
+                                    </li>
+                                    <li>
+                                        <p> Shipping Charge <span>$20.00</span> </p>
+                                    </li>
+                                    <li class="total">
+                                        <p class="font-lora">total <span> $216.00</span></p>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("txtPassword").value;
+        var confirmPassword = document.getElementById("txtConfirmPassword").value;
+        if (password != confirmPassword) {
+            alert("Parola Kontrolde Hata.Lütfen Tekrar Deneyiniz!");
+            return false;
+        }
+        return true;
+    }
+</script>
+

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<WebApp2.Models.Etkinlik>
+﻿
 @{
     ViewBag.Title = "Etkinlikler";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+@using WebApp2.Models
+@model IEnumerable<Etkinlik>
 <!--======= BANNER =========-->
 <div class="sub-banner">
     <div class="overlay">
@@ -57,22 +57,33 @@
                         <li class="col-sm-4 item nature food educaion">
                             <section>
                                 <img class="img-responsive" src="@item.EtkinlikResimYol" alt="">
-
-
-
                                 <!--======= DONATION DETAILS =========-->
                                 <div class="donate-detail">
                                     <!--======= DONATION =========-->
-                                    <h6>Katılımcı Sayısı: <span>53,458</span></h6>
+                                    <h6>Katılımcı Sayısı: <span>@item.Kullanicilar.Count()</span></h6>
                                     <!--======= LINK =========-->
-                                    <a href="#." class="font-lora head">@item.EtkinlikBasligi</a>
+                                    <a href="~/Home/EtkinlikDetay" class="font-lora head">@item.EtkinlikBasligi</a>
                                     <hr>
                                     <p>
-                                        @item.EtkinlikIcerik
+                                            @item.EtkinlikIcerik
                                     </p>
                                 </div>
+                           
+                                   @{
+                                    Kullanici user = item.Kullanicilar.FirstOrDefault(x => x.KullaniciID == Convert.ToInt32(Session["Kullanici"]));
+                                       
+                                    if (user != null)
+                                    {
+                                        <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" class="btn ">Etkinlikten Çık</a> </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="btn-right"> <a href="/Account/EtkinlikOnay/@item.EtkinlikID" class="btn">Etkinlige Katıl</a> </div>
+                                    }
+                                }
+                                
                                 <!--======= DONATE BTN  =========-->
-                                <div class="btn-right"> <a href="#make-donation" class="btn popup-with-zoom-anim">Etkinlige Katıl</a> </div>
+                                
                             </section>
                         </li>
                     }

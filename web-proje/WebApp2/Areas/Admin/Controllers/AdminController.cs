@@ -171,6 +171,7 @@ namespace WebApp.Areas.Admin.Controllers
         public ActionResult etkinlikEkle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi, string etkinlikAciklama)
         {
             etkinlik.EtkinlikResimYol = EtkinlikResimEkle(etkinlikResimYol);
+            etkinlik.EtkinlikBuyukResimYol = EtkinlikBuyukResimEkle(etkinlikResimYol);
             etkinlik.EtkinlikTarihi = etkinlikPaylasmaTarihi;
             etkinlik.EtkinlikIcerik = etkinlikAciklama;
             etkinlik.EtkinlikBasligi = etkinlikAdi;
@@ -182,15 +183,30 @@ namespace WebApp.Areas.Admin.Controllers
 
             return RedirectToAction("etkinlikIslemleri");
         }
-
+        private string EtkinlikBuyukResimEkle(HttpPostedFileBase etkinlikResimYol)
+        {
+            Image image = Image.FromStream(etkinlikResimYol.InputStream);
+            Bitmap bimage = new Bitmap(image, new Size { Width = 1170, Height = 520 });
+            
+            string uzanti = System.IO.Path.GetExtension(etkinlikResimYol.FileName);
+            string isim = Guid.NewGuid().ToString().Replace("-", "");
+            string BuyukResimYol = "/Content/EtkinlikImgBig/" + isim + uzanti;
+           
+            bimage.Save(Server.MapPath(BuyukResimYol));
+            return BuyukResimYol;
+        }
         private string EtkinlikResimEkle(HttpPostedFileBase etkinlikResimYol)
         {
             Image image = Image.FromStream(etkinlikResimYol.InputStream);
-            Bitmap bimage = new Bitmap(image);
+            Bitmap bimage = new Bitmap(image,new Size {Width=365,Height=200 });
+            
+            
             string uzanti = System.IO.Path.GetExtension(etkinlikResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "/Content/EtkinlikImg/" + isim + uzanti;
+            string yol = "/Content/EtkinlikImgMedium/" + isim + uzanti;
+            
             bimage.Save(Server.MapPath(yol));
+            
             return yol;
         }
         public ActionResult EtkinlikSil(int EtkinlikId)
@@ -247,12 +263,12 @@ namespace WebApp.Areas.Admin.Controllers
             ders.paylasanAdi = paylasanAdi;
             ders.DersBaslıgı = dersBasligi;
             ders.DersNotuAciklama = dersNotuAciklama;
-
             db.Dersler.Add(ders);
             db.SaveChanges();
-
+            
             return RedirectToAction("dersNotuIslemleri");
-        }
+        }   
+
         public ActionResult DersNotuSil(int dersId)
         {
             DersNotu data = db.Dersler.Where(x => x.DersNotuID == dersId).SingleOrDefault();
@@ -264,11 +280,14 @@ namespace WebApp.Areas.Admin.Controllers
         private string DersNotuResimEkle(HttpPostedFileBase DersNotuResimYol)
         {
             Image image = Image.FromStream(DersNotuResimYol.InputStream);
-            Bitmap bimage = new Bitmap(image);
+            Bitmap bimage = new Bitmap(image,new Size { Width=301,Height=251});
+            Bitmap bimageBig = new Bitmap(image, new Size { Width = 845, Height = 450 });
             string uzanti = System.IO.Path.GetExtension(DersNotuResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "/Content/DersNotuImg/" + isim + uzanti;
+            string yol = "/Content/DersNotuImgMedium/" + isim + uzanti;
+            string buyukResimYol = "/Content/DersNotuImgBig/" + isim + uzanti;
             bimage.Save(Server.MapPath(yol));
+            bimage.Save(Server.MapPath(buyukResimYol));
             return yol;
         }
         public ActionResult DersNotuDuzenle(int dersId)
@@ -325,7 +344,7 @@ namespace WebApp.Areas.Admin.Controllers
         private string BlogResimEkle(HttpPostedFileBase blogResimYol)
         {
             Image image = Image.FromStream(blogResimYol.InputStream);
-            Bitmap bimage = new Bitmap(image);
+            Bitmap bimage = new Bitmap(image,new Size {Width=833,Height=380 });
             string uzanti = System.IO.Path.GetExtension(blogResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
             string yol = "/Content/BlogImg/" + isim + uzanti;

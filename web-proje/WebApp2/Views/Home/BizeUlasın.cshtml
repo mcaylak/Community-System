@@ -32,12 +32,14 @@
                 <div class="col-md-7">
                     <h5>Message for us</h5>
                     <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
-                    <form role="form" id="contact_form" class="contact-form" method="post" onSubmit="return false">
+                    
+                       @using (Html.BeginForm("BizeUlasinMail", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data"}))
+                        {
                         <ul class="row">
                             <li class="col-sm-6">
                                 <label>
-                                    full name *
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                    Adı ve Soyadı *
+                                    <input type="text" class="form-control" name="adi" id="name" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-6">
@@ -48,27 +50,27 @@
                             </li>
                             <li class="col-sm-6">
                                 <label>
-                                    Phone *
-                                    <input type="text" class="form-control" name="company" id="company" placeholder="">
+                                    TelefonNo *
+                                    <input type="text" class="form-control" name="telefonNo" id="company" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-6">
                                 <label>
-                                    Service You Are Interested in*
-                                    <input type="text" class="form-control" name="website" id="website" placeholder="">
+                                    Üniverste *
+                                    <input type="text" class="form-control" name="universite" id="website" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    write something
-                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder=""></textarea>
+                                    İletmek İstedikleriniz *
+                                    <textarea class="form-control" name="message" id="icerik" rows="5" placeholder=""></textarea>
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <button type="submit" value="submit" class="btn" id="btn_submit" onClick="proceed();">Send Message</button>
                             </li>
                         </ul>
-                    </form>
+                        }
                 </div>
 
                 <!--======= CONTACT INFORMATION =========-->
