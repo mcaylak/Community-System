@@ -70,18 +70,27 @@
                                     </p>
                                 </div>
                            
-                                   @{
-                                       Kullanici user = item.Kullanicilar.FirstOrDefault(x => x.KullaniciID == Convert.ToInt32(Session["Kullanici"]));
-                                       
-                                       if (user != null)
-                                       {
-                                        <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" onclick="kontrol(user)" style="background-color:#e74c3c; color:aliceblue;" class="btn">Etkinlikten Çık</a> </div>
-                                       }
-                                       else
-                                       {
-                                        <div class="btn-right"> <a href="/Account/EtkinlikOnay/@item.EtkinlikID" class="btn">Etkinlige Katıl</a> </div>
-                                       }
-                                }
+                                    @{
+                                        Kullanici user = item.Kullanicilar.FirstOrDefault(x => x.KullaniciID == Convert.ToInt32(Session["Kullanici"]));
+                                        if (Session["Kullanici"]!=null)
+                                        {
+                                            if (user != null)
+                                            {
+                                                <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" class="btn" style="background-color:#e74c3c; color:aliceblue;" onclick="iptal()">Etkinlikten Çık</a> </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="btn-right"> <a href="/Account/EtkinlikOnay/@item.EtkinlikID" class="btn" onclick="katil()">Etkinlige Katıl</a> </div>
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            <div class="btn-right"> <a href="" class="btn" onclick="katilma()">Etkinlige Katıl</a> </div>
+                                        }
+                                        
+
+                                    }
                                 
                                 <!--======= DONATE BTN  =========-->
                                 
