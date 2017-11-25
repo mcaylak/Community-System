@@ -3,20 +3,18 @@
     ViewBag.Title = "EtkinlikDetay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using WebApp2.Models
+
+@model Etkinlik
 
 
 
 <!--======= BANNER =========-->
-<div class="sub-banner">
+<div class="sub-banner" style="background: url('../../Content/EtkinlikImgBig/etkinlik.jpg');">
     <div class="overlay">
         <div class="container">
-            <h3>Our <span>Causes</span></h3>
-
-            <!--======= BREADCRUMB =========-->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Causes</li>
-            </ol>
+            
+            <h3>Bu etkinlikte<span> BENDE </span>VARIM</h3>
         </div>
     </div>
 </div>
@@ -24,68 +22,121 @@
 <!--======= CONTENT =========-->
 <div class="content">
 
-    <!--======= RECENT CASES =========-->
-    <section class="cases cases-details">
+    <!--======= EVENTS =========-->
+
+    <div class="event-pages event-detail">
         <div class="container">
-            <!--======= CASES ROW =========-->
-            
-                <ul class="row">
+            <div class="row">
 
-                    <!--======= CASE 1 =========-->
-                    <li class="col-sm-12">
-                        <section>
-                            <img class="img-responsive" src="" alt="">
+                <!--======= EVENTS LEF =========-->
+                <div class="col-md-9">
 
-                            <!--======= CASE PROGRESS BAR =========-->
-                            <div class="progress-bars">
-                                <div class="progress" data-percent="63%">
-                                    <div class="progress-bar progress-bar-striped"> <span class="progress-bar-tooltip">63%</span> </div>
+                    <!--======= EVENTS  =========-->
+                    <ul class="events">
+
+                        <!--======= EVENT 4  =========-->
+                        <li>
+                            <!--======= EVENTS IMAGE =========-->
+                            <div class="col-xs-12 no-padding"> <img class="img-responsive" src="@Model.EtkinlikBuyukResimYol" alt=""> </div>
+                            <!--======= EVENTS DETSILS =========-->
+                            <div class="col-xs-12 no-padding">
+                                <h5>@Model.EtkinlikBasligi</h5>
+                                <div class="date-place"> <span><i class="fa fa-clock-o"></i> @Model.EtkinlikTarihi.ToShortDateString()</span> <span><i class="fa fa-map-marker">@Model.EtkinlikAdres</i></span> </div>
+                                <p>@Model.EtkinlikIcerik</p>
+                                <div class="stare-ev">
+                                    @{
+                                        Kullanici user = Model.Kullanicilar.FirstOrDefault(x => x.KullaniciID == Convert.ToInt32(Session["Kullanici"]));
+                                        if (Session["Kullanici"]!=null)
+                                        {
+                                            if (user != null)
+                                            {
+                                                <div class="btn-right"> <a href="/Account/EtkinlikIptal/@Model.EtkinlikID" class="btn" style="background-color:#e74c3c; color:aliceblue;" onclick="iptal()">Etkinlikten Çık</a> </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="btn-right"> <a href="/Account/EtkinlikOnay/@Model.EtkinlikID" class="btn" onclick="katil()">Etkinlige Katıl</a> </div>
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            <div class="btn-right"> <a href="" class="btn" onclick="katilma()">Etkinlige Katıl</a> </div>
+                                        }
+                                        
+
+                                    }
+                                    <ul class="social_icons pull-right">
+                                        <li>
+                                            <h6 class="margin-r-20"><em>Share:</em></h6>
+                                        </li>
+                                        <li class="facebook"><a href="#."><i class="fa fa-facebook"></i></a></li>
+                                        <li class="twitter"><a href="#."><i class="fa fa-twitter"></i></a></li>
+                                        <li class="googleplus"><a href="#."><i class="fa fa-google-plus"></i></a></li>
+                                        <li class="instagram"><a href="#."><i class="fa fa-instagram"></i></a></li>
+                                        <li class="soundcloud"><a href="#."><i class="fa fa-rss"></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
+                        </li>
+                    </ul>
+                </div>
 
-                            <!--======= DONATION DETAILS =========-->
-                            <div class="donate-detail">
-
-                                <!--======= TITTLE =========-->
-                                <h4>Help for handicapped child</h4>
-
-                                <!--======= DONATIONINFO =========-->
-                                <ul class="donate-info">
-                                    <li>
-                                        <p class="font-lora">Donated: <span>69%</span></p>
-                                    </li>
-                                    <li>
-                                        <p class="font-lora">Raised: <span>$5214</span></p>
-                                    </li>
-                                    <li>
-                                        <p class="font-lora">Goal: <span>$9562</span></p>
-                                    </li>
-                                    <li>
-                                        <p class="font-lora">Donators: <span>124</span></p>
-                                    </li>
-
-                                    <!--======= BUTTON =========-->
-                                    <li class="pull-right"><a href="#." class="btn">Donate Now</a></li>
-                                </ul>
-                                <!--======= DETSILS =========-->
-                                <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archcana itecto salai beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratone sola voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eus modi tempora incidunt ut labore et dolore magnam unt aliquam quaerat voluptateme Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea comun mmodi consebrs quatur Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
-                                <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archcana itecto salai beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratone sola voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eus modi tempora incidunt ut labore et dolore magnam unt aliquam quaerat voluptateme Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea comun mmodi consebrs quatur Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
-                                <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archcana itecto salai beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratone sola voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eus modi tempora incidunt ut labore et dolore magnam unt aliquam quaerat voluptateme Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea comun mmodi consebrs quatur Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+                <!--======= SIDE BAR =========-->
+                <div class="col-md-3">
+                    <div class="side-bar">
+                        <div class="right-map">
+                            
+                            <div class="contact-info">
+                                <p><i class="fa fa-clock-o"> </i>@Model.EtkinlikTarihi.ToShortDateString()</p>
+                                <p>
+                                    <i class="fa fa-map-marker"></i>@Model.EtkinlikAdres
+                                </p>
+                                <p><i class="fa fa-phone"> </i>@Model.EtkinlikSahibi</p>
+                                
                             </div>
-                        </section>
-                    </li>
-                </ul>
-       
-            
+                        </div>
 
-            <!--======= PAGES =========-->
-            <nav>
-                <ul class="pager">
-                    <li class="previous"><a class="font-lora" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-                    <li class="next"><a class="font-lora" href="#">next <span aria-hidden="true">&rarr;</span></a></li>
-                </ul>
-            </nav>
+                        <!--======= ARCHIVE =========-->
+                        <div class="request-info">
+                            <i class="fa fa-envelope-o"></i>
+                            <h6>Bize Ulaşın</h6>
+                            <p>
+                                Hangi Konuda Yardım Almak İstediginizi Bize İletiniz..
+                            </p>
+                            <a href="/Home/BizeUlasın" class="btn">Bize-Ulaşın</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 </div>
-<!--======= CONTENT END =========--> 
+<script>
+    function katil() {
+        alert("Etkinlige Katildiniz");
+
+    }
+    function iptal() {
+        alert("Etkinlige Katılımınız İptal Edildi");
+    }
+    function katilma() {
+        alert("Etkinlige Katılmanız İcin Önce Üye Olmalısınız");
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

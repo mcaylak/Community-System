@@ -168,7 +168,7 @@ namespace WebApp.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult etkinlikEkle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi, string etkinlikAciklama)
+        public ActionResult etkinlikEkle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikAdres,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi, string etkinlikAciklama)
         {
             etkinlik.EtkinlikResimYol = EtkinlikResimEkle(etkinlikResimYol);
             etkinlik.EtkinlikBuyukResimYol = EtkinlikBuyukResimEkle(etkinlikResimYol);
@@ -176,7 +176,7 @@ namespace WebApp.Areas.Admin.Controllers
             etkinlik.EtkinlikIcerik = etkinlikAciklama;
             etkinlik.EtkinlikBasligi = etkinlikAdi;
             etkinlik.EtkinlikSahibi = etkinlikSahibi;
-            
+            etkinlik.EtkinlikAdres = etkinlikAdres;
 
             db.Etkinlikler.Add(etkinlik);
             db.SaveChanges();
@@ -239,6 +239,7 @@ namespace WebApp.Areas.Admin.Controllers
                     System.IO.File.Delete(Server.MapPath(etkinlikDuzenle.EtkinlikResimYol));
                 }
                 etkinlikDuzenle.EtkinlikResimYol = EtkinlikResimEkle(etkinlikResimYol);
+                etkinlikDuzenle.EtkinlikBuyukResimYol = EtkinlikBuyukResimEkle(etkinlikResimYol);
             }
             db.SaveChanges();
             return RedirectToAction("etkinlikIslemleri");
@@ -258,6 +259,7 @@ namespace WebApp.Areas.Admin.Controllers
         public ActionResult dersNotuEkle(DersNotu ders, HttpPostedFileBase dersNotuResimYol,string paylasanAdi,string dersAdi,DateTime paylasmaTarihi,string dersNotuAciklama,string dersBasligi)
         {
             ders.DersResimYol = DersNotuResimEkle(dersNotuResimYol);
+            ders.DersBuyukResimYol = DersNotuBuyukResimEkle(dersNotuResimYol);
             ders.DersNotuPaylasmaTarihi = paylasmaTarihi;
             ders.DersAdi = dersAdi;
             ders.paylasanAdi = paylasanAdi;
@@ -281,14 +283,23 @@ namespace WebApp.Areas.Admin.Controllers
         {
             Image image = Image.FromStream(DersNotuResimYol.InputStream);
             Bitmap bimage = new Bitmap(image,new Size { Width=301,Height=251});
-            Bitmap bimageBig = new Bitmap(image, new Size { Width = 845, Height = 450 });
             string uzanti = System.IO.Path.GetExtension(DersNotuResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
             string yol = "/Content/DersNotuImgMedium/" + isim + uzanti;
-            string buyukResimYol = "/Content/DersNotuImgBig/" + isim + uzanti;
+          
             bimage.Save(Server.MapPath(yol));
-            bimage.Save(Server.MapPath(buyukResimYol));
+       
             return yol;
+        }
+        private string DersNotuBuyukResimEkle(HttpPostedFileBase DersNotuResimYol)
+        {
+            Image image = Image.FromStream(DersNotuResimYol.InputStream);
+            Bitmap bimageBig = new Bitmap(image, new Size { Width = 845, Height = 450 });
+            string uzanti = System.IO.Path.GetExtension(DersNotuResimYol.FileName);
+            string isim = Guid.NewGuid().ToString().Replace("-", "");
+            string buyukResimYol = "/Content/DersNotuImgBig/" + isim + uzanti;
+            bimageBig.Save(Server.MapPath(buyukResimYol));
+            return buyukResimYol;
         }
         public ActionResult DersNotuDuzenle(int dersId)
         {
@@ -312,6 +323,7 @@ namespace WebApp.Areas.Admin.Controllers
                     System.IO.File.Delete(Server.MapPath(dersDuzenle.DersResimYol));
                 }
                 dersDuzenle.DersResimYol = DersNotuResimEkle(dersNotuResimYol);
+                dersDuzenle.DersBuyukResimYol = DersNotuBuyukResimEkle(dersNotuResimYol);
             }
             db.SaveChanges();
             return RedirectToAction("dersNotuIslemleri");

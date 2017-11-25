@@ -86,6 +86,12 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -178,6 +184,18 @@
     <Compile Include="Migrations\201711232359478_duzenlemeEtkinlikTablosu.Designer.cs">
       <DependentUpon>201711232359478_duzenlemeEtkinlikTablosu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711240239118_etkinlikTablosundaDuzenleme.cs" />
+    <Compile Include="Migrations\201711240239118_etkinlikTablosundaDuzenleme.Designer.cs">
+      <DependentUpon>201711240239118_etkinlikTablosundaDuzenleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711241904171_DersNotuTablosundaDuzenleme.cs" />
+    <Compile Include="Migrations\201711241904171_DersNotuTablosundaDuzenleme.Designer.cs">
+      <DependentUpon>201711241904171_DersNotuTablosundaDuzenleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711250224363_DersNotuTablosu.cs" />
+    <Compile Include="Migrations\201711250224363_DersNotuTablosu.Designer.cs">
+      <DependentUpon>201711250224363_DersNotuTablosu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
@@ -191,6 +209,7 @@
     <Compile Include="veri\veriContext.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bizeUlasın.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -204,6 +223,9 @@
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\skin-blue.min.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\DersNotuImgBig\DersNotu.jpg" />
+    <Content Include="Content\EtkinlikImgBig\etkinlik.jpg" />
+    <Content Include="Content\hesap.jpg" />
     <Content Include="Content\image\404-clock.png" />
     <Content Include="Content\image\avatar-1.jpg" />
     <Content Include="Content\image\avatar-2.jpg" />
@@ -277,6 +299,7 @@
     <Content Include="Content\js\app.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-2.2.3.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -334,6 +357,8 @@
     <Content Include="Scripts\jquery.isotope.min.js" />
     <Content Include="Scripts\jquery.magnific-popup.min.js" />
     <Content Include="Scripts\jquery.nouislider.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -370,15 +395,14 @@
     <Content Include="Views\Home\EtkinlikDetay.cshtml" />
     <Content Include="Views\Home\DersNotuDetay.cshtml" />
     <Content Include="Views\Account\HesapAyarlari.cshtml" />
+    <Content Include="Views\Shared\_DersNotu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\UrunListele\" />
     <Folder Include="Content\BlogImg\" />
-    <Folder Include="Content\DersNotuImgBig\" />
     <Folder Include="Content\DersNotuImgMedium\" />
-    <Folder Include="Content\EtkinlikImgBig\" />
     <Folder Include="Content\EtkinlikImgMedium\" />
     <Folder Include="Content\SliderImg\" />
     <Folder Include="Content\TanitimImg\" />
@@ -404,6 +428,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711232359478_duzenlemeEtkinlikTablosu.resx">
       <DependentUpon>201711232359478_duzenlemeEtkinlikTablosu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711240239118_etkinlikTablosundaDuzenleme.resx">
+      <DependentUpon>201711240239118_etkinlikTablosundaDuzenleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241904171_DersNotuTablosundaDuzenleme.resx">
+      <DependentUpon>201711241904171_DersNotuTablosundaDuzenleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711250224363_DersNotuTablosu.resx">
+      <DependentUpon>201711250224363_DersNotuTablosu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

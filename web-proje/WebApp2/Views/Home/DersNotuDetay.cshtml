@@ -3,19 +3,18 @@
     ViewBag.Title = "DersNotuDetay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using WebApp2.Models
 
+@model DersNotu
 <!--======= BANNER =========-->
-<div class="sub-banner">
+<div class="sub-banner" style=" background: url('../../Content/DersNotuImgBig/DersNotu.jpg');">
     <div class="overlay">
         <div class="container">
-            <h3>upcoming <span>DETAILS</span></h3>
+
+            <h3> BİRİKTİRDİGİN DEĞİL <span>PAYLAŞTIĞIN</span> SENİNDİR </h3>
 
             <!--======= BREADCRUMB =========-->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Events</a></li>
-                <li class="active">Details</li>
-            </ol>
+
         </div>
     </div>
 </div>
@@ -23,79 +22,59 @@
 <!--======= CONTENT =========-->
 <div class="content">
 
-    <!--======= EVENTS =========-->
-
-    <div class="event-pages event-detail">
+    <!--======= RECENT CASES =========-->
+    <section class="cases cases-details">
         <div class="container">
-            <div class="row">
+            <!--======= CASES ROW =========-->
 
-                <!--======= EVENTS LEF =========-->
-                <div class="col-md-9">
+            <ul class="row">
 
-                    <!--======= EVENTS  =========-->
-                    <ul class="events">
+                <!--======= CASE 1 =========-->
+                <li class="col-sm-12">
+                    <section>
+                        <img class="img-responsive" src="@Model.DersBuyukResimYol" alt="">
 
-                        <!--======= EVENT 4  =========-->
-                        <li>
-                            <!--======= EVENTS IMAGE =========-->
-                            <div class="col-xs-12 no-padding"> <img class="img-responsive" src="images/event-img-large.jpg" alt=""> </div>
-                            <!--======= EVENTS DETSILS =========-->
-                            <div class="col-xs-12 no-padding">
-                                <h5>Cardiac Kids Hold 'em for a Heart Tournament</h5>
-                                <div class="date-place"> <span><i class="fa fa-clock-o"></i> May 14, 2015    3.00 pm</span> <span><i class="fa fa-map-marker"></i> Conference hall, 12 marcon street, africa</span> </div>
-                                <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas late molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, ida est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligenda optional  cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda estima, omnius Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.</p>
-                                <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas late molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,  dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligenda optional  cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda estima, omnis dolor repellendus Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.</p>
-                                <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas late molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, ida est laborum et dolorum fuga. Et harum quidem  Nam libero tempore, cum soluta nobis est eligenda optional  cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda estima, omnis dolor repellendus Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.</p>
-                                <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas late molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, ida est laborum et dolorum fuga. Etm quibusdam et aut officiis debitis aut rerum necessitatibus.</p>
-                                <div class="stare-ev">
-                                    <a class="btn" href="#.">JOIN NOW</a>
-                                    <ul class="social_icons pull-right">
-                                        <li>
-                                            <h6 class="margin-r-20"><em>Share:</em></h6>
-                                        </li>
-                                        <li class="facebook"><a href="#."><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="#."><i class="fa fa-twitter"></i></a></li>
-                                        <li class="googleplus"><a href="#."><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="instagram"><a href="#."><i class="fa fa-instagram"></i></a></li>
-                                        <li class="soundcloud"><a href="#."><i class="fa fa-rss"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                        <!--======= CASE PROGRESS BAR =========-->
+                        
 
-                <!--======= SIDE BAR =========-->
-                <div class="col-md-3">
-                    <div class="side-bar">
-                        <div class="right-map">
-                            <h5>Get Direction</h5>
-                            <div id="map" class="g_map" style="height:280px;"></div>
-                            <div class="contact-info">
-                                <p><i class="fa fa-clock-o"> </i>May 14, 2015    3.00 pm</p>
-                                <p>
-                                    <i class="fa fa-map-marker"></i>Conference hall, 12 marcon street,
-                                    South africa
-                                </p>
-                                <p><i class="fa fa-phone"> </i>(01) 800 433 633</p>
-                                <p><i class="fa fa-envelope-o"></i> Info@example.com</p>
-                            </div>
+                        <!--======= DONATION DETAILS =========-->
+                        <div class="donate-detail">
+
+                            <!--======= TITTLE =========-->
+                            <h4>@Model.DersBaslıgı</h4>
+
+                            <!--======= DONATIONINFO =========-->
+                            <ul class="donate-info">
+                                <li>
+                                    <p class="font-lora">Paylaşan Kullanıcı: <span>@Model.DersAdi</span></p>
+                                </li>
+                                <li>
+                                    <p class="font-lora">Ders Adı: <span>@Model.paylasanAdi</span></p>
+                                </li>
+                                <li>
+                                    <p class="font-lora">Tarih: <span>@Model.DersNotuPaylasmaTarihi.ToShortDateString()</span></p>
+                                </li>
+
+                                <!--======= BUTTON =========-->
+
+                            </ul>
+                            <!--======= DETSILS =========-->
+                            <p>@Model.DersNotuAciklama</p>
                         </div>
+                    </section>
+                </li>
 
-                        <!--======= ARCHIVE =========-->
-                        <div class="request-info">
-                            <i class="fa fa-envelope-o"></i>
-                            <h6>Request information</h6>
-                            <p>
-                                Want More Information About
-                                This Event
-                            </p>
-                            <a href="#." class="btn">Request Info</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            </ul>
+
+
+
+
+
+
+            <!--======= PAGES =========-->
+
         </div>
-    </div>
+    </section>
 </div>
-<!--======= CONTENT END =========--> 
+<!--======= CONTENT END =========-->  

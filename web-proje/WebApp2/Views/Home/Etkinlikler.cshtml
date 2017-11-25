@@ -4,18 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebApp2.Models
-@model IEnumerable<Etkinlik>
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Etkinlik>
+
+
+
+
+
 <!--======= BANNER =========-->
-<div class="sub-banner">
+<div class="sub-banner" style=" background: url('../../Content/EtkinlikImgBig/etkinlik.jpg');">
     <div class="overlay">
-        <div class="container">
-            <h3>Our <span>Causes</span></h3>
+        
+        <div class="">
+            
+            <h3>BU ETKİNLİKTE<span> BENDE </span>VARIM</h3>
 
             <!--======= BREADCRUMB =========-->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Causes</li>
-            </ol>
+            
         </div>
     </div>
 </div>
@@ -28,15 +34,10 @@
         <div class="portfolio-wrapper">
             <div class="filter-bar">
                 <div class="container">
-                    <h6 class="pull-left">Filtre :</h6>
+                   
 
                     <!--======= LST FRID =========-->
-                    <div class="list-grid">
-                        <ul>
-                            <li><a href="#."><i class="fa fa-th"></i></a></li>
-                            <li><a class="active" href="#."><i class="fa fa-th-list"></i></a></li>
-                        </ul>
-                    </div>
+                    
 
                     <!--======= FILTERS =========-->
                     <ul class="filter">
@@ -62,24 +63,24 @@
                                     <!--======= DONATION =========-->
                                     <h6>Katılımcı Sayısı: <span>@item.Kullanicilar.Count()</span></h6>
                                     <!--======= LINK =========-->
-                                    <a href="~/Home/EtkinlikDetay" class="font-lora head">@item.EtkinlikBasligi</a>
+                                    <a href="~/Home/EtkinlikDetay/@item.EtkinlikID" class="font-lora has-error" style="color:#283593 ; font-family:Arial;"><b>@item.EtkinlikBasligi.ToUpper()</b></a>
                                     <hr>
                                     <p>
-                                            @item.EtkinlikIcerik
+                                            @item.EtkinlikIcerik.Substring(0,76)...
                                     </p>
                                 </div>
                            
                                    @{
-                                    Kullanici user = item.Kullanicilar.FirstOrDefault(x => x.KullaniciID == Convert.ToInt32(Session["Kullanici"]));
+                                       Kullanici user = item.Kullanicilar.FirstOrDefault(x => x.KullaniciID == Convert.ToInt32(Session["Kullanici"]));
                                        
-                                    if (user != null)
-                                    {
-                                        <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" class="btn ">Etkinlikten Çık</a> </div>
-                                    }
-                                    else
-                                    {
+                                       if (user != null)
+                                       {
+                                        <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" onclick="kontrol(user)" style="background-color:#e74c3c; color:aliceblue;" class="btn">Etkinlikten Çık</a> </div>
+                                       }
+                                       else
+                                       {
                                         <div class="btn-right"> <a href="/Account/EtkinlikOnay/@item.EtkinlikID" class="btn">Etkinlige Katıl</a> </div>
-                                    }
+                                       }
                                 }
                                 
                                 <!--======= DONATE BTN  =========-->
@@ -93,21 +94,12 @@
                 </ul>
 
                 <!--======= PAGES =========-->
-                <nav>
-                    <ul class="pager">
-                        <li class="previous"><a class="font-lora" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-                        <li class="next"><a class="font-lora" href="#">next <span aria-hidden="true">&rarr;</span></a></li>
-                    </ul>
-                </nav>
+                
 
                 <!--======= PAGINATION =========-->
                 <nav>
                     <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        @Html.PagedListPager(Model, _sayfaNo => Url.Action("Etkinlikler", "Home", new { SayfaNo = _sayfaNo }))
                     </ul>
                 </nav>
             </div>
@@ -117,5 +109,4 @@
 <!--======= CONTENT END =========--> 
 <script>
     setTimeout(function () { $("#etkinlik").addClass("active"); }, 0);
-
 </script>

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -20,37 +23,39 @@ namespace WebApp2.Controllers
             return View();
         }
         [HttpPost]
+        
         public ActionResult BizeUlasinMail(string adi,string email,string telefonNo,string universite,string icerik)
         {
-            WebMail.SmtpServer = "smtp.gmail.com";
-            WebMail.EnableSsl = true;
-            WebMail.UserName = "m.recep.caylak@gmail.com";
-            WebMail.Password = "<321<Aa<"; // gerçek dışı
-            WebMail.SmtpPort = 587;
-            WebMail.Send(
-                    "m.recep.caylak@gmail.com",
-                    adi,
-                    telefonNo,
-                    universite,
-                    icerik
-                );
-            return View();
+
+                
+           return View();
         }
-        public ActionResult Etkinlikler()
+        public ActionResult Etkinlikler(int? SayfaNo)
         {
-            return View(db.Etkinlikler.ToList());
+            int _sayfaNo = SayfaNo ?? 1;
+            var EtkinliklerListesi = db.Etkinlikler.OrderByDescending(m => m.EtkinlikID).ToPagedList<Etkinlik>(_sayfaNo, 6);
+
+            return View(EtkinliklerListesi);
+            
         }
-        public ActionResult EtkinlikDetay()
+        public ActionResult EtkinlikDetay(int id)
         {
-            return View(db.Etkinlikler.ToList());
+            Etkinlik etkinlik = db.Etkinlikler.FirstOrDefault(x => x.EtkinlikID == id);
+            return View(etkinlik);
         }
-        public ActionResult DersNotuDetay()
+        public ActionResult DersNotuDetay(int id)
         {
-            return View();
+            DersNotu ders = db.Dersler.FirstOrDefault(x => x.DersNotuID == id);
+            return View(ders);
         }
-        public ActionResult DersNotu()
+        public ActionResult DersNotu(int ? SayfaNo)
         {
-            return View();
+
+            
+            int _sayfaNo = SayfaNo ?? 1;
+            var DersNotuListesi = db.Dersler.OrderByDescending(m => m.DersNotuID).ToPagedList<DersNotu>(_sayfaNo, 3);
+
+            return View(DersNotuListesi);
         }
         public ActionResult Esya()
         {
