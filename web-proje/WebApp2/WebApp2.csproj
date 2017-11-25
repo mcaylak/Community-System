@@ -300,6 +300,15 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-2.2.3.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\tanitim.jpg" />
+    <Content Include="Content\TANİTİM\370x205.jpg" />
+    <Content Include="Content\TANİTİM\370x300.jpg" />
+    <Content Include="Content\TANİTİM\370x300a.jpg" />
+    <Content Include="Content\TANİTİM\370x320.jpg" />
+    <Content Include="Content\TANİTİM\370x404.jpg" />
+    <Content Include="Content\TANİTİM\370x424.jpg" />
+    <Content Include="Content\TANİTİM\370x489.jpg" />
+    <Content Include="Content\TANİTİM\770x270.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
