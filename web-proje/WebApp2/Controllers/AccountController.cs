@@ -66,6 +66,9 @@ namespace WebApp2.Controllers
         public ActionResult HesapAyarlari(int KullaniciID)
         {
             Kullanici kullanici = db.Kullanicilar.FirstOrDefault(x => x.KullaniciID == KullaniciID);
+            int id = Convert.ToInt32(Session["Kullanici"]);
+            ViewData["etkinlikTalep"] = db.Etkinlikler.Where(x => x.etkinlikSahibiId == id).Take(5).ToList();
+            ViewData["dersTalep"] = db.Dersler.Where(x => x.DersNotuSahibiId == id).Take(5).ToList();
             return View(kullanici);
         }
         [HttpPost]
@@ -122,5 +125,6 @@ namespace WebApp2.Controllers
 
             return RedirectToAction("Etkinlikler", "Home");
         }
+       
     }
 }

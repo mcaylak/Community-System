@@ -24,7 +24,10 @@
     <!--======= EVENTS =========-->
 
     <div class="event-pages">
+
         <div class="container">
+            
+
             <div class="row">
 
                 <!--======= EVENTS LEF =========-->
@@ -32,8 +35,22 @@
 
                     <!--======= EVENTS FILTER  =========-->
                     <div class="event-filter">
-                        <h6 class="pull-left">DERS NOTLARI</h6>
-
+                        <h1 class="pull-left">DERS NOTLARI</h1>
+                        <ul class="" align="right">
+                            @if (Session["Kullanici"] != null)
+                            {
+                                <a href="~/Home/DersNotuTalep" class="btn">
+                                    <i class="">DERS NOTU EKLEME TALEBİ</i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="" class="btn" onclick="etkinlikTalebiHata()">
+                                    <i class="">DERS NOTU EKLEME TALEBİ</i>
+                                </a>
+                            }
+           
+                        </ul>
                         <!--======= FILTER TYPE =========-->
                         
                         </div> 
@@ -50,7 +67,7 @@
 
                                         <div class="col-sm-7">
                                             <h5><a class="font-lora" href="~/Home/DersNotuDetay/@item.DersNotuID">@item.DersBaslıgı </a></h5>
-                                            <div class="date-place"> <span><i class="fa fa-clock-o"></i> @item.DersNotuPaylasmaTarihi.ToShortDateString()</span> <span><i class="fa fa-map-marker"></i></span> </div>
+                                            <div class="date-place"> <span><i class="fa fa-clock-o"></i> @item.DersNotuPaylasmaTarihi.ToShortDateString()</span> </div>
                                             <p>@item.DersNotuAciklama.Substring(0, 150)</p>
 
                                     </li>
@@ -74,7 +91,11 @@
                         <!--======= CATEGORIES =========-->
                         <h5></h5>
                         <br />
-                        
+                        <br />
+                        <br />
+
+                     
+                   
                         <div class="request-info">
                             <i class="fa fa-envelope-o"></i>
                             <h6>Bize Ulaşın</h6>
@@ -82,7 +103,10 @@
                                 Hangi Konuda Yardım Almak İstediginizi Bize İletiniz..
                             </p>
                             <a href="/Home/BizeUlasın" class="btn">Bize-Ulaşın</a>
+
+
                         </div>
+
                     </div>
                 </div>
                 </div>

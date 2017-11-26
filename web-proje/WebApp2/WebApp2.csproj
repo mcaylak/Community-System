@@ -196,6 +196,14 @@
     <Compile Include="Migrations\201711250224363_DersNotuTablosu.Designer.cs">
       <DependentUpon>201711250224363_DersNotuTablosu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711252302331_yeni.cs" />
+    <Compile Include="Migrations\201711252302331_yeni.Designer.cs">
+      <DependentUpon>201711252302331_yeni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711252305295_etkinlikTablosu.cs" />
+    <Compile Include="Migrations\201711252305295_etkinlikTablosu.Designer.cs">
+      <DependentUpon>201711252305295_etkinlikTablosu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
@@ -404,7 +412,10 @@
     <Content Include="Views\Home\EtkinlikDetay.cshtml" />
     <Content Include="Views\Home\DersNotuDetay.cshtml" />
     <Content Include="Views\Account\HesapAyarlari.cshtml" />
-    <Content Include="Views\Shared\_DersNotu.cshtml" />
+    <Content Include="Views\Home\EtkinlikEklemeTaleb.cshtml" />
+    <Content Include="Views\Home\EtkinlikDurum.cshtml" />
+    <Content Include="Views\Home\DersNotuTalep.cshtml" />
+    <Content Include="Views\Home\DersNotuDurum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +457,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711250224363_DersNotuTablosu.resx">
       <DependentUpon>201711250224363_DersNotuTablosu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711252302331_yeni.resx">
+      <DependentUpon>201711252302331_yeni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711252305295_etkinlikTablosu.resx">
+      <DependentUpon>201711252305295_etkinlikTablosu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

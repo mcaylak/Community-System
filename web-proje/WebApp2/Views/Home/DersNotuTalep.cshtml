@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "DersNotuTalep";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="sub-banner" style="background: url('../../Content/DersNotuImgBig/DersNotu.jpg');">
+    <div class="overlay">
+        <div class="container">
+            <h3> BİRİKTİRDİGİN DEĞİL <span>PAYLAŞTIĞIN</span> SENİNDİR </h3>
+
+
+        </div>
+    </div>
+</div>
+
+<!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= CONTACT US =========-->
+    <section class="contact-us">
+        <div class="container">
+
+            <div class="row">
+
+                <!--======= CONTACT FORM =========-->
+                <div class="col-md-7">
+                    <h5>DERS NOTU EKLEME TALEBİ GÖNDER</h5>
+                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
+
+                    @using (Html.BeginForm("DersNotuTalep", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
+                    {
+                        <ul class="row">
+                            <li class="col-sm-12">
+                                <label>
+                                    Ders Adı *
+                                    <input type="text" class="form-control" name="DersAdi" id="name" placeholder="">
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <label>
+                                    Konu Baslığı *
+                                    <input type="text" class="form-control" name="DersBaslıgı" id="email" placeholder="">
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <label>
+                                    DersNotu Aciklama *
+                                    <textarea class="form-control" name="DersNotuAciklama" id="icerik" rows="5" placeholder=""></textarea>
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="exampleInputFile">DersNotu Resmi</label>
+                                    <input type="file" id="exampleInputFile" name="dersNotuResimYol">
+                                </div>
+                            </li>
+                            <li class="col-sm-12">
+                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="talep()">TALEB GONDER</button>
+                            </li>
+                        </ul>
+                    }
+                </div>
+
+                <!--======= CONTACT INFORMATION =========-->
+                <div class="col-md-5">
+                    <div class="contact-info">
+                        <h5>HAKKIMIZDA </h5>
+                        <ul>
+                            <!--======= ADDRESS =========-->
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <div class="icon"> <i class="fa fa-map-marker"></i> </div>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <h6>Adres</h6>
+                                        <p>
+                                            SAKARYA ÜNİVERSİTESİ<br>
+                                            HAŞİM GÜRDAMAR BİLGİSAYAR VE BİLİŞİM FAKÜLTESİ
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--======= PHONE =========-->
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <div class="icon"> <i class="fa fa-phone"></i> </div>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <h6>Phone</h6>
+                                        <p>+90 (545) 383 00 76</p>
+                                        <p>+90 (507) 307 29 16</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--======= SUPPORT =========-->
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <div class="icon"> <i class="fa fa-envelope-o"></i> </div>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <h6>Destek</h6>
+                                        <p>SauHub@gmail.com</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--======= CONTENT END =========-->
+<script>
+    setTimeout(function () { $("#bizeUlasın").addClass("active"); }, 0);
+</script>
+<script>
+    function talep() {
+        alert("Etkinlik Talebiniz Alınmıstır.Onaylandıgı Zaman Yayınlanacaktır");
+    }
+</script>
+
+

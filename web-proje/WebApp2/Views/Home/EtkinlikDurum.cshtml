@@ -1,0 +1,24 @@
+﻿@model IEnumerable<WebApp2.Models.Etkinlik>
+
+@foreach (var item in Model)
+{
+    <li>
+        <p>
+            @item.EtkinlikBasligi
+            @if (item.EtkinlikDurum == "0")
+            {
+                <span>Etkinlik Onay Bekliyor</span>
+            }
+            @if (item.EtkinlikDurum == "1")
+            {
+                <span>Etkinlik Onaylandı</span>
+            }
+            @if (item.EtkinlikDurum == "2")
+            {
+                <span>Etkinlik Talebiniz Onaylanmadı</span>
+            }
+        </p>
+    </li>
+}
+
+

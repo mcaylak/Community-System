@@ -27,6 +27,7 @@
                         <th>Etkinlik Sahibi</th>
                         <th>Etkinlik Basligi</th>
                         <th>Paylasma Tarihi</th>
+                        <th>Durum</th>
                     </tr>
                     @foreach (var item in Model)
                     {
@@ -34,7 +35,8 @@
                             <td>@item.EtkinlikID</td>
                             <td>@item.EtkinlikSahibi</td>
                             <td>@item.EtkinlikBasligi</td>
-                            <td>@item.EtkinlikTarihi</td>
+                            <td>@item.EtkinlikTarihi.ToShortDateString()</td>
+                            <td>@item.EtkinlikDurum</td>
                             
                             <td><a href="@Url.Action("EtkinlikSil", "Admin", new { etkinlikId = item.EtkinlikID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
                             <td><a href="@Url.Action("EtkinlikDuzenle", "Admin", new { etkinlikId = item.EtkinlikID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>

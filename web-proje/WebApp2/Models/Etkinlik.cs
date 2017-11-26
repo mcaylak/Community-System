@@ -17,7 +17,15 @@ namespace WebApp2.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EtkinlikTarihi { get; set; }
+        public DateTime EtkinlikBitis { get; set; }
         public string EtkinlikSahibi { get; set; }
+        public string EtkinlikDurum { get; set; }
+        /*
+         *  Durum 0 ise etkinlik onay bekliyor.
+         *  Durum 1 ise etkinlik onaylandı.
+         *  Durum 2 ise etkinlik onaylanmadı.
+         */
         public virtual ICollection<Kullanici> Kullanicilar { get; set; }
+        public int etkinlikSahibiId { get; set; }
     }
 }

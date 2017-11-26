@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebApp2.Models.DersNotu>
+
+@foreach (var item in Model)
+{
+    <li>
+        <p>
+            @item.DersBaslıgı
+            @if (item.DersNotuDurum == "0")
+            {
+                <span>Talebiniz Onay Bekliyor</span>
+            }
+            @if (item.DersNotuDurum == "1")
+            {
+                <span>Talebiniz Onaylandı</span>
+            }
+            @if (item.DersNotuDurum == "2")
+            {
+                <span>Talebiniz Onaylanmadı</span>
+            }
+        </p>
+    </li>
+}

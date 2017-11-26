@@ -41,7 +41,18 @@
 
                     <!--======= FILTERS =========-->
                     <ul class="filter">
-                        <li><a class="active" href="#." data-filter="*">Hepsi</a></li>
+                        @if (Session["Kullanici"] != null)
+                        {
+                            <a href="~/Home/EtkinlikEklemeTaleb" class="btn" >
+                                <i class="fa">ETKİNLİK EKLEME TALEBİ</i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="" class="btn" onclick="etkinlikTalebiHata()">
+                                <i class="fa">ETKİNLİK EKLEME TALEBİ</i>
+                            </a>
+                        }
                         <!-- <li><a href="#" data-filter=".nature">Nature</a></li>
                          <li><a href="#" data-filter=".food">Food</a></li>
                          <li><a href="#" data-filter=".disease">Disease</a></li>

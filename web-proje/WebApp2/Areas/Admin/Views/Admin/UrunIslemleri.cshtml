@@ -36,7 +36,7 @@
                         <tr>
                             <td>@item.UrunlerID</td>
                             <td>@item.UrunAdi</td>
-                            <td>@item.UrunPaylasmaTarihi</td>
+                            <td>@item.UrunPaylasmaTarihi.ToShortDateString()</td>
                             
                             <td><a href="@Url.Action("UrunSil", "Admin", new { urunId = item.UrunlerID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
                             <td><a href="@Url.Action("UrunDuzenle", "Admin", new { urunId = item.UrunlerID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>

@@ -7,12 +7,17 @@
 
 @model Kullanici
 
+@{
+    IEnumerable<Etkinlik> talep = ViewData["etkinlikTalep"] as IEnumerable<Etkinlik>;
+}
+@{
+    IEnumerable<DersNotu> dersTaleb = ViewData["dersTalep"] as IEnumerable<DersNotu>;
+}
 <!--======= BANNER =========-->
 <div class="sub-banner" style="background: url('../Content/hesap.jpg');">
     <div class="overlay">
         <div class="container">
             <h3>HESABINIZ BURADA<span> GÜVENDE</span> </h3>
-           
         </div>
     </div>
 </div>
@@ -155,6 +160,26 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <br />
+
+                    <div class="side-bar">
+
+                        <!--======= TOTAL CART =========-->
+                        <div class="total-cart">
+                            <div class="inner">
+                                <h6>Onay Bekleyen Etkinlik Talepleri</h6>
+                                <ul>
+                                    @Html.Partial("~/Views/Home/EtkinlikDurum.cshtml",talep)
+                                </ul>
+                                <br />
+                                <h6>Onay Bekleyen Not Talepleri</h6>
+                                <ul>
+                                    @Html.Partial("~/Views/Home/DersNotuDurum.cshtml",dersTaleb)
+                                </ul>
+                            </div>
+                        </div>
+                       
                     </div>
                 </div>
             </div>

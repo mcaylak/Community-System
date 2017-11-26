@@ -168,15 +168,17 @@ namespace WebApp.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult etkinlikEkle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikAdres,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi, string etkinlikAciklama)
+        public ActionResult etkinlikEkle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikAdres,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi,DateTime etkinlikBitisTarihi, string etkinlikAciklama)
         {
             etkinlik.EtkinlikResimYol = EtkinlikResimEkle(etkinlikResimYol);
             etkinlik.EtkinlikBuyukResimYol = EtkinlikBuyukResimEkle(etkinlikResimYol);
             etkinlik.EtkinlikTarihi = etkinlikPaylasmaTarihi;
+            etkinlik.EtkinlikBitis = etkinlikBitisTarihi;
             etkinlik.EtkinlikIcerik = etkinlikAciklama;
             etkinlik.EtkinlikBasligi = etkinlikAdi;
             etkinlik.EtkinlikSahibi = etkinlikSahibi;
             etkinlik.EtkinlikAdres = etkinlikAdres;
+            etkinlik.EtkinlikDurum = "1";
 
             db.Etkinlikler.Add(etkinlik);
             db.SaveChanges();
@@ -191,7 +193,6 @@ namespace WebApp.Areas.Admin.Controllers
             string uzanti = System.IO.Path.GetExtension(etkinlikResimYol.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
             string BuyukResimYol = "/Content/EtkinlikImgBig/" + isim + uzanti;
-           
             bimage.Save(Server.MapPath(BuyukResimYol));
             return BuyukResimYol;
         }
@@ -223,14 +224,14 @@ namespace WebApp.Areas.Admin.Controllers
             return View(etkinlik);
         }
         [HttpPost]
-        public ActionResult EtkinlikDuzenle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi,string etkinlikAciklama)
+        public ActionResult EtkinlikDuzenle(Etkinlik etkinlik, HttpPostedFileBase etkinlikResimYol,string etkinlikSahibi,string etkinlikAdi,DateTime etkinlikPaylasmaTarihi,string etkinlikAciklama,string etkinlikDurum)
         {
             Etkinlik etkinlikDuzenle = db.Etkinlikler.FirstOrDefault(x => x.EtkinlikID == etkinlik.EtkinlikID);
             etkinlikDuzenle.EtkinlikSahibi = etkinlikSahibi;
             etkinlikDuzenle.EtkinlikBasligi = etkinlikAdi;
             etkinlikDuzenle.EtkinlikTarihi = etkinlikPaylasmaTarihi;
             etkinlikDuzenle.EtkinlikIcerik = etkinlikAciklama;
-            
+            etkinlikDuzenle.EtkinlikDurum = etkinlikDurum;
 
             if (etkinlikResimYol != null)
             {
@@ -265,6 +266,7 @@ namespace WebApp.Areas.Admin.Controllers
             ders.paylasanAdi = paylasanAdi;
             ders.DersBaslıgı = dersBasligi;
             ders.DersNotuAciklama = dersNotuAciklama;
+            ders.DersNotuDurum = "1";
             db.Dersler.Add(ders);
             db.SaveChanges();
             
@@ -307,7 +309,7 @@ namespace WebApp.Areas.Admin.Controllers
             return View(ders);
         }
         [HttpPost]
-        public ActionResult DersNotuDuzenle(DersNotu ders, HttpPostedFileBase dersNotuResimYol,string paylasanAdi,string dersAdi,DateTime paylasmaTarihi,string dersNotuAciklama,string dersBasligi)
+        public ActionResult DersNotuDuzenle(DersNotu ders, HttpPostedFileBase dersNotuResimYol,string paylasanAdi,string dersAdi,DateTime paylasmaTarihi,string dersNotuAciklama,string dersBasligi,string dersNotuDurum)
         {
             DersNotu dersDuzenle = db.Dersler.FirstOrDefault(x => x.DersNotuID == ders.DersNotuID);
             dersDuzenle.paylasanAdi = paylasanAdi;
@@ -315,6 +317,7 @@ namespace WebApp.Areas.Admin.Controllers
             dersDuzenle.DersNotuPaylasmaTarihi = paylasmaTarihi;
             dersDuzenle.DersNotuAciklama = dersNotuAciklama;
             dersDuzenle.DersBaslıgı = dersBasligi;
+            dersDuzenle.DersNotuDurum = dersNotuDurum;
            
             if (dersNotuResimYol != null)
             {

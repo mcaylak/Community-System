@@ -32,7 +32,7 @@
                         <tr>
                             <td>@item.BlogID</td>
                             <td>@item.BlogBaslıgı</td>
-                            <td>@item.BlogPaylasmaTarihi</td>
+                            <td>@item.BlogPaylasmaTarihi.ToShortDateString()</td>
                          
                             <td><a href="@Url.Action("blogSil", "Admin", new { blogId = item.BlogID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
                             <td><a href="@Url.Action("blogDuzenle", "Admin", new { blogId = item.BlogID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>

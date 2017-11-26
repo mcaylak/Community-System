@@ -19,5 +19,7 @@ namespace WebApp2.Models
         public string DersNotuAciklama { get; set; }
         public IPagedList<DersNotu> DersNotuListesi { get; set; }
         public int? SayfaNumarasi { get; set; }
+        public string DersNotuDurum { get; set; }
+        public int DersNotuSahibiId { get; set; }
     }
 }

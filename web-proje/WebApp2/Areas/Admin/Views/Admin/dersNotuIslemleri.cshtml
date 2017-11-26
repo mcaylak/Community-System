@@ -26,15 +26,17 @@
                         <th>ID</th>
                         <th>Gonderen Kullanıcı Adı</th>
                         <th>Paylasma Tarihi</th>
-                        <th>Ders Adı</th>    
+                        <th>Ders Adı</th> 
+                        <th>Durum</th> 
                     </tr>
                     @foreach (var item in Model)
                     {
                         <tr>
                             <td>@item.DersNotuID</td>
                             <td>@item.paylasanAdi</td>
-                            <td>@item.DersNotuPaylasmaTarihi</td>
+                            <td>@item.DersNotuPaylasmaTarihi.ToShortDateString()</td>
                             <td>@item.DersAdi</td>
+                            <td>@item.DersNotuDurum</td>
                             
                             <td><a href="@Url.Action("DersNotuSil", "Admin", new { dersId = item.DersNotuID})"><button type="button" class="btn btn-block btn-danger btn-flat">Sil</button></a></td>
                             <td><a href="@Url.Action("DersNotuDuzenle", "Admin", new { dersId = item.DersNotuID})"><button type="button" class="btn btn-block btn-danger btn-flat">Duzenle</button></a></td>
