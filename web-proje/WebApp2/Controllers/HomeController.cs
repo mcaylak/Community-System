@@ -64,6 +64,9 @@ namespace WebApp2.Controllers
         {
             DersNotu kullaniciNot = new DersNotu();
             kullaniciNot.DersNotuSahibiId = Convert.ToInt32(Session["Kullanici"]);
+            int id = Convert.ToInt32(Session["Kullanici"]);
+            var kullaniciAdi = db.Kullanicilar.FirstOrDefault(x=>x.KullaniciID==id).KullaniciAdi;
+            kullaniciNot.paylasanAdi = kullaniciAdi;
             kullaniciNot.DersResimYol = DersNotuResimEkle(dersNotuResimYol);
             kullaniciNot.DersBuyukResimYol = DersNotuBuyukResimEkle(dersNotuResimYol);
             kullaniciNot.DersAdi = ders.DersAdi;

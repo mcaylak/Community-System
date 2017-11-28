@@ -327,3 +327,4 @@ C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\bin\PagedList.Mvc.xml
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.DersNotuTablosu.resources
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.yeni.resources
 C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.etkinlikTablosu.resources
+C:\Users\muhammed\Desktop\bitbucket\web-proje\WebApp2\obj\Debug\WebApp2.csprojResolveAssemblyReference.cache
