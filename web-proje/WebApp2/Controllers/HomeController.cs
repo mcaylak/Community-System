@@ -163,10 +163,52 @@ namespace WebApp2.Controllers
         {
             return View();
         }
-        public ActionResult Blog()
+        public ActionResult Blog(int? SayfaNo)
         {
+            int _sayfaNo = SayfaNo ?? 1;
+            var blogVeri = db.Bloglar.OrderBy(m => m.BlogPaylasmaTarihi).ToPagedList<Blog>(_sayfaNo, 3);
+
+            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(1).ToList();
+
+            return View(blogVeri);
+        }
+        public ActionResult BlogEkle()
+        {
+            int id = Convert.ToInt32(Session["Kullanic"]);
+
+            var sorgu = db.Kullanicilar.FirstOrDefault(x=>x.KullaniciID==id);
+
             return View();
         }
+
+        [HttpPost]
+        public ActionResult BlogEkle(Blog gelen)
+        {
+            Blog ekle = new Blog();
+
+            ekle.BlogBasligi = gelen.BlogBasligi;
+            ekle.BlogIcerik = gelen.BlogIcerik;
+            ekle.BlogPaylasmaTarihi = DateTime.Now;
+            ekle.BlogResimYol = gelen.BlogResimYol;
+            return View();
+        }
+
+
+        private string BlogResimEkle(HttpPostedFileBase blogResimYol)
+        {
+            Image image = Image.FromStream(blogResimYol.InputStream);
+            Bitmap bimage = new Bitmap(image, new Size { Width = 365, Height = 200 });
+
+
+            string uzanti = System.IO.Path.GetExtension(blogResimYol.FileName);
+            string isim = Guid.NewGuid().ToString().Replace("-", "");
+            string yol = "/Content/EtkinlikImgMedium/" + isim + uzanti;
+
+            bimage.Save(Server.MapPath(yol));
+
+            return yol;
+        }
+
         public ActionResult BizeUlasın()
         {
             return View();
@@ -180,9 +222,17 @@ namespace WebApp2.Controllers
         {
             return View();
         }
-        
-        
 
+        public ActionResult BlogDetay(int blogID)
+        {
+            var sorgu = db.Bloglar.FirstOrDefault(x => x.BlogID == blogID);
+            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(1).ToList();
+            return View(sorgu);
+        }
 
+        public ActionResult SonBloglar()
+        {
+            return View();
+        }
     }
 }

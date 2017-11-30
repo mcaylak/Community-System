@@ -3,6 +3,18 @@
     ViewBag.Title = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using WebApp2.Models
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Blog>
+
+
+@{
+    IEnumerable<Blog> SonBlog = ViewData["SonBloglarData"] as IEnumerable<Blog>;
+}
+
+
+
 
   <!--======= BANNER =========-->
 <div class="sub-banner">
@@ -26,121 +38,50 @@
     <section class="blog blog-pages">
         <div class="container">
             <div class="row">
-
                 <!--======= BLOG SECTION =========-->
                 <div class="col-md-9">
+                    @foreach (var item in Model)
+                    {
+                        <!--======= BLOG POST =========-->
+                        <div class="blog-post">
+                            <img class="img-responsive" src="@item.BlogResimYol" alt="">
+                            <h5><a class="font-lora" href="#.">@item.BlogBasligi</a></h5>
 
-                    <!--======= BLOG POST =========-->
-                    <div class="blog-post">
-                        <img class="img-responsive" src="~/Content/image/blog-img-1.jpg" alt="">
-                        <h5><a class="font-lora" href="#.">The New Social Welfare Psd Template Release on Today</a></h5>
-                    
-                        <!--======= IBLOG INFO =========-->
-                        <ul class="post-info">
-                            <li>
-                                <p>MAy 14, 2015 </p>
-                                |
-                            </li>
-                            <li>
-                                <p> By Admin </p>
-                                |
-                            </li>
-                            <li>
-                                <p>4 comments </p>
-                                |
-                            </li>
-                            <li>
-                                <p>10 Likes</p>
-                            </li>
-                        </ul>
+                            <!--======= IBLOG INFO =========-->
+                            <ul class="post-info">
+                                <li>
+                                    <p>@item.BlogPaylasmaTarihi </p>
+                                    |
+                                </li>
+                                <li>
+                                    <p> @*item.Yazar.KullaniciAdi @item.Yazar.KullaniciSoyadi*@ </p>
+                                    |
+                                </li>
+                            </ul>
 
-                        <!--======= BLOG DETAILS =========-->
-                        <p>Nolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duost aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid dolor sitali amets non numquam non proident orro quisquam est, qui thas dolorem ipsum quialas[...]</p>
-                        <a href="#." class="btn">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
-                    </div>
+                            <!--======= BLOG DETAILS =========-->
+                            <p>@{if (item.BlogIcerik.Length >= 400)
+                                {<p>@item.BlogIcerik.Substring(0, 400)</p>}
+                                else { <p>@item.BlogIcerik</p>}
+                                }@if (item.BlogIcerik.Length > 410) { <text>[...]</text> } </p>
+                            <a href="@Url.Action("BlogDetay", "Home",new { BlogID=item.BlogID })" class="btn">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+                            
+                        </div>
 
-                    <!--======= BLOG POST =========-->
-                    <div class="blog-post">
-                        <img class="img-responsive" src="~/Content/image/blog-img-2.jpg" alt="">
-                        <h5><a class="font-lora" href="#.">The New Social Welfare Psd Template Release on Today</a></h5>
-
-                        <!--======= IBLOG INFO =========-->
-                        <ul class="post-info">
-                            <li>
-                                <p>MAy 14, 2015 </p>
-                                |
-                            </li>
-                            <li>
-                                <p> By Admin </p>
-                                |
-                            </li>
-                            <li>
-                                <p>4 comments </p>
-                                |
-                            </li>
-                            <li>
-                                <p>10 Likes</p>
-                            </li>
-                        </ul>
-
-                        <!--======= BLOG DETAILS =========-->
-                        <p>Nolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duost aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid dolor sitali amets non numquam non proident orro quisquam est, qui thas dolorem ipsum quialas[...]</p>
-                        <a href="#." class="btn">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
-                    </div>
-
-                    <!--======= BLOG POST =========-->
-                    <div class="blog-post quote-post">
-
-                        <!--======= BLOG DETAILS =========-->
-                        <p class="font-lora">“ Mullamco laboris nisi ut aliquip ex ea commodo consequat Duost aute irure dolor in repen derit voluptate velit esse cillum dolore eu fugiat nulla pariatur ” </p>
-                        <h6><em>- Mother Teresa</em></h6>
-                    </div>
-
-                    <!--======= BLOG POST =========-->
-                    <div class="blog-post">
-                        <iframe src="https://player.vimeo.com/video/25541923"></iframe>
-                        <h5><a class="font-lora" href="#.">The New Social Welfare Psd Template Release on Today</a></h5>
-
-                        <!--======= IBLOG INFO =========-->
-                        <ul class="post-info">
-                            <li>
-                                <p>MAy 14, 2015 </p>
-                                |
-                            </li>
-                            <li>
-                                <p> By Admin </p>
-                                |
-                            </li>
-                            <li>
-                                <p>4 comments </p>
-                                |
-                            </li>
-                            <li>
-                                <p>10 Likes</p>
-                            </li>
-                        </ul>
-
-                        <!--======= BLOG DETAILS =========-->
-                        <p>Nolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duost aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid dolor sitali amets non numquam non proident orro quisquam est, qui thas dolorem ipsum quialas[...]</p>
-                        <a href="#." class="btn">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
-                    </div>
+                    }
 
                     <!--======= PAGES =========-->
-                    <nav>
+                    @*<nav>
                         <ul class="pager">
                             <li class="previous"><a class="font-lora" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
                             <li class="next"><a class="font-lora" href="#">next <span aria-hidden="true">&rarr;</span></a></li>
                         </ul>
-                    </nav>
+                    </nav>*@
 
                     <!--======= PAGINATION =========-->
                     <nav>
                         <ul class="pagination">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
+                            @Html.PagedListPager(Model, _sayfaNo => Url.Action("Blog", "Home", new { SayfaNo = _sayfaNo }))
                         </ul>
                     </nav>
                 </div>
@@ -166,30 +107,8 @@
                         </ul>
 
                         <!--======= RECENT POST =========-->
-                        <h5>Recent post</h5>
-                        <ul class="cate recent-post">
-                            <li>
-                                <div class="col-xs-7 no-padding">
-                                    <a href="#.">Beritatis et Quasi Arcte veatae Vitae</a>
-                                    <p>May 04, 2015</p>
-                                </div>
-                                <div class="col-xs-4 no-padding pull-right"> <img class="img-responsive" src="~/Content/image/img-1.jpg" alt=""> </div>
-                            </li>
-                            <li>
-                                <div class="col-xs-7 no-padding">
-                                    <a href="#.">Beritatis et Quasi Arcte veatae Vitae</a>
-                                    <p>May 04, 2015</p>
-                                </div>
-                                <div class="col-xs-4 no-padding pull-right"> <img class="img-responsive" src="~/Content/image/img-2.jpg" alt=""> </div>
-                            </li>
-                            <li>
-                                <div class="col-xs-7 no-padding">
-                                    <a href="#.">Beritatis et Quasi Arcte veatae Vitae</a>
-                                    <p>May 04, 2015</p>
-                                </div>
-                                <div class="col-xs-4 no-padding pull-right"> <img class="img-responsive" src="~/Content/image/img-3.jpg" alt=""> </div>
-                            </li>
-                        </ul>
+                        <h5>Son Gönderiler</h5>
+                        @Html.Partial("SonBloglar", SonBlog)
 
                         <!--======= ARCHIVE =========-->
                         <h5>Archives</h5>
@@ -222,3 +141,4 @@
     setTimeout(function () { $("#blog").addClass("active"); }, 0);
 
 </script>
+

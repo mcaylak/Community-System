@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using WebApp2.Models
+@model Blog
+
+@{
+    IEnumerable<Blog> SonBlog = ViewData["SonBloglarData"] as IEnumerable<Blog>;
+}
+
+  <!--======= BANNER =========-->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <h3>Single <span>Post</span></h3>
+
+            <!--======= BREADCRUMB =========-->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="active">Single</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= RECENT CASES =========-->
+    <section class="blog blog-pages blog-single">
+        <div class="container">
+            <div class="row">
+
+                <!--======= BLOG SECTION =========-->
+                <div class="col-md-9">
+
+                    <!--======= BLOG POST =========-->
+                    <div class="blog-post">
+                        <img class="img-responsive" src="@Model.BlogResimYol" alt="">
+                        <h5>@Model.BlogBasligi</h5>
+
+                        <!--======= IBLOG INFO =========-->
+                        <ul class="post-info">
+                            <li>
+                                <p>@Model.BlogPaylasmaTarihi </p>
+                                |
+                            </li>
+                            <li>
+                                <p> @*@Model.Yazar.KullaniciAdi*@ </p>
+                                |
+                            </li>
+                        </ul>
+
+                        <!--======= BLOG DETAILS =========-->
+                        <p>@Model.BlogIcerik</p>
+
+                    </div>
+
+                    <!--======= PAGES =========-->
+                    <nav>
+                        <ul class="pager">
+                            <li class="previous"><a class="font-lora" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+                            <li class="next"><a class="font-lora" href="#">next <span aria-hidden="true">&rarr;</span></a></li>
+                        </ul>
+                    </nav>
+
+                   
+                </div>
+
+                <!--======= SIDE BAR =========-->
+                <div class="col-md-3">
+                    <div class="side-bar">
+
+                        <!--======= SEARCH =========-->
+                        <div class="search">
+                            <input type="search" placeholder="Search Here">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+
+                        <!--======= CATEGORIES =========-->
+                        
+
+                        <!--======= RECENT POST =========-->
+                        <h5>Son Gönderiler</h5>
+                        @Html.Partial("SonBloglar", SonBlog)
+
+                        <!--======= ARCHIVE =========-->
+                        
+
+                        <!--======= GALLERY =========-->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--======= CONTENT END =========-->
