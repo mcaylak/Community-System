@@ -21,7 +21,10 @@ namespace WebApp2.Controllers
         #endregion
         public ActionResult AnaSayfa()
         {
-            return View();
+            var Bloglar = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(2).ToList();
+            ViewData["etkinlikData"] = db.Etkinlikler.OrderBy(x => x.EtkinlikTarihi).Take(3).ToList();
+
+            return View(Bloglar);
         }
         [HttpPost]
         
@@ -155,10 +158,20 @@ namespace WebApp2.Controllers
             return yol;
         }
 
-        public ActionResult Esya()
+        public ActionResult Esya(int? SayfaNo)
         {
-            return View();
+            int _sayfaNo = SayfaNo ?? 1;
+            var sorgu = db.Urun.OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo,9);
+
+            return View(sorgu);
         }
+        public ActionResult UrunDetay(int urunID)
+        {
+            var sorgu = db.Urun.FirstOrDefault(x => x.UrunlerID == urunID );
+            ViewData["DigerUrunler"] = db.Urun.OrderByDescending(x => x.UrunPaylasmaTarihi).Take(3).ToList();
+            return View(sorgu);
+        }
+
         public ActionResult Tanitim()
         {
             return View();

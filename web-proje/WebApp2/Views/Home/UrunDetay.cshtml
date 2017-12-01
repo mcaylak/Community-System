@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "UrunDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using WebApp2.Models
+@model Urunler
+
+@{
+    IEnumerable<Urunler> DigerUrunler = ViewData["DigerUrunler"] as IEnumerable<Urunler>;
+}
+
+ <!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= SHOP =========-->
+    <section class="shop shop-pages shop-detail">
+        <div class="container">
+
+            <!--======= PRODUCTS ROW =========-->
+            <div class="row">
+
+                <!--======= SHOP LEFT BAR =========-->
+                <div class="col-md-3">
+                    <div class="side-bar">
+
+                        <!--======= SEARCH =========-->
+                        <div class="search">
+                            <input type="search" placeholder="Search Here">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="shop-side-bar">
+                            <h5>CATEGORIES</h5>
+                            <ul class="cate">
+                                <li><a href="#.">BLAZERS  (12)</a></li>
+                                <li><a href="#.">PANTS & tROUSERS  (54)</a></li>
+                                <li><a href="#.">shirt  (105)</a></li>
+                                <li><a href="#.">SUITS & tAILORING  (48)</a></li>
+                                <li><a href="#.">T-SHIRTS  (120)</a></li>
+                                <li><a href="#.">UNDERWEAR  (98)</a></li>
+                                <li><a href="#.">jACKETS & COATS  (36)</a></li>
+                            </ul>
+
+                            <!--======= TOP RATED =========-->
+                            <h5>TOP RATED</h5>
+                            <ul class="top-rated">
+
+                                <h5>TOP RATED</h5>
+                                <ul class="top-rated">
+
+                                    @foreach (var item in DigerUrunler.OrderByDescending(x => x.UrunPaylasmaTarihi).Take(3))
+                                    {
+                                        <li>
+                                            <div class="img">
+                                                <section> <img class="img-responsive" src="@item.UrunResimYol" alt=""> </section>
+                                            </div>
+
+                                            <a class="font-lora" href="#.">@item.UrunAdi</a>
+                                            <p>₺@item.UrunFiyat</p>
+                                        </li>
+                                    }
+
+
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--======= SHOP IMAGES =========-->
+                <div class="col-md-9">
+                    <ul class="row item-info">
+
+                        <!--======= PRODUCTS 1 =========-->
+
+                        <li class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <section> <a href="#."> <img class="img-responsive" src="@Model.UrunAdi" alt=""> </a> </section>
+                                </div>
+                                <div class="col-sm-7">
+                                    <!--======= PRODUCTS DETAILS =========-->
+                                    <div class="products-details">
+                                        <h3>Casual men wearing Shirt</h3>
+                                        <span class="price">$ 95.66 <span class="strike">$100.00</span></span>
+                                        <p>@Model.UrunAciklama</p>
+                                        <!--======= ADD TO CART =========-->
+                                        <a class="add-cart font-lora" href="#."> ADD TO CART </a> <a class="add-cart font-lora" href="#."> <i class="fa fa-heart-o"></i> </a> <a class="add-cart font-lora" href="#."> <i class="fa fa-retweet"></i></a>
+                                    </div>
+                                </div>
+
+                                <!--======= TAB SECTION =========-->
+
+                                <div class="col-sm-12">
+                                    <div role="tabpanel">
+
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#describe" aria-controls="describe" role="tab" data-toggle="tab">Description</a></li>
+                                            <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Review</a></li>
+                                        </ul>
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+
+                                            <!--======= DESCRIBTION =========-->
+                                            <div role="tabpanel" class="tab-pane active" id="describe">
+                                                <h5>Product Details</h5>
+                                                <p>
+                                                    Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enimsal ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptateras sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquae
+                                                    eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--======= CONTENT END =========--> 

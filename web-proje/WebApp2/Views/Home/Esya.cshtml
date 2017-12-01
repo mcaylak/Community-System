@@ -3,18 +3,16 @@
     ViewBag.Title = "Esya";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using WebApp2.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList<Urunler>
 
 <!--======= BANNER =========-->
 <div class="sub-banner">
     <div class="overlay">
         <div class="container">
-            <h3>online <span>Shop</span></h3>
-
-            <!--======= BREADCRUMB =========-->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Shop</li>
-            </ol>
+            <h3>2. El <span>Eşyalar</span></h3>
         </div>
     </div>
 </div>
@@ -50,45 +48,21 @@
                                 <li><a href="#.">jACKETS & COATS  (36)</a></li>
                             </ul>
 
-                            <!--======= PRICE FILTER =========-->
-
-                            <div class="cost-price-content">
-                                <h5>PRICE FILTER</h5>
-                                <div id="price-range" class="price-range"></div>
-                                <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span> <a href="#." class="btn">FILTER</a>
-                            </div>
-
                             <!--======= TOP RATED =========-->
                             <h5>TOP RATED</h5>
                             <ul class="top-rated">
 
-                                <!--======= PRODUCT 1 =========-->
-                                <li>
-                                    <div class="img">
-                                        <section> <img class="img-responsive" src="~/Content/image/shop-img-1.jpg" alt=""> </section>
-                                    </div>
-                                    
-                                    <a class="font-lora" href="#.">Casual men wearing Shirt</a>
-                                    <p>$ 90.00 <span class="strike">$100.00</span></p>
-                                </li>
+                                @foreach (var item in Model.OrderByDescending(x => x.UrunPaylasmaTarihi).Take(3))
+                                {
+                                    <li>
+                                        <div class="img">
+                                            <section> <img class="img-responsive" src="@item.UrunResimYol" alt=""> </section>
+                                        </div>
 
-                                <!--======= PRODUCT 2 =========-->
-                                <li>
-                                    <div class="img">
-                                        <section> <img class="img-responsive" src="~/Content/image/shop-img-4.jpg" alt=""> </section>
-                                    </div>
-                                    <a class="font-lora" href="#.">Casual men wearing Shirt</a>
-                                    <p>$ 90.00 <span class="strike">$100.00</span></p>
-                                </li>
-
-                                <!--======= PRODUCT 1 =========-->
-                                <li>
-                                    <div class="img">
-                                        <section> <img class="img-responsive" src="~/Content/image/shop-img-3.jpg" alt=""> </section>
-                                    </div>
-                                    <a class="font-lora" href="#.">Casual men wearing Shirt</a>
-                                    <p>$ 90.00 <span class="strike">$100.00</span></p>
-                                </li>
+                                        <a class="font-lora" href="@Url.Action("UrunDetay","Home", new { item.UrunlerID })">@item.UrunAdi</a>
+                                        <p>₺@item.UrunFiyat</p>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -98,134 +72,20 @@
                 <div class="col-md-9">
                     <ul class="row">
 
-                        <!--======= PRODUCTS 1 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-1.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
+                        @foreach (var item in Model)
+                        {
+                            <li class="col-sm-4">
+                                <section> <a href=""> <img class="img-responsive" src="@item.UrunResimYol" alt=""> </a> </section>
+                                <!--======= PRODUCTS DETAILS =========-->
+                                <div class="products-details">
+                                    <a href="@Url.Action("UrunDetay","Home", new { urunID=@item.UrunlerID })" class="font-lora">@item.UrunAdi</a> <span class="price">₺@item.UrunFiyat</span>
 
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                    <!--======= ADD TO CART =========-->
+                                    <a class="add-cart font-lora" href="#."> Sepete Ekle </a>
+                                </div>
+                            </li>
+                        }
 
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-
-                        <!--======= PRODUCTS 2 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-2.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-
-                        <!--======= PRODUCTS 3 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-3.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-2.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-
-                        <!--======= PRODUCTS 2 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-4.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-
-                        <!--======= PRODUCTS 3 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-1.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-4.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-
-                        <!--======= PRODUCTS 2 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-1.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
-
-                        <!--======= PRODUCTS 3 =========-->
-                        <li class="col-sm-4">
-                            <section> <a href="#."> <img class="img-responsive" src="~/Content/image/shop-img-2.jpg" alt=""> </a> </section>
-                            <!--======= PRODUCTS DETAILS =========-->
-                            <div class="products-details">
-                                <a href="#." class="font-lora">Casual men wearing Shirt</a> <span class="price">$ 95.66</span>
-
-                                <!--======= STARS =========-->
-                                <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-
-                                <!--======= ADD TO CART =========-->
-                                <a class="add-cart font-lora" href="#."> ADD TO CART </a>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>

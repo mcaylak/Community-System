@@ -3,45 +3,41 @@
     ViewBag.Title = "AnaSayfa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using WebApp2.Models
+@model List<Blog>
+@{ 
+    IEnumerable<Etkinlik> etkinlikler = ViewData["etkinlikData"] as IEnumerable<Etkinlik>;
 
-
+    }
 
 <!--======= BANNER =========-->
 <div id="banner">
     <div class="flex-banner">
         <ul class="slides">
 
-            <!--======= BANNER SLIDE 1 =========-->
-            <li>
+            @foreach (var item in etkinlikler)
+            {
+                <!--======= BANNER SLIDE =========-->
+                <li>
 
-                <img src="~/Content/image/slider-1.jpg" />
+                    <img src="@item.EtkinlikBuyukResimYol" />
 
-                <!--======= BANNER TEXT =========-->
-                <div class="bnr-txt">
-                    <h1>Give a <span>helping hand </span> to those who need it!</h1>
-                    <hr>
-                    <p class="font-lora">Volunteers do not Necessarily have the Time, They Just have the Heart.</p>
+                    <!--======= BANNER TEXT =========-->
+                    <div class="bnr-txt">
+                        <h1>@item.EtkinlikBasligi</h1>
+                        <hr>
+                        <p class="font-lora">@item.EtkinlikIcerik.Substring(0,200)</p>
 
-                    <!--======= BANNER BTN =========-->
-                    <a href="#." class="btn">LEARN MORE <i class="fa fa-caret-right"></i></a>
-                </div>
-            </li>
+                        <!--======= BANNER BTN =========-->
+                        <a href="@Url.Action("EtkinlikDetay","Home",new { item.EtkinlikID } )" class="btn">Devamı için tıklayın <i class="fa fa-caret-right"></i></a>
+                    </div>
+                </li>
 
-            <!--======= BANNER SLIDE 2 =========-->
-            <li>
+            }
 
-                <img src="~/Content/image/slider-2.jpg" />
+            
 
-                <!--======= BANNER TEXT =========-->
-                <div class="bnr-txt left-text">
-                    <h1>Give a <span>helping hand </span> to those who need it!</h1>
-                    <hr>
-                    <p class="font-lora">Volunteers do not Necessarily have the Time, They Just have the Heart.</p>
-
-                    <!--======= BANNER BTN =========-->
-                    <a href="#." class="btn">LEARN MORE <i class="fa fa-caret-right"></i></a>
-                </div>
-            </li>
+            
         </ul>
     </div>
 </div>
@@ -68,27 +64,21 @@
             <!--======= BLOG RIGTH =========-->
 
             <div class="col-md-6">
-
-                <!--======= BLOG 2 =========-->
-
-                <ul class="row">
-                    <li class="col-xs-4"> <a href="#."><img class="img-responsive" src="~/Content/image/blog-2.jpg" alt=""></a> </li>
-                    <li class="col-xs-8">
-                        <a class="font-lora title" href="#.">The New Charity psd TemplateDesign</a> <span class="font-lora">MAy 14, 2015  |  By Admin  |  4 comments</span>
-                        <p>Perspiciatis unde omnis iste natus error sit ametsan voluptatem accusantium[...] </p>
-                        <a href="#." class="btn">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
-                    </li>
-                </ul>
-                <!--======= BLOG 3 =========-->
-
-                <ul class="row">
-                    <li class="col-xs-4"> <a href="#."><img class="img-responsive" src="~/Content/image/blog-3.jpg" alt=""></a> </li>
-                    <li class="col-xs-8">
-                        <a class="font-lora title" href="#.">The New Charity psd TemplateDesign</a> <span class="font-lora">MAy 14, 2015  |  By Admin  |  4 comments</span>
-                        <p>Perspiciatis unde omnis iste natus error sit ametsan voluptatem accusantium[...] </p>
-                        <a href="#." class="btn">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
-                    </li>
-                </ul>
+                @foreach (var item in Model)
+                {
+                    <ul class="row">
+                        <li class="col-xs-4"> <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )"><img class="img-responsive" src="@item.BlogResimYol" alt=""></a> </li>
+                        <li class="col-xs-8">
+                            <a class="font-lora title" href="@Url.Action("BlogDetay","Home",new { item.BlogID } )">@item.BlogBasligi</a> <span class="font-lora">@item.BlogPaylasmaTarihi.ToShortDateString()</span>
+                            <p>
+                            @if (item.BlogIcerik.Length > 200)
+                            {<text> @item.BlogIcerik.Substring(0, 200) [...] </text> }
+                            else
+                            { <text> @item.BlogIcerik </text> } </p>
+                            <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )" class="btn">Devamını okuyun... <i class="fa fa-arrow-circle-o-right"></i></a>
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
