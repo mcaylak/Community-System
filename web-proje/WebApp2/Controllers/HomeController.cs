@@ -168,10 +168,24 @@ namespace WebApp2.Controllers
             int _sayfaNo = SayfaNo ?? 1;
             var blogVeri = db.Bloglar.OrderBy(m => m.BlogPaylasmaTarihi).ToPagedList<Blog>(_sayfaNo, 3);
 
-            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(1).ToList();
+            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(3).ToList();
 
             return View(blogVeri);
         }
+
+
+        [HttpPost]
+        public ActionResult Blog(int? SayfaNo, string aranan)
+        {
+            int _sayfaNo = SayfaNo ?? 1;
+
+            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(3).ToList();
+
+            var sorgu = db.Bloglar.Where(x => x.BlogBasligi.Contains(aranan)).OrderBy(x=>x.BlogID).ToPagedList<Blog>(_sayfaNo,3);
+
+            return View(sorgu);
+        }
+
         public ActionResult BlogEkle()
         {
             int id = Convert.ToInt32(Session["Kullanic"]);
@@ -226,7 +240,7 @@ namespace WebApp2.Controllers
         public ActionResult BlogDetay(int blogID)
         {
             var sorgu = db.Bloglar.FirstOrDefault(x => x.BlogID == blogID);
-            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(1).ToList();
+            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(3).ToList();
             return View(sorgu);
         }
 

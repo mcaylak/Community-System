@@ -8,7 +8,7 @@
         <li>
             <div class="col-xs-7 no-padding">
                 <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )">@item.BlogBasligi</a>
-                <p>@item.BlogPaylasmaTarihi</p>
+                <p>@item.BlogPaylasmaTarihi.ToShortDateString()</p>
             </div>
             <div class="col-xs-4 no-padding pull-right"> <img class="img-responsive" src="images/img-1.jpg" alt=""> </div>
         </li>
