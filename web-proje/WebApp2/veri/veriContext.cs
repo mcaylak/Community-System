@@ -24,6 +24,7 @@ namespace WebApp2.veri
         public DbSet<Tanitim> Tanitimlar { get; set; }
         public DbSet<Urunler> Urun { get; set; }
         public DbSet<Rol> Roller { get; set; }
+      
         protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
         {
             dbModelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

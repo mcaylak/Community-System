@@ -24,12 +24,9 @@ namespace WebApp2.Controllers
             return View();
         }
         [HttpPost]
-        
-        public ActionResult BizeUlasinMail(string adi,string email,string telefonNo,string universite,string icerik)
+        public ActionResult BizeUlasinMail()
         {
-
-                
-           return View();
+            return View();
         }
         public ActionResult Etkinlikler(int? SayfaNo)
         {
@@ -180,9 +177,5 @@ namespace WebApp2.Controllers
         {
             return View();
         }
-        
-        
-
-
     }
 }

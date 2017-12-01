@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201711252305295_etkinlikTablosu.Designer.cs">
       <DependentUpon>201711252305295_etkinlikTablosu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711280317181_duzenleme.cs" />
+    <Compile Include="Migrations\201711280317181_duzenleme.Designer.cs">
+      <DependentUpon>201711280317181_duzenleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
@@ -463,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711252305295_etkinlikTablosu.resx">
       <DependentUpon>201711252305295_etkinlikTablosu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711280317181_duzenleme.resx">
+      <DependentUpon>201711280317181_duzenleme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
