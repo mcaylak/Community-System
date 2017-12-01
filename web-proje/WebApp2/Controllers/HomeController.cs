@@ -27,12 +27,9 @@ namespace WebApp2.Controllers
             return View(Bloglar);
         }
         [HttpPost]
-        
-        public ActionResult BizeUlasinMail(string adi,string email,string telefonNo,string universite,string icerik)
+        public ActionResult BizeUlasinMail()
         {
-
-                
-           return View();
+            return View();
         }
         public ActionResult Etkinlikler(int? SayfaNo)
         {
@@ -176,66 +173,10 @@ namespace WebApp2.Controllers
         {
             return View();
         }
-        public ActionResult Blog(int? SayfaNo)
+        public ActionResult Blog()
         {
-            int _sayfaNo = SayfaNo ?? 1;
-            var blogVeri = db.Bloglar.OrderBy(m => m.BlogPaylasmaTarihi).ToPagedList<Blog>(_sayfaNo, 3);
-
-            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(3).ToList();
-
-            return View(blogVeri);
-        }
-
-
-        [HttpPost]
-        public ActionResult Blog(int? SayfaNo, string aranan)
-        {
-            int _sayfaNo = SayfaNo ?? 1;
-
-            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(3).ToList();
-
-            var sorgu = db.Bloglar.Where(x => x.BlogBasligi.Contains(aranan)).OrderBy(x=>x.BlogID).ToPagedList<Blog>(_sayfaNo,3);
-
-            return View(sorgu);
-        }
-
-        public ActionResult BlogEkle()
-        {
-            int id = Convert.ToInt32(Session["Kullanic"]);
-
-            var sorgu = db.Kullanicilar.FirstOrDefault(x=>x.KullaniciID==id);
-
             return View();
         }
-
-        [HttpPost]
-        public ActionResult BlogEkle(Blog gelen)
-        {
-            Blog ekle = new Blog();
-
-            ekle.BlogBasligi = gelen.BlogBasligi;
-            ekle.BlogIcerik = gelen.BlogIcerik;
-            ekle.BlogPaylasmaTarihi = DateTime.Now;
-            ekle.BlogResimYol = gelen.BlogResimYol;
-            return View();
-        }
-
-
-        private string BlogResimEkle(HttpPostedFileBase blogResimYol)
-        {
-            Image image = Image.FromStream(blogResimYol.InputStream);
-            Bitmap bimage = new Bitmap(image, new Size { Width = 365, Height = 200 });
-
-
-            string uzanti = System.IO.Path.GetExtension(blogResimYol.FileName);
-            string isim = Guid.NewGuid().ToString().Replace("-", "");
-            string yol = "/Content/EtkinlikImgMedium/" + isim + uzanti;
-
-            bimage.Save(Server.MapPath(yol));
-
-            return yol;
-        }
-
         public ActionResult BizeUlasın()
         {
             return View();
@@ -246,18 +187,6 @@ namespace WebApp2.Controllers
             return View();
         }
         public ActionResult DersNotuDurum()
-        {
-            return View();
-        }
-
-        public ActionResult BlogDetay(int blogID)
-        {
-            var sorgu = db.Bloglar.FirstOrDefault(x => x.BlogID == blogID);
-            ViewData["SonBloglarData"] = db.Bloglar.OrderByDescending(x => x.BlogPaylasmaTarihi).Take(3).ToList();
-            return View(sorgu);
-        }
-
-        public ActionResult SonBloglar()
         {
             return View();
         }
