@@ -29,10 +29,8 @@ namespace WebApp2.Controllers
             yenikayit.KullaniciMail = kullanici.KullaniciMail;
             yenikayit.KullaniciSifre = kullanici.KullaniciSifre;
             yenikayit.KullaniciKayitTarihi = DateTime.Now;
-
             Rol rol = db.Roller.FirstOrDefault(x => x.RolAdi.Equals("User"));
             yenikayit.RolID = rol.RolId;
-
             db.Kullanicilar.Add(kullanici);
             db.SaveChanges();
             return RedirectToAction("AnaSayfa", "Home");
