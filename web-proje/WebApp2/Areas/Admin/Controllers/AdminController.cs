@@ -343,11 +343,13 @@ namespace WebApp.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult blogEkle(Blog blog, HttpPostedFileBase blogResimYol,string blogBaslik,DateTime blogTarih,string blogAciklama)
+        public ActionResult blogEkle(Blog blog, HttpPostedFileBase blogResimYol,string blogBaslik,DateTime blogTarih,string blogAciklama,string yazar)
         {
+
+            Kullanici yeni = new Kullanici();
             blog.BlogResimYol = BlogResimEkle(blogResimYol);
             blog.BlogPaylasmaTarihi = blogTarih;
-            blog.BlogBaslıgı = blogBaslik;
+            blog.BlogBasligi = blogBaslik;
             blog.BlogIcerik = blogAciklama;
 
             db.Bloglar.Add(blog);
@@ -355,7 +357,6 @@ namespace WebApp.Areas.Admin.Controllers
 
             return RedirectToAction("blogIslemleri");
         }
-
         private string BlogResimEkle(HttpPostedFileBase blogResimYol)
         {
             Image image = Image.FromStream(blogResimYol.InputStream);
@@ -384,7 +385,7 @@ namespace WebApp.Areas.Admin.Controllers
         public ActionResult BlogDuzenle(Blog blog, HttpPostedFileBase blogResimYol,string blogBaslik,DateTime blogTarih,string blogAciklama)
         {
             Blog blogDuzenle = db.Bloglar.FirstOrDefault(x => x.BlogID == blog.BlogID);
-            blogDuzenle.BlogBaslıgı = blogBaslik;
+            blogDuzenle.BlogBasligi = blogBaslik;
             blogDuzenle.BlogPaylasmaTarihi = blogTarih;
             blogDuzenle.BlogIcerik = blogAciklama;
 

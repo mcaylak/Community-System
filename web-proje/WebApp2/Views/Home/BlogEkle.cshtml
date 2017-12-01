@@ -1,0 +1,61 @@
+﻿@model WebApp2.Models.Blog
+
+@{
+    ViewBag.Title = "Blog Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= CONTACT US =========-->
+    <section class="contact-us">
+        <div class="container">
+
+            <div class="row">
+
+                <!--======= CONTACT FORM =========-->
+                <div class="col-md-7">
+                    <h5>ETKİNLİK EKLEME TALEBİ GÖNDER</h5>
+                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
+
+                    @using (Html.BeginForm("BlogEkle", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
+                    {
+                        <ul class="row">
+                            <li class="col-sm-12">
+                                <label>
+                                    Blog Başlığı *
+                                    <input type="text" class="form-control" name="BlogBasligi" id="baslik" placeholder="Başlık giriniz">
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <label>
+                                    Blog İçeriği *
+                                    <textarea class="form-control" name="BlogIcerik" id="icerik" rows="5" placeholder="İçerik giriniz..."></textarea>
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <label>
+                                    Blog Başlığı *
+                                    <input type="text" class="form-control" name="BlogResimYol" id="resimYol" placeholder="Başlık giriniz">
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="talep()">TALEB GONDER</button>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--======= CONTENT END =========-->
+<script>
+    setTimeout(function () { $("#bizeUlasın").addClass("active"); }, 0);
+</script>
+<script>
+    function talep() {
+        alert("Blog yazınız yayınlanmıştır.");
+    }
+</script>

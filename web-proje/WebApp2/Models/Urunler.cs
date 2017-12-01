@@ -14,5 +14,6 @@ namespace WebApp2.Models
         public string UrunAciklama { get; set; }
         public string UrunResimYol { get; set; }
         public virtual Kullanici Satici { get; set; }
+        public virtual UrunKategori Kategoriler { get; set; }
     }
 }
