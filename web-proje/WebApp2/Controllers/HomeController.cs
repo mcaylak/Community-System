@@ -58,6 +58,15 @@ namespace WebApp2.Controllers
             var DersNotuListesi = db.Dersler.Where(m => m.DersNotuDurum=="1").OrderByDescending(m => m.DersNotuID).ToPagedList<DersNotu>(_sayfaNo, 3);
             return View(DersNotuListesi);
         }
+        [HttpPost]
+        public ActionResult DersNotu(int? SayfaNo, string aranan)
+        {
+            int _sayfaNo = SayfaNo ?? 1;
+
+            var sorgu = db.Dersler.Where(x => x.DersBaslıgı.Contains(aranan)).ToPagedList<DersNotu>(_sayfaNo, 3);
+
+            return View(sorgu);
+        }
         public ActionResult DersNotuTalep()
         {
             return View();

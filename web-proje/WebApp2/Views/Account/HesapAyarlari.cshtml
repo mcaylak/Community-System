@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebApp2.Models
+@using WebApp2.veri
 
 @model Kullanici
 
@@ -128,8 +129,16 @@
 
                 <!--======= SHOP LEFT BAR =========-->
                 <div class="col-md-3">
+                    @if (@Model.RolID==1)
+                    {
+                        <a href="@Url.Action("/Admin/etkinlikIslemleri", "Admin")" class="btn popup-with-zoom">
+                            <i class="fa">Admin Panel</i>
+                        </a>
+                        <br />
+                        <br />
+                        <br />
+                    }                    
                     <div class="side-bar">
-
                         <!--======= TOTAL CART =========-->
                         <div class="total-cart">
                             <div class="inner">

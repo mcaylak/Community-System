@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201711301555563_Urunler_duzenleme.Designer.cs">
       <DependentUpon>201711301555563_Urunler_duzenleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712020905587_duzenleme.cs" />
+    <Compile Include="Migrations\201712020905587_duzenleme.Designer.cs">
+      <DependentUpon>201712020905587_duzenleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
@@ -482,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711301555563_Urunler_duzenleme.resx">
       <DependentUpon>201711301555563_Urunler_duzenleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712020905587_duzenleme.resx">
+      <DependentUpon>201712020905587_duzenleme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

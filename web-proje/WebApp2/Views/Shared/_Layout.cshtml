@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -66,6 +67,11 @@
 
                 <!--======= DONATE NOW BTN =========-->
                 <div class="btn-right">
+
+                    
+
+                    
+
 
                     @if (Session["Kullanici"] != null)
                     {
@@ -228,7 +234,7 @@
                             <input type="text" name="KullaniciSoyadi" placeholder="Soyadınız">
                         </li>
                         <li class="col-sm-8">
-                            <input type="email" name="KullaniciMail" placeholder="Email">
+                            <input type="email" name="KullaniciMail" id="mailKontrol" placeholder="Email">
                         </li>
                         <li class="col-sm-8">
                             <input type="password" name="KullaniciSifre" id="txtPassword" placeholder="Şifreniz">
@@ -263,9 +269,7 @@
                         <div class="pop-inner">
                             @using (Html.BeginForm("UyeKayit", "Account", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
                             {
-
-
-                    <!--======= INFORMATION =========-->
+                       <!--======= INFORMATION =========-->
                                 <ul class="row per">
                                     <li class="col-lg-12">
                                         <label>Bilgileri Doldurunuz</label>
@@ -277,7 +281,7 @@
                                         <input type="text" name="KullaniciSoyadi" placeholder="Soyadınız">
                                     </li>
                                     <li class="col-sm-8">
-                                        <input type="email" name="KullaniciMail" placeholder="Email">
+                                        <input type="email" name="KullaniciMail" id="mailKontrol" placeholder="Email">
                                     </li>
                                     <li class="col-sm-8">
                                         <input type="password" name="KullaniciSifre" id="txtPassword" placeholder="Şifreniz">
@@ -286,7 +290,7 @@
                                         <input type="password" name="kullaniciSifre" id="txtConfirmPassword" placeholder="Tekrar Şifreniz">
                                     </li>
                                     <li class="col-sm-12">
-                                        <button type="submit" class="btn" onclick="Validate()">Üye Ol</button>
+                                        <button type="submit" class="btn" onclick="return Validate()">Üye Ol</button>
                                     </li>
                                 </ul>
                             }
@@ -425,14 +429,36 @@
 </script>
 <script type="text/javascript">
         function Validate() {
-            var password = document.getElementById("txtPassword").value;
-            var confirmPassword = document.getElementById("txtConfirmPassword").value;
-            if (password != confirmPassword && password != null) {
-                alert("Parola Kontrolde Hata.Lütfen Tekrar Deneyiniz!");
+
+            if (mailKontrol()) {
+                var password = document.getElementById("txtPassword").value;
+                var confirmPassword = document.getElementById("txtConfirmPassword").value;
+                var uzunluk = password.length;
+                if (uzunluk>7) {
+                    if (password != confirmPassword && password != null) {
+                        alert("Parola Kontrolde Hata.Lütfen Tekrar Deneyiniz!");
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                    
+                }
+                else
+                {
+                    alert("Parolanız en az 8 karakter olmalıdır");
+                    return false;
+                }
+
+            }
+            else
+            {
                 return false;
             }
-            return true;
+
         }
+       
 </script>
 <script type="text/javascript">
         function deneme() {
@@ -474,5 +500,22 @@
         }
         function etkinlikTalebiHata() {
             alert("Etkinlik Talebi Gönderebilmek İcin Hesabınıza Giriş Yapın veya Hesabınız Yoksa Kayıt Olun!");
+        }
+</script>
+<script>
+       
+        function mailKontrol() {
+            var mail = document.getElementById("mailKontrol").value;
+            var uzunluk = mail.length;
+            var kontrol = mail.substring(uzunluk - 14);
+            if (kontrol == "sakarya.edu.tr") {
+                return true;
+            }
+            else 
+            {
+                alert("Uye Olmak İcin Sakarya Üniversitesi Mail Adresinizi Kullanmalısınız!");
+                return false;
+            }
+           
         }
 </script>

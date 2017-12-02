@@ -4,11 +4,13 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp2.App_Classes;
 using WebApp2.Models;
 using WebApp2.veri;
 
 namespace WebApp.Areas.Admin.Controllers
 {
+    [GirisKontrol("Admin")]
     public class AdminController : Controller//Admin Panelindeki İslemlerin Yapıldıgı Controller
     {
         #region veritabaniBaglantisi
@@ -42,7 +44,7 @@ namespace WebApp.Areas.Admin.Controllers
         private string UrunResimEkle(HttpPostedFileBase exampleInputFile)
         {
             Image image = Image.FromStream(exampleInputFile.InputStream);
-            Bitmap bimage = new Bitmap(image);
+            Bitmap bimage = new Bitmap(image, new Size { Width = 271,Height=321 });
             string uzanti = System.IO.Path.GetExtension(exampleInputFile.FileName);
             string isim = Guid.NewGuid().ToString().Replace("-", "");
             string yol = "/Content/UrunImg/" + isim + uzanti;

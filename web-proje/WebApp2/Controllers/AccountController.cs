@@ -30,10 +30,11 @@ namespace WebApp2.Controllers
             yenikayit.KullaniciSifre = kullanici.KullaniciSifre;
             yenikayit.KullaniciKayitTarihi = DateTime.Now;
 
-            Rol rol = db.Roller.FirstOrDefault(x => x.RolAdi.Equals("User"));
+            Rol rol = db.Roller.FirstOrDefault(x => x.RolAdi=="User");
             yenikayit.RolID = rol.RolId;
+     
 
-            db.Kullanicilar.Add(kullanici);
+            db.Kullanicilar.Add(yenikayit);
             db.SaveChanges();
             return RedirectToAction("AnaSayfa", "Home");
         }
@@ -71,6 +72,7 @@ namespace WebApp2.Controllers
             int id = Convert.ToInt32(Session["Kullanici"]);
             ViewData["etkinlikTalep"] = db.Etkinlikler.Where(x => x.etkinlikSahibiId == id).Take(5).ToList();
             ViewData["dersTalep"] = db.Dersler.Where(x => x.DersNotuSahibiId == id).Take(5).ToList();
+           
             return View(kullanici);
         }
         [HttpPost]

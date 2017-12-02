@@ -83,10 +83,14 @@
                     <div class="side-bar">
 
                         <!--======= SEARCH =========-->
-                        <div class="search">
-                            <input type="search" name="" placeholder="Search Here">
-                            <a href="@Url.Action("DersNotu","Home")"><button href="/Home/DersNotu" type="submit"><i class="fa fa-search"></i></button></a>
-                        </div>
+                        @using (Html.BeginForm("DersNotu", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
+                        {
+                            <div class="search">
+                                <input type="search" name="aranan" placeholder="Arama Yap">
+                                <button href="/Home/DersNotu" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        }
+                        
 
                         <!--======= CATEGORIES =========-->
                         <h5></h5>
