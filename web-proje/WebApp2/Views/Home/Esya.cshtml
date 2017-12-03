@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Esya";
+    ViewBag.Title = "2. El Eşyalar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebApp2.Models
@@ -32,24 +32,29 @@
                     <div class="side-bar">
 
                         <!--======= SEARCH =========-->
-                        <div class="search">
-                            <input type="search" placeholder="Search Here">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </div>
+
+                        @using (Html.BeginForm("Esya", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
+                        {
+                            <div class="search">
+                                <input type="search" name="aranan" placeholder="Arama Yap">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        }
+
                         <div class="shop-side-bar">
-                            <h5>CATEGORIES</h5>
+                            <h5>Kategoriler</h5>
                             <ul class="cate">
-                                <li><a href="#.">BLAZERS  (12)</a></li>
-                                <li><a href="#.">PANTS & tROUSERS  (54)</a></li>
-                                <li><a href="#.">shirt  (105)</a></li>
-                                <li><a href="#.">SUITS & tAILORING  (48)</a></li>
-                                <li><a href="#.">T-SHIRTS  (120)</a></li>
-                                <li><a href="#.">UNDERWEAR  (98)</a></li>
-                                <li><a href="#.">jACKETS & COATS  (36)</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Mobilya })">Mobilya</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kiyafet })">Kıyafet</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kitap })">Kitap</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Elektronik })">Elektronik</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Diger })">Diğer</a></li>
                             </ul>
 
+
+
                             <!--======= TOP RATED =========-->
-                            <h5>TOP RATED</h5>
+                            <h5>Son Eklenenler</h5>
                             <ul class="top-rated">
 
                                 @foreach (var item in Model.OrderByDescending(x => x.UrunPaylasmaTarihi).Take(3))
@@ -60,10 +65,8 @@
                                         </div>
 
                                         <a class="font-lora" href="@Url.Action("UrunDetay","Home", new { item.UrunlerID })">@item.UrunAdi</a>
-                                        <div class="stars"> <i class="rated fa fa-star-o"></i> <i class="rated fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                                         <p>₺@item.UrunFiyat</p>
                                     </li>
-                                    
                                 }
                             </ul>
                         </div>
@@ -77,7 +80,7 @@
                         @foreach (var item in Model)
                         {
                             <li class="col-sm-4">
-                                <section> <a href=""> <img class="img-responsive" src="@item.UrunResimYol" alt=""> </a> </section>
+                                <section> <a href="@Url.Action("UrunDetay","Home", new { urunID=@item.UrunlerID })"> <img class="img-responsive" src="@item.UrunResimYol" alt=""> </a> </section>
                                 <!--======= PRODUCTS DETAILS =========-->
                                 <div class="products-details">
                                     <a href="@Url.Action("UrunDetay","Home", new { urunID=@item.UrunlerID })" class="font-lora">@item.UrunAdi</a> <span class="price">₺@item.UrunFiyat</span>
@@ -94,7 +97,7 @@
         </div>
     </section>
 </div>
-<!--======= CONTENT END =========--> 
+<!--======= CONTENT END =========-->
 <script>
     setTimeout(function () { $("#esya").addClass("active"); }, 0);
 

@@ -170,7 +170,23 @@ namespace WebApp2.Controllers
         public ActionResult Esya(int? SayfaNo)
         {
             int _sayfaNo = SayfaNo ?? 1;
-            var sorgu = db.Urun.OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo,9);
+            var sorgu = db.Urun.OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo, 9);
+
+            return View(sorgu);
+        }
+        [HttpPost]
+        public ActionResult Esya(int? SayfaNo, string aranan)
+        {
+            int _sayfaNo = SayfaNo ?? 1;
+            var sorgu = db.Urun.Where(x => x.UrunAdi.Contains(aranan) || x.UrunAciklama.Contains(aranan)).OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo, 9);
+
+            return View(sorgu);
+        }
+        [HttpPost]
+        public ActionResult Esya(int? SayfaNo, UrunKategori kategori)
+        {
+            int _sayfaNo = SayfaNo ?? 1;
+            var sorgu = db.Urun.Where(x => x.Kategoriler == kategori).OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo, 9);
 
             return View(sorgu);
         }

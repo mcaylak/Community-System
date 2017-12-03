@@ -16,4 +16,12 @@ namespace WebApp2.Models
         public virtual Kullanici Satici { get; set; }
         public virtual UrunKategori Kategoriler { get; set; }
     }
+    public enum UrunKategori
+    {
+        Kiyafet,
+        Mobilya,
+        Elektronik,
+        Kitap,
+        Diger
+    }
 }
