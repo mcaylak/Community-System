@@ -91,7 +91,7 @@ namespace WebApp.Areas.Admin.Controllers
             return RedirectToAction("UrunIslemleri");
         }
         #endregion
-        
+         
         #region tanitimIslemleri
         public ActionResult tanitimIslemleri()
         {

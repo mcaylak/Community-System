@@ -62,8 +62,8 @@ namespace WebApp2.Controllers
         public ActionResult DersNotu(int? SayfaNo, string aranan)
         {
             int _sayfaNo = SayfaNo ?? 1;
-
-            var sorgu = db.Dersler.Where(x => x.DersBaslıgı.Contains(aranan)).ToPagedList<DersNotu>(_sayfaNo, 3);
+           
+            var sorgu = db.Dersler.Where(x => x.DersBaslıgı.Contains(aranan)).OrderBy(x => x.DersNotuPaylasmaTarihi).ToPagedList<DersNotu>(_sayfaNo, 3);
 
             return View(sorgu);
         }

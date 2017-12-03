@@ -29,7 +29,7 @@
                         <p class="font-lora">@item.EtkinlikIcerik.Substring(0,200)</p>
 
                         <!--======= BANNER BTN =========-->
-                        <a href="@Url.Action("EtkinlikDetay","Home",new { item.EtkinlikID } )" class="btn">Devamı için tıklayın <i class="fa fa-caret-right"></i></a>
+                        <a href="@Url.Action("EtkinlikDetay","Home",new { id=item.EtkinlikID } )" class="btn">Devamı için tıklayın <i class="fa fa-caret-right"></i></a>
                     </div>
                 </li>
 
