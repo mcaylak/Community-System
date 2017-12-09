@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "UyeGirisKontrol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model WebApp2.Models.Kullanici
+@using (Html.BeginForm("UyeGiris", "Account", FormMethod.Post, htmlAttributes: new { id = "", @class = "", enctype = "multipart/form-data" }))
+{
+
+    if (Model.KontrolKoduDurum == true)
+    {
+        <div class="sub-banner" style="background: url('../Content/hesap.jpg');">
+            <div class="overlay">
+                <div class="container">
+                    <h3>HESABINIZ BURADA<span> GÜVENDE</span> </h3>
+                </div>
+            </div>
+        </div>
+
+        <!--======= CONTENT =========-->
+        <div class="content">
+
+            <!--======= SHOP =========-->
+            <section class="shop shop-pages shop-detail">
+                <div class="container">
+
+                    <!--======= PRODUCTS ROW =========-->
+                    <div class="row">
+
+                        <!--======= CART =========-->
+                        <div class="col-md-9">
+
+                            <!--======= BILLING INFORMATION =========-->
+                            <div class="billing-info">
+                                <h2>HESAP AYARLARI</h2>
+                                <br />
+                                <h4>HESABINI AKTİF ET</h4>
+
+                                <ul class="row">
+                                    <li class="col-sm-12">
+                                        <label>
+                                            Mail Onay Kodu<span class="yelo">*</span>
+                                            <input type="text" name="KontrolKodu" value="" placeholder="Mail Adresinize Gönderilen Kodu Buraya Giriniz ve Butona Basınız">
+                                        </label>
+                                    </li>
+
+
+                                </ul>
+
+                                <li class="">
+                                    <button type="submit" class="btn btn-primary" onclick="">AKTİF ET</button>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <input type="hidden" name="id" href="/Account/UyeGiris/@Model.KullaniciID" />
+            <div class="container">             
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Uyarı Mesajı</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>@ViewBag.Kontrol</p>
+                            </div>
+                            <div class="modal-footer">
+                             <a href="@Url.Action("AnaSayfa","Home")" class="btn btn-default" id="" data-dismiss="">Giris Yap</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+    }
+    else
+    {
+        <input type="hidden" name="id" value="@Model.KullaniciID" />
+        <div class="sub-banner" style="background: url('../Content/hesap.jpg');">
+            <div class="overlay">
+                <div class="container">
+                    <h3>HESABINIZ BURADA<span> GÜVENDE</span> </h3>
+                </div>
+            </div>
+        </div>
+
+        <!--======= CONTENT =========-->
+        <div class="content">
+
+            <!--======= SHOP =========-->
+            <section class="shop shop-pages shop-detail">
+                <div class="container">
+
+                    <!--======= PRODUCTS ROW =========-->
+                    <div class="row">
+
+                        <!--======= CART =========-->
+                        <div class="col-md-9">
+
+                            <!--======= BILLING INFORMATION =========-->
+                            <div class="billing-info">
+                                <h2>HESAP AYARLARI</h2>
+                                <br />
+                                <h4>HESABINI AKTİF ET</h4>
+                               
+                                    <ul class="row">
+                                        <li class="col-sm-12">
+                                            <label>
+                                                Mail Onay Kodu<span class="yelo">*</span>
+                                                <input type="text" name="KontrolKodu" value="" placeholder="Mail Adresinize Gönderilen Kodu Buraya Giriniz ve Butona Basınız">
+                                            </label>
+                                        </li>
+                                       
+
+                                    </ul>
+
+                                    <li class="">
+                                        <button type="submit" class="btn btn-primary" onclick="">AKTİF ET</button>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    }
+}
+
+            <script>
+
+                setTimeout(function () { $('#myModal').modal('show'); }, 500);
+
+
+            </script>

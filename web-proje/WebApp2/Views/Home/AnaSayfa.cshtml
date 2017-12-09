@@ -8,7 +8,7 @@
 @{ 
     IEnumerable<Etkinlik> etkinlikler = ViewData["etkinlikData"] as IEnumerable<Etkinlik>;
 
-    }
+}
 
 <!--======= BANNER =========-->
 <div id="banner">
@@ -26,7 +26,7 @@
                     <div class="bnr-txt">
                         <h1>@item.EtkinlikBasligi</h1>
                         <hr>
-                        <p class="font-lora">@item.EtkinlikIcerik.Substring(0,200)</p>
+                       
 
                         <!--======= BANNER BTN =========-->
                         <a href="@Url.Action("EtkinlikDetay","Home",new { id=item.EtkinlikID } )" class="btn">Devamı için tıklayın <i class="fa fa-caret-right"></i></a>
@@ -41,6 +41,7 @@
         </ul>
     </div>
 </div>
+
 
 
 <!--======= BLOG =========-->
@@ -95,7 +96,6 @@
 
                 <!--======= SLIDES =========-->
                 <section>
-
                     <!--======= SLIDER =========-->
                     <div class="testi-slides">
 
@@ -126,6 +126,9 @@
     </div>
 </section>
 
+
+
+
 <!--======= PROUND =========-->
 
  
@@ -140,4 +143,7 @@
     if (@ViewBag.bilgi!=null) {
         alert(@ViewBag.bilgi);
     }
+    setTimeout(alert('@ViewBag.ParolaDegistirildi'),500);
+  
 </script>
+

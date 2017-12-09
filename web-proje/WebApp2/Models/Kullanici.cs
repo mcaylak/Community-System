@@ -20,5 +20,7 @@ namespace WebApp2.Models
         public virtual ICollection<Etkinlik> Etkinlikler { get; set; }
         public int RolID { get; set; }
         public virtual Rol Rol { get; set; }
+        public Guid KontrolKodu { get; set; }
+        public bool KontrolKoduDurum { get; set; }
     }
 }

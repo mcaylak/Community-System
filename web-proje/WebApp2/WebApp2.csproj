@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201712031056398_UrunKategori.Designer.cs">
       <DependentUpon>201712031056398_UrunKategori.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712041913248_duzenleme1.cs" />
+    <Compile Include="Migrations\201712041913248_duzenleme1.Designer.cs">
+      <DependentUpon>201712041913248_duzenleme1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DersNotu.cs" />
@@ -324,6 +328,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-2.2.3.min.js" />
     <Content Include="Content\js\myScprits.js" />
+    <Content Include="Content\MyStyle.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\tanitim.jpg" />
     <Content Include="Content\TANİTİM\370x205.jpg" />
@@ -438,6 +443,10 @@
     <Content Include="Views\Home\BlogDetay.cshtml" />
     <Content Include="Views\Home\SonBloglar.cshtml" />
     <Content Include="Views\Home\UrunDetay.cshtml" />
+    <Content Include="Views\Account\UyeGiris.cshtml" />
+    <Content Include="Views\Account\UyeKayit.cshtml" />
+    <Content Include="Views\Account\ParolamiUnuttum.cshtml" />
+    <Content Include="Views\Account\ParolamiUnuttumGuncelleme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -497,6 +506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712031056398_UrunKategori.resx">
       <DependentUpon>201712031056398_UrunKategori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041913248_duzenleme1.resx">
+      <DependentUpon>201712041913248_duzenleme1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

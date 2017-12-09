@@ -27,12 +27,34 @@ namespace WebApp2.Controllers
             return View(Bloglar);
         }
         [HttpPost]
-        
         public ActionResult BizeUlasinMail(string adi,string email,string telefonNo,string universite,string icerik)
         {
+            var fromAddress = new MailAddress("m.recep.caylak@gmail.com", "SauHub Bize/Ulas");
+            var toAddress = new MailAddress("m.recep.caylak@gmail.com", "To Name");
+            const string fromPassword = "<321<Aa<";
+            string subject = "BizeUlas Formu";
+            string body = icerik;
+            string telNo = telefonNo;
+            string GonderenAdi = adi;
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body ="Gonderen Adı...: "+GonderenAdi+ "   Gonderen Mail...: "+email+" Telefon no...: "+telefonNo+" Universite...: "+universite+" icerik...: "+body
+            })
+            {
+                smtp.Send(message);
+            }
 
-                
-           return View();
+            return RedirectToAction("BizeUlasın");
         }
         public ActionResult Etkinlikler(int? SayfaNo)
         {
@@ -175,21 +197,16 @@ namespace WebApp2.Controllers
             return View(sorgu);
         }
         [HttpPost]
-        public ActionResult Esya(int? SayfaNo, string aranan)
+        public ActionResult Esya(int? SayfaNo, string aranan,UrunKategori? kategori)
         {
             int _sayfaNo = SayfaNo ?? 1;
             var sorgu = db.Urun.Where(x => x.UrunAdi.Contains(aranan) || x.UrunAciklama.Contains(aranan)).OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo, 9);
+            var kategoriler = db.Urun.Where(x => x.Kategoriler == kategori).OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo, 9);
+            //Kategori eklendikten sonra burası düzeltilecek
 
             return View(sorgu);
         }
-        [HttpPost]
-        public ActionResult Esya(int? SayfaNo, UrunKategori kategori)
-        {
-            int _sayfaNo = SayfaNo ?? 1;
-            var sorgu = db.Urun.Where(x => x.Kategoriler == kategori).OrderBy(x => x.UrunPaylasmaTarihi).ToPagedList<Urunler>(_sayfaNo, 9);
-
-            return View(sorgu);
-        }
+        
         public ActionResult UrunDetay(int urunID)
         {
             var sorgu = db.Urun.FirstOrDefault(x => x.UrunlerID == urunID );

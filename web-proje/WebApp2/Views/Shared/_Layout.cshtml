@@ -17,6 +17,7 @@
     <!--MAIN STYLE-->
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 
+
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="~/Content/css/main.css" rel="stylesheet" />
@@ -63,16 +64,12 @@
             <div class="container">
 
                 <!--======= LOGO =========-->
-                <div class="logo"> <a href="#."><img src="~/Content/image/logo.png" /></a> </div>
+                <div class="logo"> <a href="@Url.Action("AnaSayfa","Home")"><img src="~/Content/image/logo.png" /></a> </div>
 
                 <!--======= DONATE NOW BTN =========-->
                 <div class="btn-right">
 
                     
-
-                    
-
-
                     @if (Session["Kullanici"] != null)
                     {
 
@@ -250,12 +247,6 @@
             </div>
         }
 
-
-
-
-
-
-
                 <!--======= MAKE DONATION POPUP START =========-->
                 @if (Session["Kullanici"] != null)
                 {
@@ -308,7 +299,7 @@
                                     <li class="col-sm-8">
                                         <input type="password" name="kullaniciSifre" placeholder="şifreniz">
                                     </li>
-
+                                    <a href="@Url.Action("ParolamiUnuttum","Account")" style="color:darkorange"><li class="col-sm-8 asd">Parolamı Unuttum</li></a>
                                     <li class="col-sm-12">
                                         <button type="submit" class="btn" onclick="" >Giriş Yap</button>
                                     </li>

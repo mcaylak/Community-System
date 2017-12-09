@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "UyeKayit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--======= BANNER =========-->
+<div class="sub-banner" style="background: url('../Content/hesap.jpg');">
+    <div class="overlay">
+        <div class="container">
+            <h3>HESABINIZ BURADA<span> GÜVENDE</span> </h3>
+
+            <!--======= BREADCRUMB =========-->
+            
+        </div>
+    </div>
+</div>
+
+<!--======= CONTENT =========-->
+<div class="content">
+
+    <!--======= CONTACT US =========-->
+    <section class="contact-us error-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6"> <img class="img-responsive" src="/Content/image/404-clock.png" alt=""> </div>
+
+                <!--======= CONTACT INFORMATION =========-->
+                <div class="col-sm-6 error-text">
+                        @if (ViewBag.MailKontrol != null)
+                         {
+                             <h2> @ViewBag.MailKontrol</h2>
+                             <br />
+                        }
+                        else
+                        {
+                             <h2>Girdiginiz mail adresi sistemimizde kayıtlı degildir.Lütfen öncelikle kayıt olunuz.</h2>
+                        }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--======= CONTENT END =========-->
+
+

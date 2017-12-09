@@ -1,12 +1,11 @@
 ﻿    function Validate() {
-
             if (mailKontrol()) {
                 var password = document.getElementById("txtPassword").value;
                 var confirmPassword = document.getElementById("txtConfirmPassword").value;
                 var uzunluk = password.length;
                 if (uzunluk>7) {
                     if (password != confirmPassword && password != null) {
-                    alert("Parola Kontrolde Hata.Lütfen Tekrar Deneyiniz!");
+                        alert("Parola Kontrolde Hata.Lütfen Tekrar Deneyiniz!");
                       return false;
                     }
                     else
@@ -17,8 +16,8 @@
                 }
                 else
                 {
-        alert("Parolanız en az 8 karakter olmalıdır");
-    return false;
+                    alert("Parolanız en az 8 karakter olmalıdır");
+                    return false;
                 }
 
             }
@@ -86,3 +85,4 @@
             }
 
         }
+        

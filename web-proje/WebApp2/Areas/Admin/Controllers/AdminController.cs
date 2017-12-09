@@ -55,6 +55,15 @@ namespace WebApp.Areas.Admin.Controllers
         {
             Urunler data = db.Urun.Where(x => x.UrunlerID == urunId).SingleOrDefault();
             db.Urun.Remove(data);
+
+            if (data.UrunResimYol != null)//bunu habersile koy dedi
+            {
+                if (System.IO.File.Exists(Server.MapPath(data.UrunResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(data.UrunResimYol));
+                }
+            }
+
             db.SaveChanges();
 
             return RedirectToAction("UrunIslemleri");
@@ -216,6 +225,14 @@ namespace WebApp.Areas.Admin.Controllers
         {
             Etkinlik data = db.Etkinlikler.Where(x => x.EtkinlikID == EtkinlikId).SingleOrDefault();
             db.Etkinlikler.Remove(data);
+            if (data.EtkinlikResimYol != null)//bunu habersile koy dedi
+            {
+                if (System.IO.File.Exists(Server.MapPath(data.EtkinlikResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(data.EtkinlikResimYol));
+                }
+            }
+
             db.SaveChanges();
 
             return RedirectToAction("etkinlikIslemleri");
@@ -279,6 +296,14 @@ namespace WebApp.Areas.Admin.Controllers
         {
             DersNotu data = db.Dersler.Where(x => x.DersNotuID == dersId).SingleOrDefault();
             db.Dersler.Remove(data);
+            if (data.DersResimYol != null)//bunu habersile koy dedi
+            {
+                if (System.IO.File.Exists(Server.MapPath(data.DersResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(data.DersResimYol));
+                }
+            }
+
             db.SaveChanges();
 
             return RedirectToAction("dersNotuIslemleri");
@@ -373,6 +398,16 @@ namespace WebApp.Areas.Admin.Controllers
         {
             Blog data = db.Bloglar.Where(x => x.BlogID == blogId).SingleOrDefault();
             db.Bloglar.Remove(data);
+
+            if (data.BlogResimYol != null)//bunu habersile koy dedi
+            {
+                if (System.IO.File.Exists(Server.MapPath(data.BlogResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(data.BlogResimYol));
+                }
+            }
+
+
             db.SaveChanges();
 
             return RedirectToAction("BlogIslemleri");
@@ -441,6 +476,15 @@ namespace WebApp.Areas.Admin.Controllers
         {
             Slider data = db.Sliderlar.Where(x => x.SliderID == sliderId).SingleOrDefault();
             db.Sliderlar.Remove(data);
+
+            if (data.SliderResimYol != null)//bunu habersile koy dedi
+            {
+                if (System.IO.File.Exists(Server.MapPath(data.SliderResimYol)))
+                {
+                    System.IO.File.Delete(Server.MapPath(data.SliderResimYol));
+                }
+            }
+
             db.SaveChanges();
 
             return RedirectToAction("sliderIslemleri");
