@@ -470,3 +470,4 @@ D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.dll
 D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.pdb
 D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.csprojResolveAssemblyReference.cache
 D:\Users\Khainorz\Desktop\MVCProje\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.UrunKategori.resources
+C:\Users\muhammed\Desktop\webCalisma\web-proje\WebApp2\obj\Debug\WebApp2.Migrations.UrunKategori.resources
