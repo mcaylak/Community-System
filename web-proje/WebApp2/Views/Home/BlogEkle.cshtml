@@ -16,32 +16,32 @@
 
                 <!--======= CONTACT FORM =========-->
                 <div class="col-md-7">
-                    <h5>ETKİNLİK EKLEME TALEBİ GÖNDER</h5>
-                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
+                    <h5>@WebApp2.Resources.BlogEkle.talepGonderBaslik</h5>
+                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>@WebApp2.Resources.BlogEkle.talepBasarili</div>
 
                     @using (Html.BeginForm("BlogEkle", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
                     {
                         <ul class="row">
                             <li class="col-sm-12">
                                 <label>
-                                    Blog Başlığı *
-                                    <input type="text" class="form-control" name="BlogBasligi" id="baslik" placeholder="Başlık giriniz">
+                                    @WebApp2.Resources.BlogEkle.blogBasligi *
+                                    <input type="text" class="form-control" name="BlogBasligi" id="baslik" placeholder="@WebApp2.Resources.BlogEkle.baslikGiriniz">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    Blog İçeriği *
-                                    <textarea class="form-control" name="BlogIcerik" id="icerik" rows="5" placeholder="İçerik giriniz..."></textarea>
+                                    @WebApp2.Resources.BlogEkle.blogIcerik *
+                                    <textarea class="form-control" name="BlogIcerik" id="icerik" rows="5" placeholder="@WebApp2.Resources.BlogEkle.icerikGir"></textarea>
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    Blog Başlığı *
-                                    <input type="text" class="form-control" name="BlogResimYol" id="resimYol" placeholder="Başlık giriniz">
+                                    @WebApp2.Resources.BlogEkle.resimYol *
+                                    <input type="text" class="form-control" name="BlogResimYol" id="resimYol" placeholder="@WebApp2.Resources.BlogEkle.resimYolGir">
                                 </label>
                             </li>
                             <li class="col-sm-12">
-                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="talep()">TALEB GONDER</button>
+                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="talep()">@WebApp2.Resources.BlogEkle.talepGonder</button>
                             </li>
                         </ul>
                     }
@@ -56,6 +56,6 @@
 </script>
 <script>
     function talep() {
-        alert("Blog yazınız yayınlanmıştır.");
+        alert("@WebApp2.Resources.BlogEkle.talepBasarili");
     }
 </script>

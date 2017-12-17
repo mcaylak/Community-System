@@ -7,15 +7,15 @@
             @item.DersBaslıgı
             @if (item.DersNotuDurum == "0")
             {
-                <span>Talebiniz Onay Bekliyor</span>
+                <span>@WebApp2.Resources.DersNotu.onayBekliyor</span>
             }
             @if (item.DersNotuDurum == "1")
             {
-                <span>Talebiniz Onaylandı</span>
+                <span>@WebApp2.Resources.DersNotu.onaylandi</span>
             }
             @if (item.DersNotuDurum == "2")
             {
-                <span>Talebiniz Onaylanmadı</span>
+                <span>@WebApp2.Resources.DersNotu.reddedildi</span>
             }
         </p>
     </li>

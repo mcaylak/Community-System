@@ -29,22 +29,22 @@
                         @using (Html.BeginForm("Esya", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
                         {
                             <div class="search">
-                                <input type="search" name="aranan" placeholder="Arama Yap">
+                                <input type="search" name="aranan" placeholder="@WebApp2.Resources.Blog.AramaYap">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         }
                         <div class="shop-side-bar">
-                            <h5>Kategoriler</h5>
+                            <h5>@WebApp2.Resources.Esya.kategoriler</h5>
                             <ul class="cate">
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Mobilya })">Mobilya</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kiyafet })">Kıyafet</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kitap })">Kitap</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Elektronik })">Elektronik</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Diger })">Diğer</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Mobilya })">@WebApp2.Resources.Esya.mobilya</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kiyafet })">@WebApp2.Resources.Esya.kiyafet</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kitap })">@WebApp2.Resources.Esya.kitap</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Elektronik })">@WebApp2.Resources.Esya.elektronik</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Diger })">@WebApp2.Resources.Esya.diger</a></li>
                             </ul>
 
                             <!--======= TOP RATED =========-->
-                            <h5>TOP RATED</h5>
+                            <h5>@WebApp2.Resources.Esya.sonEklenenler</h5>
                             <ul class="top-rated">
 
                                 @foreach (var item in DigerUrunler.OrderByDescending(x => x.UrunPaylasmaTarihi).Take(3))
@@ -93,7 +93,7 @@
 
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#describe" aria-controls="describe" role="tab" data-toggle="tab">Description</a></li>
+                                            <li role="presentation" class="active"><a href="#describe" aria-controls="describe" role="tab" data-toggle="tab">@WebApp2.Resources.Esya.aciklama</a></li>
                                         </ul>
 
                                         <!-- Tab panes -->
@@ -101,7 +101,7 @@
 
                                             <!--======= DESCRIBTION =========-->
                                             <div role="tabpanel" class="tab-pane active" id="describe">
-                                                <h5>Ürün Açıklaması</h5>
+                                                <h5>@WebApp2.Resources.Esya.urunAciklamasi</h5>
                                                 <p>
                                                     @Model.UrunAciklama
                                                 </p>
