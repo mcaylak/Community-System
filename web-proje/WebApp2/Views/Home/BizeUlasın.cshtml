@@ -8,7 +8,7 @@
 <div class="sub-banner" style="background: url('../Content/bizeUlasın.jpg');">
     <div class="overlay">
         <div class="container">
-            <h3>@WebApp2.Resources.BizeUlasin.nasilYardimciOlabiliriz</h3>
+            <h3>SİZE NASIL <span>YARDIMICI</span> OLABİLİRİZ?</h3>
     
             <!--======= BREADCRUMB =========-->
            
@@ -27,15 +27,15 @@
 
                 <!--======= CONTACT FORM =========-->
                 <div class="col-md-7">
-                    <h5>@WebApp2.Resources.BizeUlasin.iletmekIstedikleriniz</h5>
-                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>@WebApp2.Resources.BizeUlasin.tesekkurMesaj</div>
+                    <h5>İLETMEK İSTEDİKLERİZ</h5>
+                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
                     
                        @using (Html.BeginForm("BizeUlasinMail", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data"}))
                         {
                         <ul class="row">
                             <li class="col-sm-6">
                                 <label>
-                                    @WebApp2.Resources.Layout.Adiniz & @WebApp2.Resources.Layout.Soyadiniz *
+                                    Adı ve Soyadı *
                                     <input type="text" class="form-control" name="adi" id="name" placeholder="">
                                 </label>
                             </li>
@@ -47,24 +47,24 @@
                             </li>
                             <li class="col-sm-6">
                                 <label>
-                                    @WebApp2.Resources.Layout.Telefon *
+                                    TelefonNo *
                                     <input type="text" class="form-control" name="telefonNo" id="company" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-6">
                                 <label>
-                                    @WebApp2.Resources.BizeUlasin.universite *
+                                    Üniverste *
                                     <input type="text" class="form-control" name="universite" id="website" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.BizeUlasin.iletmekIstedikleriniz *
+                                    İletmek İstedikleriniz *
                                     <textarea class="form-control" name="message" id="icerik" rows="5" placeholder=""></textarea>
                                 </label>
                             </li>
                             <li class="col-sm-12">
-                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="proceed();">@WebApp2.Resources.BizeUlasin.mesajGonder</button>
+                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="proceed();">MESAJ GONDER</button>
                             </li>
                         </ul>
                         }
@@ -73,7 +73,7 @@
                 <!--======= CONTACT INFORMATION =========-->
                 <div class="col-md-5">
                     <div class="contact-info">
-                        <h5>@WebApp2.Resources.AnaSayfa.Hakkimizda </h5>
+                        <h5>HAKKIMIZDA </h5>
                         <ul>
 
                             <!--======= ADDRESS =========-->
@@ -85,8 +85,8 @@
                                     <div class="col-xs-10">
                                         <h6>Adres</h6>
                                         <p>
-                                            @WebApp2.Resources.BizeUlasin.sakaryaUniversitesi<br>
-                                            @WebApp2.Resources.BizeUlasin.hasimGurdamarBilgBilisimFakultesi
+                                            SAKARYA ÜNİVERSİTESİ<br>
+                                            HAŞİM GÜRDAMAR BİLGİSAYAR VE BİLİŞİM FAKÜLTESİ
                                         </p>
                                         <hr>
                                     </div>
@@ -100,7 +100,7 @@
                                         <div class="icon"> <i class="fa fa-phone"></i> </div>
                                     </div>
                                     <div class="col-xs-10">
-                                        <h6>@WebApp2.Resources.Layout.Telefon</h6>
+                                        <h6>Phone</h6>
                                         <p>+90 (545) 383 00 76</p>
                                         <p>+90 (507) 307 29 16</p>
                                         <hr>
@@ -115,7 +115,7 @@
                                         <div class="icon"> <i class="fa fa-envelope-o"></i> </div>
                                     </div>
                                     <div class="col-xs-10">
-                                        <h6>@WebApp2.Resources.BizeUlasin.destek</h6>
+                                        <h6>Destek</h6>
                                         <p>SauHub@gmail.com</p>
                                         <hr>
                                     </div>

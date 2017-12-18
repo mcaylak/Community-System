@@ -2,11 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Threading;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -305,21 +303,5 @@ namespace WebApp2.Controllers
         {
             return View();
         }
-
-        public ActionResult DilDegistir(String LanguageAbbrevation)
-        {
-            if (LanguageAbbrevation != null)
-            {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(LanguageAbbrevation);
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(LanguageAbbrevation);
-            }
-
-            HttpCookie cookie = new HttpCookie("Language");
-            cookie.Value = LanguageAbbrevation;
-            Response.Cookies.Add(cookie);
-
-            return RedirectToAction("AnaSayfa");
-        }
-        
     }
 }

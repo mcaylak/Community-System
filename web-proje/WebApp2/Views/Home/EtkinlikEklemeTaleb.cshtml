@@ -9,7 +9,7 @@
 
         <div class="">
 
-            <h3>@WebApp2.Resources.Etkinlikler.overlay1<span> @WebApp2.Resources.Etkinlikler.overlay2</span>@WebApp2.Resources.Etkinlikler.overlay3</h3>
+            <h3>BU ETKİNLİKTE<span> BENDE </span>VARIM</h3>
 
             <!--======= BREADCRUMB =========-->
 
@@ -28,56 +28,56 @@
 
                 <!--======= CONTACT FORM =========-->
                 <div class="col-md-7">
-                    <h5>@WebApp2.Resources.Etkinlikler.gonderBaslik</h5>
-                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>@WebApp2.Resources.Etkinlikler.tesekkurlerBasarili</div>
+                    <h5>ETKİNLİK EKLEME TALEBİ GÖNDER</h5>
+                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
 
                     @using (Html.BeginForm("EtkinlikEklemeTaleb", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
                     {
                         <ul class="row">
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.Etkinlikler.kulupIsmi *
+                                    Etkinlik Sahibi Kulüp İsmi *
                                     <input type="text" class="form-control" name="EtkinlikSahibi" id="name" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.Etkinlikler.etkAdi *
+                                    Etkinlik Adi *
                                     <input type="text" class="form-control" name="EtkinlikBasligi" id="email" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.Etkinlikler.etkBaslangic *
+                                    Etkinlik Başlama Tarihi *
                                     <input type="date" class="form-control" name="EtkinlikTarihi" id="company" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.Etkinlikler.etkBitis *
+                                    Etkinlik Bitiş Tarihi *
                                     <input type="date" class="form-control" name="EtkinlikBitis" id="company" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.Etkinlikler.etkAdres *
+                                    Etkinlik Yapılacagı Adres *
                                     <input type="text" class="form-control" name="EtkinlikAdres" id="website" placeholder="">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    @WebApp2.Resources.Etkinlikler.etkAciklama *
+                                    Etkinik Aciklama *
                                     <textarea class="form-control" name="EtkinlikIcerik" id="icerik" rows="5" placeholder=""></textarea>
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="exampleInputFile">@WebApp2.Resources.Etkinlikler.etkResim</label>
+                                    <label for="exampleInputFile">Etkinlik Resmi</label>
                                     <input type="file" id="exampleInputFile" name="etkinlikResimYol">
                                 </div>
                             </li>
                             <li class="col-sm-12">
-                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="talep()">@WebApp2.Resources.Etkinlikler.gonder</button>
+                                <button type="submit" value="submit" class="btn" id="btn_submit" onClick="talep()">TALEB GONDER</button>
                             </li>
                         </ul>
                     }
@@ -86,7 +86,7 @@
                 <!--======= CONTACT INFORMATION =========-->
                 <div class="col-md-5">
                     <div class="contact-info">
-                        <h5>@WebApp2.Resources.AnaSayfa.Hakkimizda </h5>
+                        <h5>HAKKIMIZDA </h5>
                         <ul>
                             <!--======= ADDRESS =========-->
                             <li>
@@ -95,10 +95,10 @@
                                         <div class="icon"> <i class="fa fa-map-marker"></i> </div>
                                     </div>
                                     <div class="col-xs-10">
-                                        <h6>@WebApp2.Resources.Layout.Adres</h6>
+                                        <h6>Adres</h6>
                                         <p>
-                                            @WebApp2.Resources.BizeUlasin.sakaryaUniversitesi<br>
-                                            @WebApp2.Resources.BizeUlasin.hasimGurdamarBilgBilisimFakultesi
+                                            SAKARYA ÜNİVERSİTESİ<br>
+                                            HAŞİM GÜRDAMAR BİLGİSAYAR VE BİLİŞİM FAKÜLTESİ
                                         </p>
                                         <hr>
                                     </div>
@@ -112,7 +112,7 @@
                                         <div class="icon"> <i class="fa fa-phone"></i> </div>
                                     </div>
                                     <div class="col-xs-10">
-                                        <h6>@WebApp2.Resources.Layout.Telefon</h6>
+                                        <h6>Phone</h6>
                                         <p>+90 (545) 383 00 76</p>
                                         <p>+90 (507) 307 29 16</p>
                                         <hr>
@@ -127,7 +127,7 @@
                                         <div class="icon"> <i class="fa fa-envelope-o"></i> </div>
                                     </div>
                                     <div class="col-xs-10">
-                                        <h6>@WebApp2.Resources.BizeUlasin.destek</h6>
+                                        <h6>Destek</h6>
                                         <p>SauHub@gmail.com</p>
                                         <hr>
                                     </div>

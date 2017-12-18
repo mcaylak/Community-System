@@ -18,7 +18,7 @@
         
         <div class="">
             
-            <h3>@WebApp2.Resources.Etkinlikler.overlay1<span> @WebApp2.Resources.Etkinlikler.overlay2 </span>@WebApp2.Resources.Etkinlikler.overlay3</h3>
+            <h3>BU ETKİNLİKTE<span> BENDE </span>VARIM</h3>
 
             <!--======= BREADCRUMB =========-->
             
@@ -44,13 +44,13 @@
                         @if (Session["Kullanici"] != null)
                         {
                             <a href="~/Home/EtkinlikEklemeTaleb" class="btn" >
-                                <i class="fa">@WebApp2.Resources.Etkinlikler.eklemeTalep</i>
+                                <i class="fa">ETKİNLİK EKLEME TALEBİ</i>
                             </a>
                         }
                         else
                         {
                             <a href="" class="btn" onclick="etkinlikTalebiHata()">
-                                <i class="fa">@WebApp2.Resources.Etkinlikler.eklemeTalep</i>
+                                <i class="fa">ETKİNLİK EKLEME TALEBİ</i>
                             </a>
                         }
                         <!-- <li><a href="#" data-filter=".nature">Nature</a></li>
@@ -87,17 +87,17 @@
                                         {
                                             if (user != null)
                                             {
-                                                <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" class="btn" style="background-color:#e74c3c; color:aliceblue;" onclick="iptal()">@WebApp2.Resources.Etkinlikler.cik</a> </div>
+                                                <div class="btn-right"> <a href="/Account/EtkinlikIptal/@item.EtkinlikID" class="btn" style="background-color:#e74c3c; color:aliceblue;" onclick="iptal()">Etkinlikten Çık</a> </div>
                                             }
                                             else
                                             {
-                                                <div class="btn-right"> <a href="/Account/EtkinlikOnay/@item.EtkinlikID" class="btn" onclick="katil()">@WebApp2.Resources.Etkinlikler.katil</a> </div>
+                                                <div class="btn-right"> <a href="/Account/EtkinlikOnay/@item.EtkinlikID" class="btn" onclick="katil()">Etkinlige Katıl</a> </div>
                                             }
 
                                         }
                                         else
                                         {
-                                            <div class="btn-right"> <a href="" class="btn" onclick="katilma()">@WebApp2.Resources.Etkinlikler.katil</a> </div>
+                                            <div class="btn-right"> <a href="" class="btn" onclick="katilma()">Etkinlige Katıl</a> </div>
                                         }
                                         
 

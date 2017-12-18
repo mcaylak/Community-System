@@ -12,7 +12,7 @@
 <div class="sub-banner">
     <div class="overlay">
         <div class="container">
-            <h3>@WebApp2.Resources.Esya.overlay1 <span>@WebApp2.Resources.Esya.overlay2</span></h3>
+            <h3>2. El <span>Eşyalar</span></h3>
         </div>
     </div>
 </div>
@@ -36,25 +36,25 @@
                         @using (Html.BeginForm("Esya", "Home", FormMethod.Post, htmlAttributes: new { id = "contact_form", @class = "contact-form", enctype = "multipart/form-data" }))
                         {
                             <div class="search">
-                                <input type="search" name="aranan" placeholder="@WebApp2.Resources.Blog.AramaYap">
+                                <input type="search" name="aranan" placeholder="Arama Yap">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         }
 
                         <div class="shop-side-bar">
-                            <h5>@WebApp2.Resources.Esya.kategoriler</h5>
+                            <h5>Kategoriler</h5>
                             <ul class="cate">
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Mobilya })">@WebApp2.Resources.Esya.mobilya</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kiyafet })">@WebApp2.Resources.Esya.kiyafet</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kitap })">@WebApp2.Resources.Esya.kitap</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Elektronik })">@WebApp2.Resources.Esya.elektronik</a></li>
-                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Diger })">@WebApp2.Resources.Esya.diger</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Mobilya })">Mobilya</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kiyafet })">Kıyafet</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Kitap })">Kitap</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Elektronik })">Elektronik</a></li>
+                                <li><a href="@Url.Action("Esya","Home",new {UrunKategori.Diger })">Diğer</a></li>
                             </ul>
 
 
 
                             <!--======= TOP RATED =========-->
-                            <h5>@WebApp2.Resources.Esya.sonEklenenler</h5>
+                            <h5>Son Eklenenler</h5>
                             <ul class="top-rated">
 
                                 @foreach (var item in Model.OrderByDescending(x => x.UrunPaylasmaTarihi).Take(3))
@@ -86,7 +86,7 @@
                                     <a href="@Url.Action("UrunDetay","Home", new { urunID=@item.UrunlerID })" class="font-lora">@item.UrunAdi</a> <span class="price">₺@item.UrunFiyat</span>
 
                                     <!--======= ADD TO CART =========-->
-                                    <a class="add-cart font-lora" href="#."> @WebApp2.Resources.Esya.sepeteEkle</a>
+                                    <a class="add-cart font-lora" href="#."> Sepete Ekle </a>
                                 </div>
                             </li>
                         }

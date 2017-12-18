@@ -29,7 +29,7 @@
                        
 
                         <!--======= BANNER BTN =========-->
-                        <a href="@Url.Action("EtkinlikDetay","Home",new { id=item.EtkinlikID } )" class="btn">@WebApp2.Resources.AnaSayfa.DevamiIcinTikla <i class="fa fa-caret-right"></i></a>
+                        <a href="@Url.Action("EtkinlikDetay","Home",new { id=item.EtkinlikID } )" class="btn">Devamı için tıklayın <i class="fa fa-caret-right"></i></a>
                     </div>
                 </li>
 
@@ -49,8 +49,8 @@
     <div class="container">
         <!--======= TITTLE =========-->
         <div class="tittle">
-            <h2>@WebApp2.Resources.AnaSayfa.SonGelismeler <span>Blog</span></h2>
-            <p>@WebApp2.Resources.AnaSayfa.SonGelismelerHaberinizOlsun</p>
+            <h2>Son Gelişmeler <span>Blog</span></h2>
+            <p>Blogta ki son gelişmelerden haberiniz olsun. Takipte Kalın..</p>
         </div>
 
         <!--======= BLOG ROW =========-->
@@ -66,21 +66,20 @@
 
             <div class="col-md-6">
                 @foreach (var item in Model)
-            {
-                <ul class="row">
-                    <li class="col-xs-4"> <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )"><img class="img-responsive" src="@item.BlogResimYol" alt=""></a> </li>
-                    <li class="col-xs-8">
-                        <a class="font-lora title" href="@Url.Action("BlogDetay","Home",new { item.BlogID } )">@item.BlogBasligi</a> <span class="font-lora">@item.BlogPaylasmaTarihi.ToShortDateString()</span>
-                        <p>
+                {
+                    <ul class="row">
+                        <li class="col-xs-4"> <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )"><img class="img-responsive" src="@item.BlogResimYol" alt=""></a> </li>
+                        <li class="col-xs-8">
+                            <a class="font-lora title" href="@Url.Action("BlogDetay","Home",new { item.BlogID } )">@item.BlogBasligi</a> <span class="font-lora">@item.BlogPaylasmaTarihi.ToShortDateString()</span>
+                            <p>
                             @if (item.BlogIcerik.Length > 200)
-                        {<text> @item.BlogIcerik.Substring(0, 200) [...] </text> }
-                else
-                { <text> @item.BlogIcerik </text>}
-                        </p>
-                        <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )" class="btn">@WebApp2.Resources.AnaSayfa.DevaminiOku <i class="fa fa-arrow-circle-o-right"></i></a>
-                    </li>
-                </ul>
-        }
+                            {<text> @item.BlogIcerik.Substring(0, 200) [...] </text> }
+                            else
+                            { <text> @item.BlogIcerik </text> } </p>
+                            <a href="@Url.Action("BlogDetay","Home",new { item.BlogID } )" class="btn">Devamını okuyun... <i class="fa fa-arrow-circle-o-right"></i></a>
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
@@ -93,7 +92,7 @@
         <!--======= ROW =========-->
         <div class="row">
             <div class="col-md-6">
-                <h3><strong>@WebApp2.Resources.AnaSayfa.Hakkimizda</strong> @WebApp2.Resources.AnaSayfa.MerakEdilenler</h3>
+                <h3><strong>Hakkımızda</strong> Merak Edilenler</h3>
 
                 <!--======= SLIDES =========-->
                 <section>

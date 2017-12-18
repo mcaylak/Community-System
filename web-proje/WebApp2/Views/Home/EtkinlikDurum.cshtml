@@ -7,15 +7,15 @@
             @item.EtkinlikBasligi
             @if (item.EtkinlikDurum == "0")
             {
-            <span>@WebApp2.Resources.Etkinlikler.bekliyor</span>
+                <span>Etkinlik Onay Bekliyor</span>
             }
             @if (item.EtkinlikDurum == "1")
             {
-                <span>@WebApp2.Resources.Etkinlikler.onaylandi</span>
+                <span>Etkinlik Onaylandı</span>
             }
             @if (item.EtkinlikDurum == "2")
             {
-                <span>@WebApp2.Resources.Etkinlikler.reddedildi</span>
+                <span>Etkinlik Talebiniz Onaylanmadı</span>
             }
         </p>
     </li>

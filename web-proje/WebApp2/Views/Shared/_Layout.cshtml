@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
-    <meta name="keywords" content="Sakarya Üniversitesi, Hub">
-
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,Multi-Purpose,M_Adnan,Corporate Theme,Social | Social Welfare - Charity & Non-Profit HTML5 Template">
+    <meta name="description" content="Social Welfare - Charity & Non-Profit HTML5 Template">
+    <meta name="author" content="M_Adnan">
 
     <!-- FONTS ONLINE -->
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -18,23 +19,52 @@
 
 
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="~/Content/css/main.css" rel="stylesheet" />
+
     <link href="~/Content/css/style.css" rel="stylesheet" />
+
     <link href="~/Content/css/animate.css" rel="stylesheet" />
+
     <link href="~/Content/css/responsive.css" rel="stylesheet" />
+
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 <body>
     <!-- Page Wrap ===========================================-->
     <div id="wrap">
 
+        <!--======= TOP BAR =========-->
+        <div class="top-bar">
+            <div class="container">
+                <ul class="left-bar-side">
+                    <li>
+                        <p class="font-lora"><i><img src="~/Content/image/top-bar-icon.png" /></i> Geleceginize Yön Verin! </p>
+                    </li>
+                </ul>
+                <ul class="right-bar-side social_icons">
+                    
+                    <li>
+                        <p class="font-lora">Mail: SauHub@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!--======= HEADER START =========-->
         <header class="sticky">
             <div class="container">
 
                 <!--======= LOGO =========-->
-                <div class="logo"> <a href="@Url.Action("AnaSayfa", "Home")"><img src="~/Content/image/logo.png" /></a> </div>
+                <div class="logo"> <a href="@Url.Action("AnaSayfa","Home")"><img src="~/Content/image/logo.png" /></a> </div>
 
                 <!--======= DONATE NOW BTN =========-->
                 <div class="btn-right">
@@ -44,16 +74,16 @@
                     {
 
                         <a href="@Url.Action("HesapAyarlari", "Account", new { KullaniciID = @Session["Kullanici"] })" class="btn popup-with-zoom">
-                            <i class="fa">@WebApp2.Resources.Layout.Hosgeldiniz</i>
+                            <i class="fa">Hoşgeldiniz</i>
                         </a>
                         <a href="~/Account/LogOff" class="btn">
-                            <i class="fa">@WebApp2.Resources.Layout.Cikis</i>
+                            <i class="fa">Cikis</i>
                         </a>
                     }
                     else
                     {
                         <a href="#make-donation" class="btn popup-with-zoom-anim">
-                            <i class="fa fa"> @WebApp2.Resources.Layout.kayitGiris</i>
+                            <i class="fa fa"> Üye Kaydı/ Giris</i>
                         </a>
                     }
 
@@ -64,33 +94,13 @@
             <nav>
                 <div class="container">
                     <ul id="ownmenu" class="ownmenu">
-                        <li id="anasayfa"><a href="~/Home/AnaSayfa">@WebApp2.Resources.Layout.Anasayfa</a></li>
-                        <li id="etkinlik"><a href="~/Home/Etkinlikler">@WebApp2.Resources.Layout.Etkinlikler</a></li>
-                        <li id="dersNotu"><a href="~/Home/DersNotu">@WebApp2.Resources.Layout.dersNotSoruPaylasimi</a></li>
-                        <li id="esya"><a href="~/Home/Esya">@WebApp2.Resources.Layout.ikinciElEsya</a></li>
-                        <li id="tanitim"><a href="~/Home/Tanitim">@WebApp2.Resources.Layout.sauTanitim</a></li>
+                        <li id="anasayfa"><a href="~/Home/AnaSayfa">AnaSayfa</a></li>
+                        <li id="etkinlik"><a href="~/Home/Etkinlikler">Etkinlik</a></li>
+                        <li id="dersNotu"><a href="~/Home/DersNotu">DersNotu/Soru Paylasımı</a></li>
+                        <li id="esya"><a href="~/Home/Esya">Ikinci El Eşya</a></li>
+                        <li id="tanitim"><a href="~/Home/Tanitim">Saü Tanıtım</a></li>
                         <li id="blog"><a href="~/Home/Blog">Blog</a></li>
-                        <li id="bizeUlasın"><a href="~/Home/BizeUlasın">@WebApp2.Resources.Layout.bizeUlasin</a></li>
-
-                        @{
-                            if (Request.Cookies["Language"]!=null)
-                            {
-                                if (Request.Cookies["Language"].Value.ToString() == "en")
-                                {
-                                    <li>@Html.ActionLink("Türkçe", "DilDegistir", "Home", new { LanguageAbbrevation = "tr" }, null)</li>
-                                }
-                                else
-                                {
-                                    <li>@Html.ActionLink("English", "DilDegistir", "Home", new { LanguageAbbrevation = "en" }, null)</li>
-                                }
-                            }
-                            else
-                            {
-                                <li>@Html.ActionLink("English", "DilDegistir", "Home", new { LanguageAbbrevation = "en" }, null)</li>
-                            }
-                        }
-                        
-                        
+                        <li id="bizeUlasın"><a href="~/Home/BizeUlasın">Bize-Ulaşın</a></li>
                     </ul>
                 </div>
             </nav>
@@ -120,18 +130,18 @@
                                 </ul>
 
                                 <!--======= ADDRESS =========-->
-                                <h6>@WebApp2.Resources.Layout.bizeUlasin</h6>
-                                <p> @WebApp2.Resources.Layout.Adres</p>
-                                <p>@WebApp2.Resources.Layout.Telefon : (545) 383 0076 ,(507) 307 29 16</p>
+                                <h6>Bize Ulaşın</h6>
+                                <p>Adres :Sakarya Üniversitesi Haşim Gürdamar Bilgisayar ve Bilişim Fakültesi </p>
+                                <p>Phone : (545) 383 0076 ,(507) 307 29 16</p>
                                 <p>Email : muhammed.caylak@sakarya.edu.tr , omersakalli@sakarya.edu.tr</p>
                             </li>
 
                             <!--======= USEFULL LINKS =========-->
                             <li class="col-sm-6 padding-l-60">
-                                <h6>@WebApp2.Resources.Layout.sizeSectiklerimiz</h6>
+                                <h6>Sizin İcin Sectiklerimiz</h6>
                                 <ul class="links">
                                     <li><a href="http://www.sabis.sakarya.edu.tr">Sabis</a></li>
-                                    <li><a href="http://www.cs.sakarya.edu.tr">@WebApp2.Resources.Layout.sakaryaUniversitesi</a></li>
+                                    <li><a href="http://www.cs.sakarya.edu.tr">Sakarya Üniversitesi</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -144,7 +154,7 @@
                             <!--======= LATEST TWEET =========-->
                             <li class="col-sm-6">
                                 <div class="tweet">
-                                    <h6>@WebApp2.Resources.Layout.SonTweet</h6>
+                                    <h6>Latest Tweets</h6>
                                     <p>
                                         Eaque ipsa quae ab illo inventore veris
                                         quasi architecto beatae vitae dicta exp
@@ -153,12 +163,27 @@
                                     <a href="#.">http://socialwelfare/themeforest</a> <span><i class="fa fa-twitter-square"></i> 3.00 PM, 24 May 2015</span>
                                 </div>
                             </li>
+
+                            <!--======= DONATION =========-->
+                            <li class="col-sm-6 padding-l-60">
+                                <h6>Donations</h6>
+                                <ul class="links">
+                                    <li><a href="#.">How to Donate</a></li>
+                                    <li><a href="#.">Donation List</a></li>
+                                    <li><a href="#.">Recent Causes</a></li>
+                                    <li><a href="#.">FAQ</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <!--======= FOOTER ROW 2 =========-->
                 </div>
             </div>
             </br>
+            <!--======= RIGHTS =========-->
+            <div class="rights">
+                <p class="text-uppercase">Copyright © 2015 social welfare. All Rights Reserved.</p>
+            </div>
         </footer>
 
         @if (Session["Kullanici"] != null)
@@ -172,16 +197,16 @@
                 {
                     <ul class="row per">
                         <li class="col-lg-12">
-                            <label>@WebApp2.Resources.Layout.etkinlikSifreGir</label>
+                            <label>Etkinlige Katılmak İcin Şifrenizi Giriniz</label>
                         </li>
                         <li class="col-sm-8">
-                            <input type="password" name="KullaniciSifre" id="txtPassworda" placeholder="@WebApp2.Resources.Layout.sifreniz">
+                            <input type="password" name="KullaniciSifre" id="txtPassworda" placeholder="Şifreniz">
                         </li>
                         <li class="col-sm-8">
-                            <input type="password" name="kullaniciSifre" id="txtConfirmPassworda" placeholder="@WebApp2.Resources.Layout.TekrarSifreniz">
+                            <input type="password" name="kullaniciSifre" id="txtConfirmPassworda" placeholder="Tekrar Şifreniz">
                         </li>
                         <li class="col-sm-12">
-                            <button type="submit" class="btn" onclick="kontrol()" >@WebApp2.Resources.Layout.etkinligeKatil</button>
+                            <button type="submit" class="btn" onclick="kontrol()" >Etkinlige Katıl</button>
                         </li>
                     </ul>
                 }
@@ -191,31 +216,31 @@
         else
         {
             <div id="etkinlikBasvuru" class="donation-pop zoom-anim-dialog mfp-hide">
-                <h6>@WebApp2.Resources.Layout.uyeOlGirisYap</h6>
+                <h6>Üye ol veya Giriş Yap</h6>
                 <!--======= DONATE LIGHT BOX =========-->
                 <div class="pop-inner">
                     <!--======= INFORMATION =========-->
                     <ul class="row per">
                         <li class="col-lg-12">
-                            <label>@WebApp2.Resources.Layout.bilgileriDoldurunuz</label>
+                            <label>Bilgileri Doldurunuz</label>
                         </li>
                         <li class="col-sm-8">
-                            <input type="text" name="KullaniciAdi" placeholder="@WebApp2.Resources.Layout.Adiniz">
+                            <input type="text" name="KullaniciAdi" placeholder="Adınız">
                         </li>
                         <li class="col-sm-8">
-                            <input type="text" name="KullaniciSoyadi" placeholder="@WebApp2.Resources.Layout.Soyadiniz">
+                            <input type="text" name="KullaniciSoyadi" placeholder="Soyadınız">
                         </li>
                         <li class="col-sm-8">
                             <input type="email" name="KullaniciMail" id="mailKontrol" placeholder="Email">
                         </li>
                         <li class="col-sm-8">
-                            <input type="password" name="KullaniciSifre" id="txtPassword" placeholder="@WebApp2.Resources.Layout.sifreniz">
+                            <input type="password" name="KullaniciSifre" id="txtPassword" placeholder="Şifreniz">
                         </li>
                         <li class="col-sm-8">
-                            <input type="password" name="kullaniciSifre" id="txtConfirmPassword" placeholder="@WebApp2.Resources.Layout.TekrarSifreniz">
+                            <input type="password" name="kullaniciSifre" id="txtConfirmPassword" placeholder="Tekrar Şifreniz">
                         </li>
                         <li class="col-sm-12">
-                            <button type="submit" class="btn" onclick="Validate()">@WebApp2.Resources.Layout.uyeOl</button>
+                            <button type="submit" class="btn" onclick="Validate()">Üye Ol</button>
                         </li>
                     </ul>
                 </div>
@@ -241,22 +266,22 @@
                                         <label>Bilgileri Doldurunuz</label>
                                     </li>
                                     <li class="col-sm-8">
-                                        <input type="text" name="KullaniciAdi" placeholder="@WebApp2.Resources.Layout.Adiniz">
+                                        <input type="text" name="KullaniciAdi" placeholder="Adınız">
                                     </li>
                                     <li class="col-sm-8">
-                                        <input type="text" name="KullaniciSoyadi" placeholder="@WebApp2.Resources.Layout.Soyadiniz">
+                                        <input type="text" name="KullaniciSoyadi" placeholder="Soyadınız">
                                     </li>
                                     <li class="col-sm-8">
                                         <input type="email" name="KullaniciMail" id="mailKontrol" placeholder="Email">
                                     </li>
                                     <li class="col-sm-8">
-                                        <input type="password" name="KullaniciSifre" id="txtPassword" placeholder="@WebApp2.Resources.Layout.sifreniz">
+                                        <input type="password" name="KullaniciSifre" id="txtPassword" placeholder="Şifreniz">
                                     </li>
                                     <li class="col-sm-8">
-                                        <input type="password" name="kullaniciSifre" id="txtConfirmPassword" placeholder="@WebApp2.Resources.Layout.TekrarSifreniz">
+                                        <input type="password" name="kullaniciSifre" id="txtConfirmPassword" placeholder="Tekrar Şifreniz">
                                     </li>
                                     <li class="col-sm-12">
-                                        <button type="submit" class="btn" onclick="return Validate()">@WebApp2.Resources.Layout.uyeOl</button>
+                                        <button type="submit" class="btn" onclick="return Validate()">Üye Ol</button>
                                     </li>
                                 </ul>
                             }
@@ -265,18 +290,18 @@
                             {
                                 <ul class="row per">
                                     <li class="col-lg-12">
-                                        <label>@WebApp2.Resources.Layout.zatenUyeMisin</label>
+                                        <label>Zaten Üyemisiniz Giriş Yapın</label>
                                     </li>
 
                                     <li class="col-sm-8">
                                         <input type="email" name="kullaniciMail" placeholder="Email">
                                     </li>
                                     <li class="col-sm-8">
-                                        <input type="password" name="kullaniciSifre" placeholder="@WebApp2.Resources.Layout.sifreniz">
+                                        <input type="password" name="kullaniciSifre" placeholder="şifreniz">
                                     </li>
-                                    <a href="@Url.Action("ParolamiUnuttum","Account")" style="color:darkorange"><li class="col-sm-8 asd">@WebApp2.Resources.Layout.ParolamiUnuttum</li></a>
+                                    <a href="@Url.Action("ParolamiUnuttum","Account")" style="color:darkorange"><li class="col-sm-8 asd">Parolamı Unuttum</li></a>
                                     <li class="col-sm-12">
-                                        <button type="submit" class="btn" onclick="" >@WebApp2.Resources.Layout.girisYap</button>
+                                        <button type="submit" class="btn" onclick="" >Giriş Yap</button>
                                     </li>
                                 </ul>
                             }
@@ -287,21 +312,69 @@
 
                 <!--======= MAKE DONATION POPUP END =========-->
                 <!--======= BECOME A volunteer =========-->
+                <div id="volunteer" class="donation-pop zoom-anim-dialog mfp-hide">
+                    <h6>Become A volunteer</h6>
+                    <!--======= DONATE LIGHT BOX =========-->
+                    <div class="pop-inner">
+                        <form>
+
+                            <!--======= CRADIT CARD INFO =========-->
+                            <ul class="row per-info">
+                                <li class="col-lg-12">
+                                    <label>give Your Information</label>
+                                </li>
+                                <li class="col-sm-6">
+                                    <input type="text" name="first name" placeholder="First Name">
+                                </li>
+                                <li class="col-sm-6">
+                                    <input type="text" name="last name" placeholder="LAst Name">
+                                </li>
+                                <li class="col-sm-6">
+                                    <input type="email" name="Email" placeholder="Email Address">
+                                </li>
+                                <li class="col-sm-6">
+                                    <input type="text" name="phone" placeholder="phone">
+                                </li>
+                                <li class="col-sm-6">
+                                    <input type="text" name="phone" placeholder="Zip code">
+                                </li>
+                                <li class="col-sm-12">
+                                    <textarea placeholder="Say Something..."></textarea>
+                                </li>
+                                <li class="col-sm-12">
+                                    <button type="submit" class="btn">SUBMIT DETAILS</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
                 <!--======= BECOME A volunteer END =========-->
             </div>
 
             <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+
             <script src="~/Scripts/bootstrap.min.js"></script>
+
             <script src="~/Scripts/own-menu.js"></script>
+
             <script src="~/Scripts/jquery.flexslider.js"></script>
+
             <script src="~/Scripts/counter.js"></script>
+
             <script src="~/Scripts/owl.carousel.min.js"></script>
+
             <script src="~/Scripts/waypoints.min.js"></script>
+
             <script src="~/Scripts/jquery.isotope.min.js"></script>
+
             <script src="~/Scripts/jquery.nouislider.min.js"></script>
+
             <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+
             <script src="~/Scripts/jquery.downCount.js"></script>
+
             <script src="~/Scripts/main.js"></script>
+
             <script src="~/Scripts/myScript.js"></script>
 
             <script>

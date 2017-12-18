@@ -14,7 +14,7 @@
     <div class="overlay">
         <div class="container">
             
-            <h3>@WebApp2.Resources.Etkinlikler.overlay1<span> @WebApp2.Resources.Etkinlikler.overlay2 </span>@WebApp2.Resources.Etkinlikler.overlay3</h3>
+            <h3>Bu etkinlikte<span> BENDE </span>VARIM</h3>
         </div>
     </div>
 </div>
@@ -41,7 +41,7 @@
                             <!--======= EVENTS DETSILS =========-->
                             <div class="col-xs-12 no-padding">
                                 <h5>@Model.EtkinlikBasligi</h5>
-                                <div class="date-place"> <span><i class="fa fa-clock-o"></i>Başlangıç..: @Model.EtkinlikTarihi.ToShortDateString()</span>  <span></i>@WebApp2.Resources.Etkinlikler.bitis..: @Model.EtkinlikBitis.ToShortDateString()</span>    <span><i class="fa fa-map-marker">@Model.EtkinlikAdres</i></span> </div>
+                                <div class="date-place"> <span><i class="fa fa-clock-o"></i>Başlangıç..: @Model.EtkinlikTarihi.ToShortDateString()</span>  <span></i>Bitiş..: @Model.EtkinlikBitis.ToShortDateString()</span>    <span><i class="fa fa-map-marker">@Model.EtkinlikAdres</i></span> </div>
                                 <p>@Model.EtkinlikIcerik</p>
                                 <div class="stare-ev">
                                     @{
@@ -50,17 +50,17 @@
                                         {
                                             if (user != null)
                                             {
-                                                <div class="btn-right"> <a href="/Account/EtkinlikIptal/@Model.EtkinlikID" class="btn" style="background-color:#e74c3c; color:aliceblue;" onclick="iptal()">@WebApp2.Resources.Etkinlikler.cik</a> </div>
+                                                <div class="btn-right"> <a href="/Account/EtkinlikIptal/@Model.EtkinlikID" class="btn" style="background-color:#e74c3c; color:aliceblue;" onclick="iptal()">Etkinlikten Çık</a> </div>
                                             }
                                             else
                                             {
-                                                <div class="btn-right"> <a href="/Account/EtkinlikOnay/@Model.EtkinlikID" class="btn" onclick="katil()">@WebApp2.Resources.Etkinlikler.katil</a> </div>
+                                                <div class="btn-right"> <a href="/Account/EtkinlikOnay/@Model.EtkinlikID" class="btn" onclick="katil()">Etkinlige Katıl</a> </div>
                                             }
 
                                         }
                                         else
                                         {
-                                            <div class="btn-right"> <a href="" class="btn" onclick="katilma()">@WebApp2.Resources.Etkinlikler.katil</a> </div>
+                                            <div class="btn-right"> <a href="" class="btn" onclick="katilma()">Etkinlige Katıl</a> </div>
                                         }
                                         
 
@@ -99,11 +99,11 @@
                         <!--======= ARCHIVE =========-->
                         <div class="request-info">
                             <i class="fa fa-envelope-o"></i>
-                            <h6>@WebApp2.Resources.Layout.bizeUlasin</h6>
+                            <h6>Bize Ulaşın</h6>
                             <p>
-                                @WebApp2.Resources.Etkinlikler.hangiKonuda
+                                Hangi Konuda Yardım Almak İstediginizi Bize İletiniz..
                             </p>
-                            <a href="/Home/BizeUlasın" class="btn">@WebApp2.Resources.Layout.bizeUlasin</a>
+                            <a href="/Home/BizeUlasın" class="btn">Bize-Ulaşın</a>
                         </div>
                     </div>
                 </div>
